@@ -1,337 +1,239 @@
-# manimator
+# Text to Animation
 
-![manimator](https://github.com/HyperCluster-Tech/manimator/blob/main/assets/manimator.png)
-[![GitHub Stars](https://img.shields.io/github/stars/HyperCluster-Tech/manimator?style=social)](https://github.com/HyperCluster-Tech/manimator/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/HyperCluster-Tech/manimator?style=social)](https://github.com/HyperCluster-Tech/manimator/network/members)
-[![GitHub Issues](https://img.shields.io/github/issues/HyperCluster-Tech/manimator)](https://github.com/HyperCluster-Tech/manimator/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/HyperCluster-Tech/manimator)](https://github.com/HyperCluster-Tech/manimator/pulls)
-[![License](https://img.shields.io/github/license/HyperCluster-Tech/manimator)](https://github.com/HyperCluster-Tech/manimator/blob/main/LICENSE)
-[![Website](https://img.shields.io/badge/Website-manimator.hypercluster.tech-blue)](https://manimator.hypercluster.tech/)
+Transform any text prompt into stunning mathematical and educational animations powered by AI and the [Manim](https://github.com/ManimCommunity/manim) engine.
 
-### What is _manimator_?
+## 🎯 What is Text to Animation?
 
-manimator is a tool to transform research papers and mathematical concepts into stunning visual explanations, powered by AI and the [manim](https://github.com/ManimCommunity/manim) engine
+This tool converts natural language descriptions into beautiful, professional-quality animations. Simply describe what you want to visualize - whether it's a mathematical concept, scientific principle, or educational explanation - and the system generates an animated video using the powerful Manim library.
 
-Building on the incredible work by 3Blue1Brown and the manim community, _manimator_ turns complex research papers and user prompts into clear, animated explainer videos.
+### ✨ Key Features
 
-### 🔗 Try it out:
+- **AI-Powered Animation Generation**: Converts text prompts into Manim code automatically
+- **Voiceover Support**: Generates animations with synchronized AI voiceovers
+- **Mathematical Equations**: Renders beautiful LaTeX equations and mathematical visualizations
+- **FastAPI Backend**: RESTful API for programmatic access
+- **Gradio Interface**: User-friendly web interface for easy interaction
+- **Flexible LLM Support**: Works with various AI models (Gemini, DeepSeek, Claude, etc.)
 
-- Gradio Demo: [![On Gradio (Hugging Face)](https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-md-dark.svg)](https://huggingface.co/spaces/HyperCluster/manimator)
-- Or replace `arxiv.org` with `manimator.hypercluster.tech` in any arXiv PDF URL for instant visualizations!
+## 📋 System Requirements & Dependencies
 
-### 🌟 Highlights so far:
+### System Dependencies
 
-- Over **1000+ uses** within 24 hours of launch and over **5000 uses** within a week
-- Featured as Hugging Face's **Space of the Week**!
-- 16th in Hugging Face's Top Trending Spaces
+This project is built on the [Manim](https://github.com/ManimCommunity/manim) engine, which requires the following system dependencies:
 
-## 🎥 Demo Videos:
-
-<table border="0" style="width: 100%; text-align: center; margin: 20px 0;">
-    <tr>
-        <td width="50%">
-            <video src="https://github.com/user-attachments/assets/5aa9ebea-06f1-489d-9a68-c8c62cdc6915" width="100%" controls autoplay loop></video>
-            <p align="center">ArXiv usage Walkthrough</p>
-        </td>
-        <td width="50%">
-            <video src="https://github.com/user-attachments/assets/820142c4-7931-4aa8-b9b7-c1d5d46b23b5" width="100%" controls autoplay loop></video>
-            <p align="center">Gradio Walkthrough</p>
-        </td>
-    </tr>
-</table>
-
-## Installation
-
-> [!IMPORTANT]
-> This project is built using the [poetry](https://python-poetry.org/) tool to manage Python packages and dependencies. Download it from [here](https://python-poetry.org/docs/#installing-with-the-official-installer) to run this project or use the Docker image.
-> This project is dependent on the [manim](https://github.com/ManimCommunity/manim) engine and hence has certain dependencies for running the engine properly which can be found [here](https://docs.manim.community/en/stable/installation.html).
-
-```
-bash
-git clone https://github.com/HyperCluster-Tech/manimator
-cd manimator
+#### macOS
+```bash
+brew install cairo ffmpeg pango pkg-config
 ```
 
-Install Dependencies:
-`poetry install`
-
-Activate the environment:
-`poetry env activate`
-
-(If you're using a version before Poetry 2.0, you should use `poetry shell`)
-
-## Usage
-
-After successfully installing all the project dependencies and manim dependencies, set the environment variables in a .env file according to the .env.example:
-
-Run the FastAPI server:
-
+#### Ubuntu/Debian
+```bash
+sudo apt-get update
+sudo apt-get install build-essential python3-dev libcairo2-dev libpango1.0-dev ffmpeg
 ```
+
+#### Windows
+Install the following:
+- [FFmpeg](https://ffmpeg.org/download.html)
+- [Cairo](https://www.cairographics.org/download/)
+- [Pango](https://pango.gnome.org/)
+
+For detailed Manim installation instructions, see the [official documentation](https://docs.manim.community/en/stable/installation.html).
+
+### Python Dependencies
+
+This project uses [Poetry](https://python-poetry.org/) for dependency management. The key dependencies include:
+
+**Core Dependencies:**
+- `python` >= 3.11, < 3.13
+- `manim` ^0.18.1 - Animation engine
+- `manim-voiceover[gtts]` ^0.3.7 - Voiceover support with Google Text-to-Speech
+
+**API & Web Framework:**
+- `fastapi` ^0.115.6 - REST API framework
+- `uvicorn` ^0.34.0 - ASGI server
+- `gradio` ^5.9.1 - Web interface
+
+**AI & LLM Integration:**
+- `litellm` ^1.56.10 - Unified LLM API interface
+- `google-genai` ^1.51.0 - Google Gemini integration
+
+**Utilities:**
+- `python-dotenv` 0.21.0 - Environment variable management
+- `python-multipart` ^0.0.20 - File upload support
+- `tenacity` ^9.0.0 - Retry logic
+- `pypdf2` ^3.0.1 - PDF processing
+- `setuptools` ^80.9.0 - Build tools
+
+## 🚀 Installation
+
+### 1. Install Poetry
+
+Download and install Poetry from [here](https://python-poetry.org/docs/#installing-with-the-official-installer):
+
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/phc2017002/testtoanimation.git
+cd testtoanimation
+```
+
+### 3. Install Dependencies
+
+```bash
+poetry install
+```
+
+### 4. Activate the Virtual Environment
+
+For Poetry 2.0+:
+```bash
+poetry env activate
+```
+
+For older versions:
+```bash
+poetry shell
+```
+
+### 5. Set Up Environment Variables
+
+Create a `.env` file in the root directory with your API keys:
+
+```env
+# Required: At least one LLM API key
+GEMINI_API_KEY=your_gemini_api_key_here
+# Or use other providers:
+# OPENAI_API_KEY=your_openai_api_key
+# ANTHROPIC_API_KEY=your_anthropic_api_key
+# DEEPSEEK_API_KEY=your_deepseek_api_key
+
+# Optional: Model configuration (defaults to Gemini)
+# LLM_MODEL=gemini/gemini-1.5-flash
+```
+
+## 💻 Usage
+
+### Running the FastAPI Server
+
+Start the REST API server:
+
+```bash
 poetry run app
 ```
 
-and visit `localhost:8000/docs` to open SwaggerUI
+Visit `http://localhost:8000/docs` to open the interactive Swagger UI documentation.
 
-Run the Gradio interface:
+### Running the Gradio Interface
 
-```
+Start the web interface:
+
+```bash
 poetry run gradio-app
 ```
 
-and open `localhost:7860`
+Open your browser and navigate to `http://localhost:7860`.
 
-### Notes
+### API Example
 
-To change the models being used, you can set the environment variables for the models according to [LiteLLM syntax](https://docs.litellm.ai/docs/providers) and set the corresponding API keys accordingly.
-
-To prompt engineer to better suit your use case, you can modify the system prompts in `utils/system_prompts.py` and change the few shot examples in `few_shot/few_shot_prompts.py`.
-
-## 🛳️ Docker
-
-To use manimator with Docker, execute the following commands:
-
-1. Clone the manimator repo to get the Docker image (we will be publishing the image in DockerHub soon)
-2. Run the Docker container, exposing port 8000 for the FastAPI server or 7860 for the Gradio interface
-
-Build the Docker image locally. Then, run the Docker container as follows:
-
-`docker build -t manimator .`
-
-If you are running the FastAPI server
-
-`docker run -p 8000:8000 manimator`
-
-Else for the Gradio interface
-
-`docker run -p 7860:7860 manimator`
-
-<details>
-<summary><h2>API Endpoints</h2></summary>
-
-- [API Endpoints](#api-endpoints)
-  - [Health Check](#health-check)
-  - [PDF Processing](#pdf-processing)
-    - [Generate PDF Scene](#generate-pdf-scene)
-    - [Process ArXiv PDF](#process-arxiv-pdf)
-  - [Scene Generation](#scene-generation)
-    - [Generate Prompt Scene](#generate-prompt-scene)
-  - [Animation Generation](#animation-generation)
-    - [Generate Animation](#generate-animation)
-
-### Health Check
-
-#### Check API Health Status
-
-Endpoint: `/health-check`  
-Method: GET
-
-Returns the health status of the API.
-
-Response:
-
-```json
-{
-  "status": "ok"
-}
-```
-
-Curl command:
-
-```bash
-curl http://localhost:8000/health-check
-```
-
-### PDF Processing
-
-#### Generate PDF Scene
-
-Endpoint: `/generate-pdf-scene`  
-Method: POST
-
-Processes a PDF file and generates a scene description for animation.
-
-Request:
-
-- Content-Type: `multipart/form-data`
-- Body: PDF file
-
-Response:
-
-```json
-{
-  "scene_description": "Generated scene description based on PDF content"
-}
-```
-
-Curl command:
-
-```bash
-curl -X POST -F "file=@/path/to/file.pdf" http://localhost:8000/generate-pdf-scene
-```
-
-#### Process ArXiv PDF
-
-Endpoint: `/pdf/{arxiv_id}`  
-Method: GET
-
-Downloads and processes an arXiv paper by ID to generate a scene description.
-
-Parameters:
-
-- `arxiv_id`: The arXiv paper identifier
-
-Response:
-
-```json
-{
-  "scene_description": "Generated scene description based on arXiv paper"
-}
-```
-
-Curl command:
-
-```bash
-curl http://localhost:8000/pdf/2312.12345
-```
-
-### Scene Generation
-
-#### Generate Prompt Scene
-
-Endpoint: `/generate-prompt-scene`  
-Method: POST
-
-Generates a scene description from a text prompt.
-
-Request:
-
-- Content-Type: `application/json`
-- Body:
-
-```json
-{
-  "prompt": "Your scene description prompt"
-}
-```
-
-Response:
-
-```json
-{
-  "scene_description": "Generated scene description based on prompt"
-}
-```
-
-Curl command:
+Generate an animation from a text prompt:
 
 ```bash
 curl -X POST \
      -H "Content-Type: application/json" \
-     -d '{"prompt": "Explain how neural networks work"}' \
-     http://localhost:8000/generate-prompt-scene
-```
-
-### Animation Generation
-
-#### Generate Animation
-
-Endpoint: `/generate-animation`  
-Method: POST
-
-Generates a Manim animation based on a text prompt.
-
-Request:
-
-- Content-Type: `application/json`
-- Body:
-
-```json
-{
-  "prompt": "Your animation prompt"
-}
-```
-
-Response:
-
-- Content-Type: `video/mp4`
-- Body: Generated MP4 animation file
-
-Curl command:
-
-```bash
-curl -X POST \
-     -H "Content-Type: application/json" \
-     -d '{"prompt": "Create an animation explaining quantum computing"}' \
+     -d '{"prompt": "Explain the Pythagorean theorem with a visual proof"}' \
      --output animation.mp4 \
      http://localhost:8000/generate-animation
 ```
 
-### Error Handling
+## 🔧 Configuration
 
-All endpoints follow consistent error handling:
+### Changing AI Models
 
-- 400: Bad Request - Invalid input or missing required fields
-- 500: Internal Server Error - Processing or generation failure
+The system supports multiple LLM providers through [LiteLLM](https://docs.litellm.ai/docs/providers). Set your preferred model in the `.env` file:
 
-Error responses include a detail message:
-
-```json
-{
-  "detail": "Error description"
-}
+```env
+LLM_MODEL=gemini/gemini-2.0-flash-exp
+# or
+LLM_MODEL=anthropic/claude-3-5-sonnet-20241022
+# or
+LLM_MODEL=deepseek/deepseek-chat
 ```
 
-### Notes
+### Customizing System Prompts
 
-1. The API processes PDFs and generates animations using the Manim library
-2. Scene descriptions are generated using Language Models (LLMs)
-3. Animations are rendered using Manim with specific quality settings (-pql flag)
-4. All generated files are handled in temporary directories and cleaned up automatically
-5. PDF processing includes automatic compression for optimal performance
+To modify how the AI generates animations, edit the system prompts in:
+- `manimator/utils/system_prompts.py`
 
-</details>
+### Adjusting Few-Shot Examples
 
-## Coming Soon
+Improve generation quality by modifying examples in:
+- `manimator/few_shot/few_shot_prompts.py`
 
-- **Improved Generation Quality**  
-  Enhance the clarity and precision of generated animations and videos.
+## 🐳 Docker
 
-- **Video Transcription**  
-  Automatically generate scripts explaining how concepts in the video relate to the research paper.
+Build and run the application using Docker:
 
-- **Adding Audio**  
-  Support for adding voiceovers and background music to create more engaging visualizations.
+### Build the Docker Image
 
-- **Chrome Extension**
-  Based on the code graciously contributed by [Dr. Seth Dobrin](https://drsethdobrin.com/) under the [Creative Commons License](https://github.com/HyperCluster-Tech/manimator-chrome-extension/blob/main/LICENSE), we will be releasing a Chrome Extension on the Chrome Web Store soon!
+```bash
+docker build -t texttoanimation .
+```
 
-## Limitations
+### Run FastAPI Server
 
-- **LLM Limitations**  
-  For accurate document parsing and code generation, we require large models like Gemini, DeepSeek V3 and Qwen 2.5 Coder 32B, which cannot be run locally.
+```bash
+docker run -p 8000:8000 texttoanimation
+```
 
-- **Video Generation Limitations**  
-  The generated video may sometimes exhibit overlap between scenes and rendered elements, leading to visual inconsistencies. Additionally, it sometimes fails to effectively visualize complex papers in a relevant and meaningful manner.
+### Run Gradio Interface
 
-## License
+```bash
+docker run -p 7860:7860 texttoanimation
+```
 
-manimator is licensed under the MIT License. See `LICENSE` for more information.
-The project uses the [Manim engine](https://github.com/ManimCommunity/manim) under the hood, which is double-licensed under the MIT license, with copyright by 3blue1brown LLC and copyright by Manim Community Developers.
+## 📚 API Endpoints
 
-## Acknowledgements
+### Generate Animation
+- **Endpoint**: `/generate-animation`
+- **Method**: POST
+- **Description**: Generates an animated video from a text prompt
+- **Input**: `{"prompt": "Your description here"}`
+- **Output**: MP4 video file
 
-We acknowledge the [Manim Community](https://www.manim.community/) and [3Blue1Brown](https://github.com/3b1b/manim) for developing and maintaining the Manim library, which serves as the foundation for this project. Project developers include: [Samarth P](https://github.com/samarth777), [Vyoman Jain](https://github.com/VyoJ), [Shiva Golugula](https://github.com/Shiva4113), and [M Sai Sathvik](https://github.com/User-LazySloth) for their efforts in developing **manimator**.
+### Health Check
+- **Endpoint**: `/health-check`
+- **Method**: GET
+- **Description**: Check API status
 
-Models and Providers being used:
+For complete API documentation, visit `/docs` after starting the server.
 
-- DeepSeek-V3
-- Llama 3.3 70B via Groq
-- Gemini 1.5 Flash / 2.0 Flash-experimental
+## 🎨 Example Prompts
 
----
+Try these example prompts to see what the system can create:
 
-## Contact
+- "Create an animation explaining how neural networks learn"
+- "Visualize the Fourier transform with examples"
+- "Show how gradient descent works in machine learning"
+- "Explain quantum entanglement with visual demonstrations"
+- "Demonstrate the concept of limits in calculus"
 
-For any inquiries, please contact us at hypercluster.tech@gmail.com or refer to our website [hypercluster.tech](https://www.hypercluster.tech/)
+## 🙏 Acknowledgements
 
-<img src="https://api.star-history.com/svg?repos=HyperCluster-Tech/manimator&type=Date" alt="Star History Chart">
+This project builds upon the incredible work of:
+- [Manim Community](https://www.manim.community/) and [3Blue1Brown](https://github.com/3b1b/manim) for the animation engine
+- Original [manimator](https://github.com/HyperCluster-Tech/manimator) project developers: [Samarth P](https://github.com/samarth777), [Vyoman Jain](https://github.com/VyoJ), [Shiva Golugula](https://github.com/Shiva4113), and [M Sai Sathvik](https://github.com/User-LazySloth)
+
+## 📄 License
+
+This project is licensed under the MIT License. See `LICENSE` for more information.
+
+The project uses the [Manim engine](https://github.com/ManimCommunity/manim), which is double-licensed under the MIT license, with copyright by 3blue1brown LLC and Manim Community Developers.
+
+## 📧 Contact
+
+For inquiries, please open an issue on GitHub.
