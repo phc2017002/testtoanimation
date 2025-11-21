@@ -6,11 +6,11 @@ Example 3D Animations - Demonstrations for all STEM categories
 SURFACE_EXAMPLE = """
 from manim import *
 from manim_voiceover import VoiceoverScene
-from manim_voiceover.services.gtts import GTTSService
+from manimator.services import ElevenLabsService
 
 class MathematicalSurface(VoiceoverScene, ThreeDScene):
     def construct(self):
-        self.set_speech_service(GTTSService())
+        self.set_speech_service(ElevenLabsService(voice_id="Rachel"))
         self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
         
         axes = ThreeDAxes(
@@ -52,12 +52,12 @@ class MathematicalSurface(VoiceoverScene, ThreeDScene):
 DNA_EXAMPLE = """
 from manim import *
 from manim_voiceover import VoiceoverScene
-from manim_voiceover.services.gtts import GTTSService
+from manimator.services import ElevenLabsService
 import numpy as np
 
 class DNAHelix(VoiceoverScene, ThreeDScene):
     def construct(self):
-        self.set_speech_service(GTTSService())
+        self.set_speech_service(ElevenLabsService(voice_id="Rachel"))
         self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
         
         with self.voiceover(text="Let's build a DNA double helix in 3D"):
@@ -116,11 +116,11 @@ class DNAHelix(VoiceoverScene, ThreeDScene):
 CUBE_EXAMPLE = """
 from manim import *
 from manim_voiceover import VoiceoverScene
-from manim_voiceover.services.gtts import GTTSService
+from manimator.services import ElevenLabsService
 
 class RotatingCube(VoiceoverScene, ThreeDScene):
     def construct(self):
-        self.set_speech_service(GTTSService())
+        self.set_speech_service(ElevenLabsService(voice_id="Rachel"))
         self.set_camera_orientation(phi=70 * DEGREES, theta=-45 * DEGREES)
         
         axes = ThreeDAxes()
@@ -163,11 +163,11 @@ class RotatingCube(VoiceoverScene, ThreeDScene):
 VECTOR_FIELD_EXAMPLE = """
 from manim import *
 from manim_voiceover import VoiceoverScene
-from manim_voiceover.services.gtts import GTTSService
+from manimator.services import ElevenLabsService
 
 class VectorField3D(VoiceoverScene, ThreeDScene):
     def construct(self):
-        self.set_speech_service(GTTSService())
+        self.set_speech_service(ElevenLabsService(voice_id="Rachel"))
         self.set_camera_orientation(phi=70 * DEGREES, theta=-45 * DEGREES)
         
         axes = ThreeDAxes(x_range=[-3, 3], y_range=[-3, 3], z_range=[-3, 3])
@@ -210,11 +210,11 @@ class VectorField3D(VoiceoverScene, ThreeDScene):
 WATER_MOLECULE_EXAMPLE = """
 from manim import *
 from manim_voiceover import VoiceoverScene
-from manim_voiceover.services.gtts import GTTSService
+from manimator.services import ElevenLabsService
 
 class WaterMolecule3D(VoiceoverScene, ThreeDScene):
     def construct(self):
-        self.set_speech_service(GTTSService())
+        self.set_speech_service(ElevenLabsService(voice_id="Rachel"))
         self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
         
         with self.voiceover(text="Let's build a water molecule, H2O, in three dimensions"):

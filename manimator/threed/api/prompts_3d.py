@@ -71,12 +71,13 @@ CODE STRUCTURE:
 ```python
 from manim import *
 from manim_voiceover import VoiceoverScene
-from manim_voiceover.services.gtts import GTTSService
+from manimator.services import ElevenLabsService
 
 class YourSceneName(VoiceoverScene, ThreeDScene):
     def construct(self):
-        # Initialize voiceover
-        self.set_speech_service(GTTSService())
+        # Initialize voiceover with natural AI voice
+        self.set_speech_service(ElevenLabsService(voice_id="Rachel"))
+        # Other voice options: Adam, Bella, Josh, Antoni
         
         # Set camera orientation
         self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
@@ -121,11 +122,11 @@ Example: 3D Vector Field Visualization
 ```python
 from manim import *
 from manim_voiceover import VoiceoverScene
-from manim_voiceover.services.gtts import GTTSService
+from manimator.services import ElevenLabsService
 
 class VectorField3DDemo(VoiceoverScene, ThreeDScene):
     def construct(self):
-        self.set_speech_service(GTTSService())
+        self.set_speech_service(ElevenLabsService(voice_id="Rachel"))
         self.set_camera_orientation(phi=70 * DEGREES, theta=-45 * DEGREES)
         
         axes = ThreeDAxes(x_range=[-3, 3], y_range=[-3, 3], z_range=[-3, 3])
@@ -162,11 +163,11 @@ Example: Molecular Structure
 ```python
 from manim import *
 from manim_voiceover import VoiceoverScene
-from manim_voiceover.services.gtts import GTTSService
+from manimator.services import ElevenLabsService
 
 class WaterMolecule(VoiceoverScene, ThreeDScene):
     def construct(self):
-        self.set_speech_service(GTTSService())
+        self.set_speech_service(ElevenLabsService(voice_id="Rachel"))
         self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
         
         with self.voiceover(text="Let's build a water molecule in 3D"):
@@ -208,11 +209,11 @@ Example: Mathematical Surface
 ```python
 from manim import *
 from manim_voiceover import VoiceoverScene
-from manim_voiceover.services.gtts import GTTSService
+from manimator.services import ElevenLabsService
 
 class ParametricSurfaceDemo(VoiceoverScene, ThreeDScene):
     def construct(self):
-        self.set_speech_service(GTTSService())
+        self.set_speech_service(ElevenLabsService(voice_id="Rachel"))
         self.set_camera_orientation(phi=75 * DEGREES, theta=-45 * DEGREES)
         
         axes = ThreeDAxes(x_range=[-4, 4], y_range=[-4, 4], z_range=[-2, 2])
