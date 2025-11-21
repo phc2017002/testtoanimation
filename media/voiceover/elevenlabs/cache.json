@@ -3,5 +3,255 @@
     "original_audio": "media/voiceover/elevenlabs/d44c2a21441649f16029c82d8abe18ee.mp3",
     "final_audio": "media/voiceover/elevenlabs/d44c2a21441649f16029c82d8abe18ee.mp3",
     "text": "Welcome to this deep dive into one of the most fundamental equations in quantum mechanics: the Schr\u00f6dinger equation."
+  },
+  {
+    "original_audio": "d44c2a21441649f16029c82d8abe18ee.mp3",
+    "final_audio": "d44c2a21441649f16029c82d8abe18ee.mp3",
+    "text": "Welcome to this deep dive into one of the most fundamental equations in quantum mechanics: the Schr\u00f6dinger equation."
+  },
+  {
+    "original_audio": "fbf3f8386148dad8448883789ff7f830.mp3",
+    "final_audio": "fbf3f8386148dad8448883789ff7f830.mp3",
+    "text": "This equation describes how quantum systems evolve over time and is the cornerstone of wave mechanics."
+  },
+  {
+    "original_audio": "87a24d9a541770362e16a83b297060e1.mp3",
+    "final_audio": "87a24d9a541770362e16a83b297060e1.mp3",
+    "text": "Let's start with the time-dependent Schr\u00f6dinger equation in its most general form."
+  },
+  {
+    "original_audio": "ff7ba3de079ed61e8d2e473e77ad6db4.mp3",
+    "final_audio": "ff7ba3de079ed61e8d2e473e77ad6db4.mp3",
+    "text": "The equation states that i times the reduced Planck constant times the partial derivative of psi with respect to time equals the Hamiltonian operator acting on psi."
+  },
+  {
+    "original_audio": "fe8ec8be46acc0e5a05268de289e2399.mp3",
+    "final_audio": "fe8ec8be46acc0e5a05268de289e2399.mp3",
+    "text": "Let's break down each component. First, i is the imaginary unit, fundamental to quantum mechanics."
+  },
+  {
+    "original_audio": "2113d5b26932d2c48db7ee986da85a0f.mp3",
+    "final_audio": "2113d5b26932d2c48db7ee986da85a0f.mp3",
+    "text": "h-bar is the reduced Planck constant, connecting energy and frequency in the quantum world."
+  },
+  {
+    "original_audio": "fd010dd7cf59bcbb4811051809654f67.mp3",
+    "final_audio": "fd010dd7cf59bcbb4811051809654f67.mp3",
+    "text": "Psi is the wave function, which contains all the information about the quantum state of the system."
+  },
+  {
+    "original_audio": "5bb06d8d1a46b2bd0c1d0a279487df41.mp3",
+    "final_audio": "5bb06d8d1a46b2bd0c1d0a279487df41.mp3",
+    "text": "The Hamiltonian operator represents the total energy of the system, including kinetic and potential energy."
+  },
+  {
+    "original_audio": "ee0e66468ba9107e8135967080162393.mp3",
+    "final_audio": "ee0e66468ba9107e8135967080162393.mp3",
+    "text": "For a single particle in one dimension, the Hamiltonian can be written explicitly in terms of kinetic and potential energy operators."
+  },
+  {
+    "original_audio": "e0acc3e3f04d770e30a7a73abf497506.mp3",
+    "final_audio": "e0acc3e3f04d770e30a7a73abf497506.mp3",
+    "text": "This gives us the full time-dependent Schr\u00f6dinger equation in position space."
+  },
+  {
+    "original_audio": "207d68114452be243a8de3728ee5d391.mp3",
+    "final_audio": "207d68114452be243a8de3728ee5d391.mp3",
+    "text": "Now let's explore what wave functions actually are and what they represent."
+  },
+  {
+    "original_audio": "d19d4b5037a3fbeb3c90cfd5c0a4c57f.mp3",
+    "final_audio": "d19d4b5037a3fbeb3c90cfd5c0a4c57f.mp3",
+    "text": "A wave function psi is a complex-valued function that describes the quantum state of a particle."
+  },
+  {
+    "original_audio": "8fa2bc932b667319f044fa56c9d1b14e.mp3",
+    "final_audio": "8fa2bc932b667319f044fa56c9d1b14e.mp3",
+    "text": "Let's visualize a simple wave function. We'll look at the real and imaginary parts separately."
+  },
+  {
+    "original_audio": "eedbe9f4997becc4de1f58eed08f4118.mp3",
+    "final_audio": "eedbe9f4997becc4de1f58eed08f4118.mp3",
+    "text": "Here's the real part of a Gaussian wave packet, a common wave function in quantum mechanics."
+  },
+  {
+    "original_audio": "ddb84b6d5efeb731f00d8fc5a328a9d6.mp3",
+    "final_audio": "ddb84b6d5efeb731f00d8fc5a328a9d6.mp3",
+    "text": "And here's the imaginary part, shown in red, which oscillates out of phase with the real part."
+  },
+  {
+    "original_audio": "ba96e1b469fc22a3ebe938c237c75b09.mp3",
+    "final_audio": "ba96e1b469fc22a3ebe938c237c75b09.mp3",
+    "text": "One of the most fascinating aspects of quantum mechanics is how wave functions evolve in time."
+  },
+  {
+    "original_audio": "0b13f82403a665d5ced960a518e2af1c.mp3",
+    "final_audio": "0b13f82403a665d5ced960a518e2af1c.mp3",
+    "text": "For stationary states, the time dependence can be separated out as a simple phase factor."
+  },
+  {
+    "original_audio": "fcad4e443e73ae78e447aee515468800.mp3",
+    "final_audio": "fcad4e443e73ae78e447aee515468800.mp3",
+    "text": "Here, phi of x is the spatial part, and the exponential represents oscillation in time."
+  },
+  {
+    "original_audio": "7d007cc36b97c90095de2d3cf7617f26.mp3",
+    "final_audio": "7d007cc36b97c90095de2d3cf7617f26.mp3",
+    "text": "Let's see this evolution in action. Watch as the wave function rotates in the complex plane while maintaining its shape."
+  },
+  {
+    "original_audio": "140cf71884d5afbb3955744b54d674cd.mp3",
+    "final_audio": "140cf71884d5afbb3955744b54d674cd.mp3",
+    "text": "Now we come to one of the most important concepts: the Born interpretation of the wave function."
+  },
+  {
+    "original_audio": "ac9a4bb78a297eb65c1c803b42ba9771.mp3",
+    "final_audio": "ac9a4bb78a297eb65c1c803b42ba9771.mp3",
+    "text": "The wave function itself is not directly observable, but its absolute value squared gives us the probability density."
+  },
+  {
+    "original_audio": "96d528b21eebec9b479ad27d656722f7.mp3",
+    "final_audio": "96d528b21eebec9b479ad27d656722f7.mp3",
+    "text": "This probability density tells us the likelihood of finding the particle at position x at time t."
+  },
+  {
+    "original_audio": "479839b078c85b63b8320d9753f38dd8.mp3",
+    "final_audio": "479839b078c85b63b8320d9753f38dd8.mp3",
+    "text": "Let's visualize this. I'll show you a wave function and its corresponding probability density."
+  },
+  {
+    "original_audio": "0e6bbb03b14e848d8ce9c82cf66ca958.mp3",
+    "final_audio": "0e6bbb03b14e848d8ce9c82cf66ca958.mp3",
+    "text": "Now, when we square the absolute value, we get the probability density, which is always positive and shows where the particle is likely to be found."
+  },
+  {
+    "original_audio": "ac9fdd5f43f611a8f1fdc15dd66161c4.mp3",
+    "final_audio": "ac9fdd5f43f611a8f1fdc15dd66161c4.mp3",
+    "text": "Notice how the probability density is smooth and peaked where the wave function has large amplitude, regardless of its phase."
+  },
+  {
+    "original_audio": "3af3382b1dc72422019c0cdc4ddf1034.mp3",
+    "final_audio": "3af3382b1dc72422019c0cdc4ddf1034.mp3",
+    "text": "An important property is normalization: the total probability of finding the particle somewhere must equal one."
+  },
+  {
+    "original_audio": "76e710d5e1d524a008d214eb453b18a2.mp3",
+    "final_audio": "76e710d5e1d524a008d214eb453b18a2.mp3",
+    "text": "Let's discuss the profound physical interpretation of these mathematical concepts."
+  },
+  {
+    "original_audio": "4da46682778d3ae2e011f97c1509f7be.mp3",
+    "final_audio": "4da46682778d3ae2e011f97c1509f7be.mp3",
+    "text": "The wave function represents a superposition of all possible states. The particle doesn't have a definite position until we measure it."
+  },
+  {
+    "original_audio": "c94cb1c06d3b7990398b23c8b7a27fae.mp3",
+    "final_audio": "c94cb1c06d3b7990398b23c8b7a27fae.mp3",
+    "text": "Let's visualize this with a simple example. Imagine a particle that could be in one of three positions."
+  },
+  {
+    "original_audio": "d2e585e02c3b7cac855a800de5ab640a.mp3",
+    "final_audio": "d2e585e02c3b7cac855a800de5ab640a.mp3",
+    "text": "Before measurement, the particle exists in a superposition, represented by probability amplitudes at each position."
+  },
+  {
+    "original_audio": "d94f6ff1a588a7c496b93732e64b8efa.mp3",
+    "final_audio": "d94f6ff1a588a7c496b93732e64b8efa.mp3",
+    "text": "Upon measurement, the wave function collapses to one definite state, with probabilities determined by the wave function's amplitude."
+  },
+  {
+    "original_audio": "a13b00cf709f4728ad9b851ec18b7f6e.mp3",
+    "final_audio": "a13b00cf709f4728ad9b851ec18b7f6e.mp3",
+    "text": "Let's explore a classic example: the particle in a box, also known as the infinite square well."
+  },
+  {
+    "original_audio": "054da94dd8278c1bfd92879d60826952.mp3",
+    "final_audio": "054da94dd8278c1bfd92879d60826952.mp3",
+    "text": "Imagine a particle confined to a one-dimensional box with impenetrable walls. The particle can only exist between x equals zero and x equals L."
+  },
+  {
+    "original_audio": "97342f53c682fb93a513a90acd022770.mp3",
+    "final_audio": "97342f53c682fb93a513a90acd022770.mp3",
+    "text": "The boundary conditions require that the wave function equals zero at the walls."
+  },
+  {
+    "original_audio": "63fcc08bce4abd85fb49c1fb27819c8a.mp3",
+    "final_audio": "63fcc08bce4abd85fb49c1fb27819c8a.mp3",
+    "text": "Solving the Schr\u00f6dinger equation with these boundary conditions gives us quantized energy levels and specific wave functions."
+  },
+  {
+    "original_audio": "58dee03ae46463aec755cdc8320aa742.mp3",
+    "final_audio": "58dee03ae46463aec755cdc8320aa742.mp3",
+    "text": "The energy levels are also quantized, proportional to n squared, where n is a positive integer called the quantum number."
+  },
+  {
+    "original_audio": "81fae91f3429d8e3b0bafb8787c40ff7.mp3",
+    "final_audio": "81fae91f3429d8e3b0bafb8787c40ff7.mp3",
+    "text": "Let's visualize the first three energy eigenstates. The ground state, n equals one, has no nodes inside the box."
+  },
+  {
+    "original_audio": "0beb08a4c368e0b0e181b0930e8a0d8a.mp3",
+    "final_audio": "0beb08a4c368e0b0e181b0930e8a0d8a.mp3",
+    "text": "The first excited state, n equals two, has one node in the center where the wave function crosses zero."
+  },
+  {
+    "original_audio": "70403e7d38e804d4c8ec1c93823e80bf.mp3",
+    "final_audio": "70403e7d38e804d4c8ec1c93823e80bf.mp3",
+    "text": "The second excited state, n equals three, has two nodes, creating three regions of oscillation."
+  },
+  {
+    "original_audio": "e7c1b1eb4fe478b3d364f6fd8bcb1b37.mp3",
+    "final_audio": "e7c1b1eb4fe478b3d364f6fd8bcb1b37.mp3",
+    "text": "Now let's look at the probability densities for these states. Notice how they show where the particle is most likely to be found."
+  },
+  {
+    "original_audio": "6595203d2ec9be06c9b196d9f6fabdb3.mp3",
+    "final_audio": "6595203d2ec9be06c9b196d9f6fabdb3.mp3",
+    "text": "For the ground state, the particle is most likely to be found in the center of the box, with probability decreasing toward the walls."
+  },
+  {
+    "original_audio": "e759070b63a172ae173244d385f59a26.mp3",
+    "final_audio": "e759070b63a172ae173244d385f59a26.mp3",
+    "text": "Higher energy states show more complex probability distributions, with regions where the particle is unlikely to be found."
+  },
+  {
+    "original_audio": "1962f39033a71ea5ac5027c59bdd377a.mp3",
+    "final_audio": "1962f39033a71ea5ac5027c59bdd377a.mp3",
+    "text": "Let's summarize the key concepts we've explored about the Schr\u00f6dinger equation."
+  },
+  {
+    "original_audio": "c2345fce498233a675a687fab8c5e959.mp3",
+    "final_audio": "c2345fce498233a675a687fab8c5e959.mp3",
+    "text": "First, the Schr\u00f6dinger equation is the fundamental equation that governs the evolution of quantum systems over time."
+  },
+  {
+    "original_audio": "93bb905ae95ac8a4febdec32e68f4f1e.mp3",
+    "final_audio": "93bb905ae95ac8a4febdec32e68f4f1e.mp3",
+    "text": "Second, the wave function contains all information about a quantum system, but it's a complex-valued probability amplitude, not a directly observable quantity."
+  },
+  {
+    "original_audio": "faa68f0703cebe0ad7991cdb41f63036.mp3",
+    "final_audio": "faa68f0703cebe0ad7991cdb41f63036.mp3",
+    "text": "Third, the probability density, given by the absolute value of psi squared, tells us where we're likely to find the particle upon measurement."
+  },
+  {
+    "original_audio": "88bc98e9ccf07fc16350488abedff844.mp3",
+    "final_audio": "88bc98e9ccf07fc16350488abedff844.mp3",
+    "text": "Fourth, quantum systems exist in superposition until measured, when the wave function collapses to a definite state."
+  },
+  {
+    "original_audio": "8fb0fa0e826aad452628883e4efb6cd5.mp3",
+    "final_audio": "8fb0fa0e826aad452628883e4efb6cd5.mp3",
+    "text": "And finally, boundary conditions lead to quantization, as we saw with the particle in a box, where only specific energy levels are allowed."
+  },
+  {
+    "original_audio": "477d43cacf0659fccc3b9cb3ab3bd834.mp3",
+    "final_audio": "477d43cacf0659fccc3b9cb3ab3bd834.mp3",
+    "text": "The Schr\u00f6dinger equation revolutionized our understanding of the atomic and subatomic world, providing a mathematical framework that describes phenomena impossible to explain with classical physics."
+  },
+  {
+    "original_audio": "04b6c3508420bd695cf3895e8f6ea137.mp3",
+    "final_audio": "04b6c3508420bd695cf3895e8f6ea137.mp3",
+    "text": "Thank you for joining me on this journey through quantum mechanics. Keep exploring the fascinating world of wave functions and probability!"
   }
 ]

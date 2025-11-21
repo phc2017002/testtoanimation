@@ -387,10 +387,16 @@ class VideoGenerator:
         }[quality]
         
         video_dir = Config.VIDEOS_DIR / code_file.stem / quality_dir
-        video_path = video_dir / f"{scene_name}.mp4"
         
-        if not video_path.exists():
-            raise Exception(f"Video file not found at {video_path}")
+        # Search for the actual video file (class name may differ from scene_name)
+        video_files = list(video_dir.glob("*.mp4"))
+        
+        if not video_files:
+            raise Exception(f"No video file found in {video_dir}")
+        
+        # Use the first (and typically only) MP4 file found
+        video_path = video_files[0]
+        logger.info(f"📹 Found video: {video_path.name}")
         
         return video_path
 
