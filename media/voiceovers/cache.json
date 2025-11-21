@@ -16,5 +16,1076 @@
     },
     "original_audio": "the-circle-is-now-fading-out-e85caedd.mp3",
     "final_audio": "the-circle-is-now-fading-out-e85caedd.mp3"
+  },
+  {
+    "input_text": "Welcome to Scaling System Architecture from Zero to Millions of Users. Designing a system that supports millions of users is challenging. It's a journey that requires continuous refinement and endless improvement.",
+    "input_data": {
+      "input_text": "Welcome to Scaling System Architecture from Zero to Millions of Users. Designing a system that supports millions of users is challenging. It's a journey that requires continuous refinement and endless improvement.",
+      "service": "gtts"
+    },
+    "original_audio": "welcome-to-scaling-system-architecture-from-zero-5fc5699a.mp3",
+    "final_audio": "welcome-to-scaling-system-architecture-from-zero-5fc5699a.mp3"
+  },
+  {
+    "input_text": "Today, we'll build a system starting from a single user and gradually scale it to support millions of concurrent users. Let's begin this exciting journey!",
+    "input_data": {
+      "input_text": "Today, we'll build a system starting from a single user and gradually scale it to support millions of concurrent users. Let's begin this exciting journey!",
+      "service": "gtts"
+    },
+    "original_audio": "today-we-ll-build-a-system-starting-from-a-single-8417b354.mp3",
+    "final_audio": "today-we-ll-build-a-system-starting-from-a-single-8417b354.mp3"
+  },
+  {
+    "input_text": "Chapter One: Single Server Setup. Let's start with the simplest possible architecture. In the beginning, everything runs on one server: the web application, the database, and the cache. This is where every system begins.",
+    "input_data": {
+      "input_text": "Chapter One: Single Server Setup. Let's start with the simplest possible architecture. In the beginning, everything runs on one server: the web application, the database, and the cache. This is where every system begins.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-one-single-server-setup-let-s-start-with-1ebd54d1.mp3",
+    "final_audio": "chapter-one-single-server-setup-let-s-start-with-1ebd54d1.mp3"
+  },
+  {
+    "input_text": "Here's how it works. A user types www dot mysite dot com into their browser. First, the domain name system, or DNS, resolves this domain name to an IP address.",
+    "input_data": {
+      "input_text": "Here's how it works. A user types www dot mysite dot com into their browser. First, the domain name system, or DNS, resolves this domain name to an IP address.",
+      "service": "gtts"
+    },
+    "original_audio": "here-s-how-it-works-a-user-types-www-dot-mysite-3ed45705.mp3",
+    "final_audio": "here-s-how-it-works-a-user-types-www-dot-mysite-3ed45705.mp3"
+  },
+  {
+    "input_text": "The DNS server returns the IP address, for example, 15.125.23.214. Now the user's browser knows exactly where to send the request.",
+    "input_data": {
+      "input_text": "The DNS server returns the IP address, for example, 15.125.23.214. Now the user's browser knows exactly where to send the request.",
+      "service": "gtts"
+    },
+    "original_audio": "the-dns-server-returns-the-ip-address-for-example-ad131a21.mp3",
+    "final_audio": "the-dns-server-returns-the-ip-address-for-example-ad131a21.mp3"
+  },
+  {
+    "input_text": "The browser then sends an HTTP request directly to the web server at that IP address. The server processes the request and returns either HTML pages for the website or JSON data for API calls.",
+    "input_data": {
+      "input_text": "The browser then sends an HTTP request directly to the web server at that IP address. The server processes the request and returns either HTML pages for the website or JSON data for API calls.",
+      "service": "gtts"
+    },
+    "original_audio": "the-browser-then-sends-an-http-request-directly-to-cb69a45a.mp3",
+    "final_audio": "the-browser-then-sends-an-http-request-directly-to-cb69a45a.mp3"
+  },
+  {
+    "input_text": "Here's an example of a JSON response from an API call. The server returns structured data that the application can use. But here's the critical question: what happens when traffic grows? This single server becomes a bottleneck.",
+    "input_data": {
+      "input_text": "Here's an example of a JSON response from an API call. The server returns structured data that the application can use. But here's the critical question: what happens when traffic grows? This single server becomes a bottleneck.",
+      "service": "gtts"
+    },
+    "original_audio": "here-s-an-example-of-a-json-response-from-an-api-a5a970ed.mp3",
+    "final_audio": "here-s-an-example-of-a-json-response-from-an-api-a5a970ed.mp3"
+  },
+  {
+    "input_text": "Chapter Two: Separating Web and Database Tiers. As our user base grows, we need to improve our architecture. The first major step is separating the web tier from the data tier.",
+    "input_data": {
+      "input_text": "Chapter Two: Separating Web and Database Tiers. As our user base grows, we need to improve our architecture. The first major step is separating the web tier from the data tier.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-two-separating-web-and-database-tiers-as-361d4e08.mp3",
+    "final_audio": "chapter-two-separating-web-and-database-tiers-as-361d4e08.mp3"
+  },
+  {
+    "input_text": "We start with our single server containing everything. Watch as we split it into two independent components: the web server tier and the database server tier.",
+    "input_data": {
+      "input_text": "We start with our single server containing everything. Watch as we split it into two independent components: the web server tier and the database server tier.",
+      "service": "gtts"
+    },
+    "original_audio": "we-start-with-our-single-server-containing-da1d7e39.mp3",
+    "final_audio": "we-start-with-our-single-server-containing-da1d7e39.mp3"
+  },
+  {
+    "input_text": "The single server splits into two separate tiers. On the left, we have the web and mobile traffic tier, which handles all user requests. On the right, we have the dedicated data tier for our database.",
+    "input_data": {
+      "input_text": "The single server splits into two separate tiers. On the left, we have the web and mobile traffic tier, which handles all user requests. On the right, we have the dedicated data tier for our database.",
+      "service": "gtts"
+    },
+    "original_audio": "the-single-server-splits-into-two-separate-tiers-890f0e17.mp3",
+    "final_audio": "the-single-server-splits-into-two-separate-tiers-890f0e17.mp3"
+  },
+  {
+    "input_text": "This separation brings a huge benefit: independent scaling! We can now scale the web tier and data tier separately based on their individual needs. This is a fundamental principle of scalable architecture.",
+    "input_data": {
+      "input_text": "This separation brings a huge benefit: independent scaling! We can now scale the web tier and data tier separately based on their individual needs. This is a fundamental principle of scalable architecture.",
+      "service": "gtts"
+    },
+    "original_audio": "this-separation-brings-a-huge-benefit-independent-48a142cc.mp3",
+    "final_audio": "this-separation-brings-a-huge-benefit-independent-48a142cc.mp3"
+  },
+  {
+    "input_text": "Now let's talk about database choices. We have two main categories: Relational databases and NoSQL databases. Relational databases like MySQL, PostgreSQL, and Oracle store data in tables with rows and columns. They use SQL for querying and enforce strict schemas.",
+    "input_data": {
+      "input_text": "Now let's talk about database choices. We have two main categories: Relational databases and NoSQL databases. Relational databases like MySQL, PostgreSQL, and Oracle store data in tables with rows and columns. They use SQL for querying and enforce strict schemas.",
+      "service": "gtts"
+    },
+    "original_audio": "now-let-s-talk-about-database-choices-we-have-two-357cc032.mp3",
+    "final_audio": "now-let-s-talk-about-database-choices-we-have-two-357cc032.mp3"
+  },
+  {
+    "input_text": "NoSQL databases include document stores like MongoDB, key-value stores like DynamoDB and Redis, column stores like Cassandra, and graph databases like Neo4j. They offer flexibility, horizontal scalability, and are schema-less.",
+    "input_data": {
+      "input_text": "NoSQL databases include document stores like MongoDB, key-value stores like DynamoDB and Redis, column stores like Cassandra, and graph databases like Neo4j. They offer flexibility, horizontal scalability, and are schema-less.",
+      "service": "gtts"
+    },
+    "original_audio": "nosql-databases-include-document-stores-like-521dcd6c.mp3",
+    "final_audio": "nosql-databases-include-document-stores-like-521dcd6c.mp3"
+  },
+  {
+    "input_text": "When should you use each type? Relational databases are perfect for applications requiring complex queries, transactions, and strong consistency. Examples include banking systems and e-commerce platforms. NoSQL databases excel at handling massive scale, flexible schemas, and high write throughput. Think social media feeds, real-time analytics, and session storage.",
+    "input_data": {
+      "input_text": "When should you use each type? Relational databases are perfect for applications requiring complex queries, transactions, and strong consistency. Examples include banking systems and e-commerce platforms. NoSQL databases excel at handling massive scale, flexible schemas, and high write throughput. Think social media feeds, real-time analytics, and session storage.",
+      "service": "gtts"
+    },
+    "original_audio": "when-should-you-use-each-type-relational-databases-bcd4db45.mp3",
+    "final_audio": "when-should-you-use-each-type-relational-databases-bcd4db45.mp3"
+  },
+  {
+    "input_text": "Chapter Three: Vertical versus Horizontal Scaling. Now that we've separated our tiers, we need to understand how to scale them. There are two fundamental approaches: vertical scaling and horizontal scaling.",
+    "input_data": {
+      "input_text": "Chapter Three: Vertical versus Horizontal Scaling. Now that we've separated our tiers, we need to understand how to scale them. There are two fundamental approaches: vertical scaling and horizontal scaling.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-three-vertical-versus-horizontal-scaling-810b6e8a.mp3",
+    "final_audio": "chapter-three-vertical-versus-horizontal-scaling-810b6e8a.mp3"
+  },
+  {
+    "input_text": "Vertical scaling, also called scaling up, means adding more power to your existing server. You increase the CPU, add more RAM, or upgrade to faster storage. It's like replacing your car's engine with a bigger, more powerful one.",
+    "input_data": {
+      "input_text": "Vertical scaling, also called scaling up, means adding more power to your existing server. You increase the CPU, add more RAM, or upgrade to faster storage. It's like replacing your car's engine with a bigger, more powerful one.",
+      "service": "gtts"
+    },
+    "original_audio": "vertical-scaling-also-called-scaling-up-means-bbd13fe9.mp3",
+    "final_audio": "vertical-scaling-also-called-scaling-up-means-bbd13fe9.mp3"
+  },
+  {
+    "input_text": "Horizontal scaling, or scaling out, means adding more servers to your resource pool. Instead of making one server more powerful, you distribute the load across multiple servers. It's like having a fleet of regular cars instead of one supercar.",
+    "input_data": {
+      "input_text": "Horizontal scaling, or scaling out, means adding more servers to your resource pool. Instead of making one server more powerful, you distribute the load across multiple servers. It's like having a fleet of regular cars instead of one supercar.",
+      "service": "gtts"
+    },
+    "original_audio": "horizontal-scaling-or-scaling-out-means-adding-4edb3468.mp3",
+    "final_audio": "horizontal-scaling-or-scaling-out-means-adding-4edb3468.mp3"
+  },
+  {
+    "input_text": "Vertical scaling has serious limitations. First, there's a hard limit to how much you can upgrade a single server. You can't add unlimited CPU or RAM. Second, and more critically, it creates a single point of failure. If that one powerful server goes down, your entire system goes offline.",
+    "input_data": {
+      "input_text": "Vertical scaling has serious limitations. First, there's a hard limit to how much you can upgrade a single server. You can't add unlimited CPU or RAM. Second, and more critically, it creates a single point of failure. If that one powerful server goes down, your entire system goes offline.",
+      "service": "gtts"
+    },
+    "original_audio": "vertical-scaling-has-serious-limitations-first-bc7ac8c6.mp3",
+    "final_audio": "vertical-scaling-has-serious-limitations-first-bc7ac8c6.mp3"
+  },
+  {
+    "input_text": "Horizontal scaling is the clear winner for large-scale systems. It offers virtually unlimited scaling potential, built-in redundancy, and better fault tolerance. If one server fails, others continue serving traffic. This is why tech giants like Google, Facebook, and Amazon all use horizontal scaling.",
+    "input_data": {
+      "input_text": "Horizontal scaling is the clear winner for large-scale systems. It offers virtually unlimited scaling potential, built-in redundancy, and better fault tolerance. If one server fails, others continue serving traffic. This is why tech giants like Google, Facebook, and Amazon all use horizontal scaling.",
+      "service": "gtts"
+    },
+    "original_audio": "horizontal-scaling-is-the-clear-winner-for-large-e40c2826.mp3",
+    "final_audio": "horizontal-scaling-is-the-clear-winner-for-large-e40c2826.mp3"
+  },
+  {
+    "input_text": "Chapter Four: Load Balancer. To effectively distribute traffic across multiple servers, we need a load balancer. The load balancer is the traffic cop of our system, intelligently routing requests to available servers.",
+    "input_data": {
+      "input_text": "Chapter Four: Load Balancer. To effectively distribute traffic across multiple servers, we need a load balancer. The load balancer is the traffic cop of our system, intelligently routing requests to available servers.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-four-load-balancer-to-effectively-da1fe042.mp3",
+    "final_audio": "chapter-four-load-balancer-to-effectively-da1fe042.mp3"
+  },
+  {
+    "input_text": "Here's the architecture with a load balancer. Users no longer connect directly to web servers. Instead, they connect to the load balancer's public IP address. The load balancer then distributes requests to web servers with private IPs for enhanced security.",
+    "input_data": {
+      "input_text": "Here's the architecture with a load balancer. Users no longer connect directly to web servers. Instead, they connect to the load balancer's public IP address. The load balancer then distributes requests to web servers with private IPs for enhanced security.",
+      "service": "gtts"
+    },
+    "original_audio": "here-s-the-architecture-with-a-load-balancer-users-85dadc71.mp3",
+    "final_audio": "here-s-the-architecture-with-a-load-balancer-users-85dadc71.mp3"
+  },
+  {
+    "input_text": "Watch how traffic flows through the system. The load balancer receives requests from all users and intelligently distributes them to healthy servers. This ensures no single server gets overwhelmed.",
+    "input_data": {
+      "input_text": "Watch how traffic flows through the system. The load balancer receives requests from all users and intelligently distributes them to healthy servers. This ensures no single server gets overwhelmed.",
+      "service": "gtts"
+    },
+    "original_audio": "watch-how-traffic-flows-through-the-system-the-4e830f57.mp3",
+    "final_audio": "watch-how-traffic-flows-through-the-system-the-4e830f57.mp3"
+  },
+  {
+    "input_text": "Now let's see the magic of failover. Imagine Server 1 crashes or becomes unresponsive. The load balancer detects this failure immediately through health checks.",
+    "input_data": {
+      "input_text": "Now let's see the magic of failover. Imagine Server 1 crashes or becomes unresponsive. The load balancer detects this failure immediately through health checks.",
+      "service": "gtts"
+    },
+    "original_audio": "now-let-s-see-the-magic-of-failover-imagine-server-448d820b.mp3",
+    "final_audio": "now-let-s-see-the-magic-of-failover-imagine-server-448d820b.mp3"
+  },
+  {
+    "input_text": "All traffic is automatically rerouted to Server 2. The system remains online and responsive. Users experience no downtime. This is the power of redundancy!",
+    "input_data": {
+      "input_text": "All traffic is automatically rerouted to Server 2. The system remains online and responsive. Users experience no downtime. This is the power of redundancy!",
+      "service": "gtts"
+    },
+    "original_audio": "all-traffic-is-automatically-rerouted-to-server-2-a8a63e95.mp3",
+    "final_audio": "all-traffic-is-automatically-rerouted-to-server-2-a8a63e95.mp3"
+  },
+  {
+    "input_text": "Once a new healthy server is added to the pool, the load balancer automatically includes it in the rotation. Traffic is distributed evenly again, and the system returns to optimal performance.",
+    "input_data": {
+      "input_text": "Once a new healthy server is added to the pool, the load balancer automatically includes it in the rotation. Traffic is distributed evenly again, and the system returns to optimal performance.",
+      "service": "gtts"
+    },
+    "original_audio": "once-a-new-healthy-server-is-added-to-the-pool-the-ab436704.mp3",
+    "final_audio": "once-a-new-healthy-server-is-added-to-the-pool-the-ab436704.mp3"
+  },
+  {
+    "input_text": "Chapter Five: Database Replication. Now let's tackle the data tier. With a load balancer handling the web tier, we have high availability for our web servers. But what about our database? We need database replication.",
+    "input_data": {
+      "input_text": "Chapter Five: Database Replication. Now let's tackle the data tier. With a load balancer handling the web tier, we have high availability for our web servers. But what about our database? We need database replication.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-five-database-replication-now-let-s-tackle-8f15a3a5.mp3",
+    "final_audio": "chapter-five-database-replication-now-let-s-tackle-8f15a3a5.mp3"
+  },
+  {
+    "input_text": "The most common replication setup is master-slave replication. The master database handles all write operations: inserts, updates, and deletes. Slave databases get copies of the data from the master and handle read operations.",
+    "input_data": {
+      "input_text": "The most common replication setup is master-slave replication. The master database handles all write operations: inserts, updates, and deletes. Slave databases get copies of the data from the master and handle read operations.",
+      "service": "gtts"
+    },
+    "original_audio": "the-most-common-replication-setup-is-master-slave-4797d416.mp3",
+    "final_audio": "the-most-common-replication-setup-is-master-slave-4797d416.mp3"
+  },
+  {
+    "input_text": "Watch how data flows in this architecture. Write operations go to the master database. The master then replicates this data to all slave databases. This happens continuously to keep the slaves synchronized with the master.",
+    "input_data": {
+      "input_text": "Watch how data flows in this architecture. Write operations go to the master database. The master then replicates this data to all slave databases. This happens continuously to keep the slaves synchronized with the master.",
+      "service": "gtts"
+    },
+    "original_audio": "watch-how-data-flows-in-this-architecture-write-778c4610.mp3",
+    "final_audio": "watch-how-data-flows-in-this-architecture-write-778c4610.mp3"
+  },
+  {
+    "input_text": "Database replication provides three major benefits. First, better performance: most applications have far more read operations than writes. By distributing reads across multiple slaves, we can handle much more traffic.",
+    "input_data": {
+      "input_text": "Database replication provides three major benefits. First, better performance: most applications have far more read operations than writes. By distributing reads across multiple slaves, we can handle much more traffic.",
+      "service": "gtts"
+    },
+    "original_audio": "database-replication-provides-three-major-benefits-b5ce29e2.mp3",
+    "final_audio": "database-replication-provides-three-major-benefits-b5ce29e2.mp3"
+  },
+  {
+    "input_text": "Second, reliability. Data is stored across multiple servers. If one database disk fails, data is not lost because it exists on other databases. This redundancy is critical for data safety.",
+    "input_data": {
+      "input_text": "Second, reliability. Data is stored across multiple servers. If one database disk fails, data is not lost because it exists on other databases. This redundancy is critical for data safety.",
+      "service": "gtts"
+    },
+    "original_audio": "second-reliability-data-is-stored-across-multiple-fbeccc98.mp3",
+    "final_audio": "second-reliability-data-is-stored-across-multiple-fbeccc98.mp3"
+  },
+  {
+    "input_text": "Third, high availability. Even if the master database goes offline temporarily, your system can continue serving read requests from slave databases. We can also promote a slave to become the new master.",
+    "input_data": {
+      "input_text": "Third, high availability. Even if the master database goes offline temporarily, your system can continue serving read requests from slave databases. We can also promote a slave to become the new master.",
+      "service": "gtts"
+    },
+    "original_audio": "third-high-availability-even-if-the-master-b73fa876.mp3",
+    "final_audio": "third-high-availability-even-if-the-master-b73fa876.mp3"
+  },
+  {
+    "input_text": "Let's examine the failure scenarios. If a slave database goes offline, read operations are temporarily redirected to the master or other slave databases. A new slave can be created to replace the failed one.",
+    "input_data": {
+      "input_text": "Let's examine the failure scenarios. If a slave database goes offline, read operations are temporarily redirected to the master or other slave databases. A new slave can be created to replace the failed one.",
+      "service": "gtts"
+    },
+    "original_audio": "let-s-examine-the-failure-scenarios-if-a-slave-65900d3e.mp3",
+    "final_audio": "let-s-examine-the-failure-scenarios-if-a-slave-65900d3e.mp3"
+  },
+  {
+    "input_text": "If the master database fails, things are more complex. A slave database is promoted to be the new master. In production, this promotion can be automatic or manual depending on your setup. A new slave is then added to replace the promoted one. This ensures continuous operation.",
+    "input_data": {
+      "input_text": "If the master database fails, things are more complex. A slave database is promoted to be the new master. In production, this promotion can be automatic or manual depending on your setup. A new slave is then added to replace the promoted one. This ensures continuous operation.",
+      "service": "gtts"
+    },
+    "original_audio": "if-the-master-database-fails-things-are-more-05de58f8.mp3",
+    "final_audio": "if-the-master-database-fails-things-are-more-05de58f8.mp3"
+  },
+  {
+    "input_text": "Chapter Six: Cache Layer. After scaling the database, we need to address another performance bottleneck. Repeatedly querying the database for the same data is expensive. This is where caching comes in. A cache is a temporary storage layer that stores frequently accessed data in memory.",
+    "input_data": {
+      "input_text": "Chapter Six: Cache Layer. After scaling the database, we need to address another performance bottleneck. Repeatedly querying the database for the same data is expensive. This is where caching comes in. A cache is a temporary storage layer that stores frequently accessed data in memory.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-six-cache-layer-after-scaling-the-database-a668cfad.mp3",
+    "final_audio": "chapter-six-cache-layer-after-scaling-the-database-a668cfad.mp3"
+  },
+  {
+    "input_text": "Here's how the cache tier fits into our architecture. It sits between the web application and the database. When a web server needs data, it checks the cache first. This is much faster than querying the database.",
+    "input_data": {
+      "input_text": "Here's how the cache tier fits into our architecture. It sits between the web application and the database. When a web server needs data, it checks the cache first. This is much faster than querying the database.",
+      "service": "gtts"
+    },
+    "original_audio": "here-s-how-the-cache-tier-fits-into-our-9b39130b.mp3",
+    "final_audio": "here-s-how-the-cache-tier-fits-into-our-9b39130b.mp3"
+  },
+  {
+    "input_text": "Let me walk you through the cache workflow step by step. Step one: The web server receives a request and checks the cache for the required data. Step two: If the data exists in the cache, we call this a cache hit. The data is returned immediately. This is the fast path.",
+    "input_data": {
+      "input_text": "Let me walk you through the cache workflow step by step. Step one: The web server receives a request and checks the cache for the required data. Step two: If the data exists in the cache, we call this a cache hit. The data is returned immediately. This is the fast path.",
+      "service": "gtts"
+    },
+    "original_audio": "let-me-walk-you-through-the-cache-workflow-step-by-7bfc796a.mp3",
+    "final_audio": "let-me-walk-you-through-the-cache-workflow-step-by-7bfc796a.mp3"
+  },
+  {
+    "input_text": "Step three: If the data is not in the cache, we have a cache miss. The web server must query the database to retrieve the data. This is slower but necessary. Step four: The retrieved data is stored in the cache for future requests. Step five: The data is returned to the web server. Next time this data is requested, it will be a cache hit.",
+    "input_data": {
+      "input_text": "Step three: If the data is not in the cache, we have a cache miss. The web server must query the database to retrieve the data. This is slower but necessary. Step four: The retrieved data is stored in the cache for future requests. Step five: The data is returned to the web server. Next time this data is requested, it will be a cache hit.",
+      "service": "gtts"
+    },
+    "original_audio": "step-three-if-the-data-is-not-in-the-cache-we-have-478b4377.mp3",
+    "final_audio": "step-three-if-the-data-is-not-in-the-cache-we-have-478b4377.mp3"
+  },
+  {
+    "input_text": "Here's a quick example using Memcached code. We try to get data from the cache using the get function. If it's not there, we query the database, then set the data in the cache for next time. Simple but powerful!",
+    "input_data": {
+      "input_text": "Here's a quick example using Memcached code. We try to get data from the cache using the get function. If it's not there, we query the database, then set the data in the cache for next time. Simple but powerful!",
+      "service": "gtts"
+    },
+    "original_audio": "here-s-a-quick-example-using-memcached-code-we-try-0da52c00.mp3",
+    "final_audio": "here-s-a-quick-example-using-memcached-code-we-try-0da52c00.mp3"
+  },
+  {
+    "input_text": "When implementing cache, there are several important considerations. First, expiration policy: decide when to expire cached data. Too short and you lose benefits, too long and data becomes stale. Second, consistency: keeping cache and database in sync is challenging, especially during updates.",
+    "input_data": {
+      "input_text": "When implementing cache, there are several important considerations. First, expiration policy: decide when to expire cached data. Too short and you lose benefits, too long and data becomes stale. Second, consistency: keeping cache and database in sync is challenging, especially during updates.",
+      "service": "gtts"
+    },
+    "original_audio": "when-implementing-cache-there-are-several-b7fffa9b.mp3",
+    "final_audio": "when-implementing-cache-there-are-several-b7fffa9b.mp3"
+  },
+  {
+    "input_text": "Third, avoid single point of failure: use multiple cache servers across different data centers for redundancy. Fourth, eviction policies: when the cache is full, which data should be removed? Common strategies are LRU - least recently used, LFU - least frequently used, and FIFO - first in first out.",
+    "input_data": {
+      "input_text": "Third, avoid single point of failure: use multiple cache servers across different data centers for redundancy. Fourth, eviction policies: when the cache is full, which data should be removed? Common strategies are LRU - least recently used, LFU - least frequently used, and FIFO - first in first out.",
+      "service": "gtts"
+    },
+    "original_audio": "third-avoid-single-point-of-failure-use-multiple-5e3b6ae5.mp3",
+    "final_audio": "third-avoid-single-point-of-failure-use-multiple-5e3b6ae5.mp3"
+  },
+  {
+    "input_text": "Chapter Seven: Content Delivery Network. While cache speeds up database queries, we have another performance opportunity: static content. Images, videos, CSS, and JavaScript files don't change often but consume significant bandwidth. This is where CDN comes in.",
+    "input_data": {
+      "input_text": "Chapter Seven: Content Delivery Network. While cache speeds up database queries, we have another performance opportunity: static content. Images, videos, CSS, and JavaScript files don't change often but consume significant bandwidth. This is where CDN comes in.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-seven-content-delivery-network-while-cache-03b03698.mp3",
+    "final_audio": "chapter-seven-content-delivery-network-while-cache-03b03698.mp3"
+  },
+  {
+    "input_text": "A CDN is a network of geographically dispersed servers used to deliver static content. CDN servers cache static content like images, videos, CSS, and JavaScript files. When a user requests a file, it's served from the nearest CDN server instead of your origin server.",
+    "input_data": {
+      "input_text": "A CDN is a network of geographically dispersed servers used to deliver static content. CDN servers cache static content like images, videos, CSS, and JavaScript files. When a user requests a file, it's served from the nearest CDN server instead of your origin server.",
+      "service": "gtts"
+    },
+    "original_audio": "a-cdn-is-a-network-of-geographically-dispersed-e1ec8455.mp3",
+    "final_audio": "a-cdn-is-a-network-of-geographically-dispersed-e1ec8455.mp3"
+  },
+  {
+    "input_text": "Here's a practical example. User A in San Francisco requests image dot png. The request goes to the nearby CDN server. If the CDN has the file cached, it returns it immediately - say in 30 milliseconds. Compare this to fetching from the origin server in New York, which might take 120 milliseconds. That's four times faster!",
+    "input_data": {
+      "input_text": "Here's a practical example. User A in San Francisco requests image dot png. The request goes to the nearby CDN server. If the CDN has the file cached, it returns it immediately - say in 30 milliseconds. Compare this to fetching from the origin server in New York, which might take 120 milliseconds. That's four times faster!",
+      "service": "gtts"
+    },
+    "original_audio": "here-s-a-practical-example-user-a-in-san-francisco-a3bec0d4.mp3",
+    "final_audio": "here-s-a-practical-example-user-a-in-san-francisco-a3bec0d4.mp3"
+  },
+  {
+    "input_text": "Let's understand the CDN workflow. Step one: User requests an image from the CDN URL. Step two: If the CDN server doesn't have the image, it's a cache miss. Step three: The CDN requests the file from the origin server. Step four: The origin returns the file with an optional HTTP header called Time To Live, or TTL, which tells the CDN how long to cache it.",
+    "input_data": {
+      "input_text": "Let's understand the CDN workflow. Step one: User requests an image from the CDN URL. Step two: If the CDN server doesn't have the image, it's a cache miss. Step three: The CDN requests the file from the origin server. Step four: The origin returns the file with an optional HTTP header called Time To Live, or TTL, which tells the CDN how long to cache it.",
+      "service": "gtts"
+    },
+    "original_audio": "let-s-understand-the-cdn-workflow-step-one-user-ddbd636f.mp3",
+    "final_audio": "let-s-understand-the-cdn-workflow-step-one-user-ddbd636f.mp3"
+  },
+  {
+    "input_text": "Step five: The CDN caches the file and returns it to the user. Step six: Now when another user requests the same file, it's a cache hit! The CDN serves it directly without contacting the origin. This remains cached until the TTL expires. Popular CDN providers include Amazon CloudFront, Akamai, and Cloudflare.",
+    "input_data": {
+      "input_text": "Step five: The CDN caches the file and returns it to the user. Step six: Now when another user requests the same file, it's a cache hit! The CDN serves it directly without contacting the origin. This remains cached until the TTL expires. Popular CDN providers include Amazon CloudFront, Akamai, and Cloudflare.",
+      "service": "gtts"
+    },
+    "original_audio": "step-five-the-cdn-caches-the-file-and-returns-it-e3f4a699.mp3",
+    "final_audio": "step-five-the-cdn-caches-the-file-and-returns-it-e3f4a699.mp3"
+  },
+  {
+    "input_text": "Here are example CDN URLs. Amazon CloudFront URLs look like this with a unique identifier. Akamai uses a similar pattern. Your static assets are accessed through these CDN URLs instead of your origin domain.",
+    "input_data": {
+      "input_text": "Here are example CDN URLs. Amazon CloudFront URLs look like this with a unique identifier. Akamai uses a similar pattern. Your static assets are accessed through these CDN URLs instead of your origin domain.",
+      "service": "gtts"
+    },
+    "original_audio": "here-are-example-cdn-urls-amazon-cloudfront-urls-f021939a.mp3",
+    "final_audio": "here-are-example-cdn-urls-amazon-cloudfront-urls-f021939a.mp3"
+  },
+  {
+    "input_text": "Chapter Eight: Stateless Web Tier. As we continue scaling, we need to address session state management. Now we move state data out of the web tier. A stateless web tier is critical for horizontal scaling.",
+    "input_data": {
+      "input_text": "Chapter Eight: Stateless Web Tier. As we continue scaling, we need to address session state management. Now we move state data out of the web tier. A stateless web tier is critical for horizontal scaling.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-eight-stateless-web-tier-as-we-continue-af502090.mp3",
+    "final_audio": "chapter-eight-stateless-web-tier-as-we-continue-af502090.mp3"
+  },
+  {
+    "input_text": "First, let's understand stateful architecture. In a stateful setup, the server remembers client data between requests. For example, user A's session is stored on Server 1. User A must always be routed to Server 1. This is called sticky sessions, and it's a problem.",
+    "input_data": {
+      "input_text": "First, let's understand stateful architecture. In a stateful setup, the server remembers client data between requests. For example, user A's session is stored on Server 1. User A must always be routed to Server 1. This is called sticky sessions, and it's a problem.",
+      "service": "gtts"
+    },
+    "original_audio": "first-let-s-understand-stateful-architecture-in-a-d9d8f92c.mp3",
+    "final_audio": "first-let-s-understand-stateful-architecture-in-a-d9d8f92c.mp3"
+  },
+  {
+    "input_text": "Stateful architecture creates serious problems. If Server 1 fails, User A loses their session and must log in again. Adding or removing servers is difficult because sessions are tied to specific servers. Load balancing is challenging and inefficient. We need a better solution!",
+    "input_data": {
+      "input_text": "Stateful architecture creates serious problems. If Server 1 fails, User A loses their session and must log in again. Adding or removing servers is difficult because sessions are tied to specific servers. Load balancing is challenging and inefficient. We need a better solution!",
+      "service": "gtts"
+    },
+    "original_audio": "stateful-architecture-creates-serious-problems-if-e6c9828a.mp3",
+    "final_audio": "stateful-architecture-creates-serious-problems-if-e6c9828a.mp3"
+  },
+  {
+    "input_text": "Now let's look at stateless architecture. This is the solution! In stateless architecture, web servers don't store any session data. Instead, session data is stored in a shared data store accessible by all web servers. This is typically a NoSQL database like Redis or Memcached.",
+    "input_data": {
+      "input_text": "Now let's look at stateless architecture. This is the solution! In stateless architecture, web servers don't store any session data. Instead, session data is stored in a shared data store accessible by all web servers. This is typically a NoSQL database like Redis or Memcached.",
+      "service": "gtts"
+    },
+    "original_audio": "now-let-s-look-at-stateless-architecture-this-is-46d957c3.mp3",
+    "final_audio": "now-let-s-look-at-stateless-architecture-this-is-46d957c3.mp3"
+  },
+  {
+    "input_text": "The benefits are enormous! Any user can connect to any server because session data is centralized. Servers become truly interchangeable. We can add or remove servers dynamically based on traffic. Autoscaling becomes possible. The load balancer can distribute traffic evenly without worrying about sessions. This is true horizontal scaling!",
+    "input_data": {
+      "input_text": "The benefits are enormous! Any user can connect to any server because session data is centralized. Servers become truly interchangeable. We can add or remove servers dynamically based on traffic. Autoscaling becomes possible. The load balancer can distribute traffic evenly without worrying about sessions. This is true horizontal scaling!",
+      "service": "gtts"
+    },
+    "original_audio": "the-benefits-are-enormous-any-user-can-connect-to-030e36d7.mp3",
+    "final_audio": "the-benefits-are-enormous-any-user-can-connect-to-030e36d7.mp3"
+  },
+  {
+    "input_text": "Here's how autoscaling works with a stateless web tier. We monitor traffic with a graph showing requests per second. When traffic increases, we automatically spin up more servers. When traffic decreases, we remove servers to save costs. This is only possible because our servers are stateless!",
+    "input_data": {
+      "input_text": "Here's how autoscaling works with a stateless web tier. We monitor traffic with a graph showing requests per second. When traffic increases, we automatically spin up more servers. When traffic decreases, we remove servers to save costs. This is only possible because our servers are stateless!",
+      "service": "gtts"
+    },
+    "original_audio": "here-s-how-autoscaling-works-with-a-stateless-web-a9118b24.mp3",
+    "final_audio": "here-s-how-autoscaling-works-with-a-stateless-web-a9118b24.mp3"
+  },
+  {
+    "input_text": "Chapter Nine: Multiple Data Centers. To truly serve a global user base, we need multiple data centers across different geographical regions. This improves availability and provides better user experience for users worldwide.",
+    "input_data": {
+      "input_text": "Chapter Nine: Multiple Data Centers. To truly serve a global user base, we need multiple data centers across different geographical regions. This improves availability and provides better user experience for users worldwide.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-nine-multiple-data-centers-to-truly-serve-ee91949a.mp3",
+    "final_audio": "chapter-nine-multiple-data-centers-to-truly-serve-ee91949a.mp3"
+  },
+  {
+    "input_text": "Here's a multi-datacenter setup. We have one datacenter on the US East Coast and another on the US West Coast. Users are automatically routed to the nearest datacenter based on their geographic location. This is done using geo DNS, which returns different IP addresses based on the user's location.",
+    "input_data": {
+      "input_text": "Here's a multi-datacenter setup. We have one datacenter on the US East Coast and another on the US West Coast. Users are automatically routed to the nearest datacenter based on their geographic location. This is done using geo DNS, which returns different IP addresses based on the user's location.",
+      "service": "gtts"
+    },
+    "original_audio": "here-s-a-multi-datacenter-setup-we-have-one-ab4cf6cb.mp3",
+    "final_audio": "here-s-a-multi-datacenter-setup-we-have-one-ab4cf6cb.mp3"
+  },
+  {
+    "input_text": "Now imagine Data Center 2 on the West Coast goes offline due to a power outage or network issue. The GeoDNS routing system detects this failure immediately and reroutes all traffic to Data Center 1. One hundred percent of traffic now flows to the East Coast datacenter. Users experience minimal disruption.",
+    "input_data": {
+      "input_text": "Now imagine Data Center 2 on the West Coast goes offline due to a power outage or network issue. The GeoDNS routing system detects this failure immediately and reroutes all traffic to Data Center 1. One hundred percent of traffic now flows to the East Coast datacenter. Users experience minimal disruption.",
+      "service": "gtts"
+    },
+    "original_audio": "now-imagine-data-center-2-on-the-west-coast-goes-e61ecb47.mp3",
+    "final_audio": "now-imagine-data-center-2-on-the-west-coast-goes-e61ecb47.mp3"
+  },
+  {
+    "input_text": "Setting up multiple data centers introduces several technical challenges we must address. First challenge: traffic redirection. We need GeoDNS to route users to the correct datacenter. GeoDNS is a DNS service that returns different IP addresses based on where the user is located.",
+    "input_data": {
+      "input_text": "Setting up multiple data centers introduces several technical challenges we must address. First challenge: traffic redirection. We need GeoDNS to route users to the correct datacenter. GeoDNS is a DNS service that returns different IP addresses based on where the user is located.",
+      "service": "gtts"
+    },
+    "original_audio": "setting-up-multiple-data-centers-introduces-1df8ffac.mp3",
+    "final_audio": "setting-up-multiple-data-centers-introduces-1df8ffac.mp3"
+  },
+  {
+    "input_text": "Second challenge: data synchronization. Users from different regions could access the same resources - like their profile or posts. We need to replicate data across regions. A common strategy is to use database replication with eventual consistency. Changes in one datacenter propagate to others, though not instantly.",
+    "input_data": {
+      "input_text": "Second challenge: data synchronization. Users from different regions could access the same resources - like their profile or posts. We need to replicate data across regions. A common strategy is to use database replication with eventual consistency. Changes in one datacenter propagate to others, though not instantly.",
+      "service": "gtts"
+    },
+    "original_audio": "second-challenge-data-synchronization-users-from-de0be130.mp3",
+    "final_audio": "second-challenge-data-synchronization-users-from-de0be130.mp3"
+  },
+  {
+    "input_text": "Third challenge: testing and deployment. With multiple data centers, testing becomes more complex. You need to test in all regions. Automated deployment pipelines are essential. You want to deploy updates to all datacenters simultaneously or in a controlled rollout. Monitoring and rollback capabilities are critical.",
+    "input_data": {
+      "input_text": "Third challenge: testing and deployment. With multiple data centers, testing becomes more complex. You need to test in all regions. Automated deployment pipelines are essential. You want to deploy updates to all datacenters simultaneously or in a controlled rollout. Monitoring and rollback capabilities are critical.",
+      "service": "gtts"
+    },
+    "original_audio": "third-challenge-testing-and-deployment-with-7aba5754.mp3",
+    "final_audio": "third-challenge-testing-and-deployment-with-7aba5754.mp3"
+  },
+  {
+    "input_text": "Chapter Ten: Message Queue. As our system grows in complexity, we need better ways to handle asynchronous processing. Enter the message queue - a powerful architecture pattern for building scalable, decoupled systems.",
+    "input_data": {
+      "input_text": "Chapter Ten: Message Queue. As our system grows in complexity, we need better ways to handle asynchronous processing. Enter the message queue - a powerful architecture pattern for building scalable, decoupled systems.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-ten-message-queue-as-our-system-grows-in-f22a5f37.mp3",
+    "final_audio": "chapter-ten-message-queue-as-our-system-grows-in-f22a5f37.mp3"
+  },
+  {
+    "input_text": "A message queue is a durable component stored in memory that supports asynchronous communication. It serves as a buffer and distributes tasks to workers. Here's the basic architecture: producers publish messages to the queue, and consumers or workers subscribe to the queue and perform the tasks.",
+    "input_data": {
+      "input_text": "A message queue is a durable component stored in memory that supports asynchronous communication. It serves as a buffer and distributes tasks to workers. Here's the basic architecture: producers publish messages to the queue, and consumers or workers subscribe to the queue and perform the tasks.",
+      "service": "gtts"
+    },
+    "original_audio": "a-message-queue-is-a-durable-component-stored-in-c17df38a.mp3",
+    "final_audio": "a-message-queue-is-a-durable-component-stored-in-c17df38a.mp3"
+  },
+  {
+    "input_text": "Let's see a practical example: photo processing. When a user uploads a photo, the web server doesn't process it immediately. Instead, it publishes a job to the message queue with tasks like crop the photo, sharpen it, and apply blur effects. Photo workers pick up these jobs from the queue and process them independently.",
+    "input_data": {
+      "input_text": "Let's see a practical example: photo processing. When a user uploads a photo, the web server doesn't process it immediately. Instead, it publishes a job to the message queue with tasks like crop the photo, sharpen it, and apply blur effects. Photo workers pick up these jobs from the queue and process them independently.",
+      "service": "gtts"
+    },
+    "original_audio": "let-s-see-a-practical-example-photo-processing-c90d4e78.mp3",
+    "final_audio": "let-s-see-a-practical-example-photo-processing-c90d4e78.mp3"
+  },
+  {
+    "input_text": "The beauty of message queues is decoupling. Producers and consumers are completely independent. The web server doesn't wait for photo processing to complete. It returns immediately, giving users a fast response. Workers can be scaled independently. If the queue fills up with many jobs, we can add more workers. If jobs decrease, we remove workers. This is elastic scaling in action!",
+    "input_data": {
+      "input_text": "The beauty of message queues is decoupling. Producers and consumers are completely independent. The web server doesn't wait for photo processing to complete. It returns immediately, giving users a fast response. Workers can be scaled independently. If the queue fills up with many jobs, we can add more workers. If jobs decrease, we remove workers. This is elastic scaling in action!",
+      "service": "gtts"
+    },
+    "original_audio": "the-beauty-of-message-queues-is-decoupling-16141c0d.mp3",
+    "final_audio": "the-beauty-of-message-queues-is-decoupling-16141c0d.mp3"
+  },
+  {
+    "input_text": "Chapter Eleven: Logging, Metrics, and Automation. When operating large-scale systems, you cannot rely on manual monitoring. You need comprehensive logging, detailed metrics, and extensive automation. These are the three pillars of operational excellence.",
+    "input_data": {
+      "input_text": "Chapter Eleven: Logging, Metrics, and Automation. When operating large-scale systems, you cannot rely on manual monitoring. You need comprehensive logging, detailed metrics, and extensive automation. These are the three pillars of operational excellence.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-eleven-logging-metrics-and-automation-when-a3394811.mp3",
+    "final_audio": "chapter-eleven-logging-metrics-and-automation-when-a3394811.mp3"
+  },
+  {
+    "input_text": "First, let's talk about logging. In a distributed system with hundreds or thousands of servers, you cannot manually check log files on each server. You need centralized logging. Tools like Elasticsearch, Splunk, or CloudWatch aggregate logs from all servers into a single searchable interface. You can search for errors, trace requests across services, and debug issues quickly.",
+    "input_data": {
+      "input_text": "First, let's talk about logging. In a distributed system with hundreds or thousands of servers, you cannot manually check log files on each server. You need centralized logging. Tools like Elasticsearch, Splunk, or CloudWatch aggregate logs from all servers into a single searchable interface. You can search for errors, trace requests across services, and debug issues quickly.",
+      "service": "gtts"
+    },
+    "original_audio": "first-let-s-talk-about-logging-in-a-distributed-91b7a274.mp3",
+    "final_audio": "first-let-s-talk-about-logging-in-a-distributed-91b7a274.mp3"
+  },
+  {
+    "input_text": "Second pillar: metrics and monitoring. You need to collect metrics at two levels. Host-level metrics include CPU usage, memory consumption, disk I/O, and network traffic. These tell you about individual server health. Aggregated metrics span across the entire tier - like database performance, cache hit rate, and overall system throughput.",
+    "input_data": {
+      "input_text": "Second pillar: metrics and monitoring. You need to collect metrics at two levels. Host-level metrics include CPU usage, memory consumption, disk I/O, and network traffic. These tell you about individual server health. Aggregated metrics span across the entire tier - like database performance, cache hit rate, and overall system throughput.",
+      "service": "gtts"
+    },
+    "original_audio": "second-pillar-metrics-and-monitoring-you-need-to-5fa7257b.mp3",
+    "final_audio": "second-pillar-metrics-and-monitoring-you-need-to-5fa7257b.mp3"
+  },
+  {
+    "input_text": "You also need business metrics. These track the health of your product and business. Daily active users, retention rate, and revenue are critical metrics. They help you understand not just if your servers are running, but if your business is healthy. A dashboard displaying all these metrics together gives you complete system visibility.",
+    "input_data": {
+      "input_text": "You also need business metrics. These track the health of your product and business. Daily active users, retention rate, and revenue are critical metrics. They help you understand not just if your servers are running, but if your business is healthy. A dashboard displaying all these metrics together gives you complete system visibility.",
+      "service": "gtts"
+    },
+    "original_audio": "you-also-need-business-metrics-these-track-the-bbf0cd3d.mp3",
+    "final_audio": "you-also-need-business-metrics-these-track-the-bbf0cd3d.mp3"
+  },
+  {
+    "input_text": "Third pillar: automation. For large systems, automation is not optional - it's essential. Continuous Integration means every code commit triggers automated tests. If tests pass, the code is automatically built and ready for deployment. Continuous Deployment takes it further - code that passes all tests is automatically deployed to production. No manual intervention needed!",
+    "input_data": {
+      "input_text": "Third pillar: automation. For large systems, automation is not optional - it's essential. Continuous Integration means every code commit triggers automated tests. If tests pass, the code is automatically built and ready for deployment. Continuous Deployment takes it further - code that passes all tests is automatically deployed to production. No manual intervention needed!",
+      "service": "gtts"
+    },
+    "original_audio": "third-pillar-automation-for-large-systems-f4b579b2.mp3",
+    "final_audio": "third-pillar-automation-for-large-systems-f4b579b2.mp3"
+  },
+  {
+    "input_text": "Chapter Twelve: Database Sharding. As data grows, a single database becomes a bottleneck. Even with replication, the master database can only handle so much write traffic. This is where sharding comes in - one of the most powerful techniques for scaling databases.",
+    "input_data": {
+      "input_text": "Chapter Twelve: Database Sharding. As data grows, a single database becomes a bottleneck. Even with replication, the master database can only handle so much write traffic. This is where sharding comes in - one of the most powerful techniques for scaling databases.",
+      "service": "gtts"
+    },
+    "original_audio": "chapter-twelve-database-sharding-as-data-grows-a-3c931f60.mp3",
+    "final_audio": "chapter-twelve-database-sharding-as-data-grows-a-3c931f60.mp3"
+  },
+  {
+    "input_text": "First, let's compare our two scaling options. Vertical scaling means upgrading to a more powerful database server. You might go from 16 gigabytes of RAM to 24 terabytes. But there are hard limits, and costs skyrocket. A single server with 24 terabytes of RAM exists but is extremely expensive. This doesn't scale indefinitely.",
+    "input_data": {
+      "input_text": "First, let's compare our two scaling options. Vertical scaling means upgrading to a more powerful database server. You might go from 16 gigabytes of RAM to 24 terabytes. But there are hard limits, and costs skyrocket. A single server with 24 terabytes of RAM exists but is extremely expensive. This doesn't scale indefinitely.",
+      "service": "gtts"
+    },
+    "original_audio": "first-let-s-compare-our-two-scaling-options-8cea032f.mp3",
+    "final_audio": "first-let-s-compare-our-two-scaling-options-8cea032f.mp3"
+  },
+  {
+    "input_text": "Horizontal scaling through sharding is the better solution. Sharding separates large databases into smaller, more manageable parts called shards. Each shard shares the same schema but holds different data. The key is the sharding function, which determines which shard stores which data.",
+    "input_data": {
+      "input_text": "Horizontal scaling through sharding is the better solution. Sharding separates large databases into smaller, more manageable parts called shards. Each shard shares the same schema but holds different data. The key is the sharding function, which determines which shard stores which data.",
+      "service": "gtts"
+    },
+    "original_audio": "horizontal-scaling-through-sharding-is-the-better-8d5b2bd8.mp3",
+    "final_audio": "horizontal-scaling-through-sharding-is-the-better-8d5b2bd8.mp3"
+  },
+  {
+    "input_text": "Let's see how sharding works in practice. We use a hash function to determine which shard stores each user's data. The simplest function is user ID modulo number of shards. For example, with four shards: user ID 0, 4, 8, 12 go to shard 0. User ID 1, 5, 9, 13 go to shard 1. User ID 2, 6, 10, 14 go to shard 2. And user ID 3, 7, 11, 15 go to shard 3.",
+    "input_data": {
+      "input_text": "Let's see how sharding works in practice. We use a hash function to determine which shard stores each user's data. The simplest function is user ID modulo number of shards. For example, with four shards: user ID 0, 4, 8, 12 go to shard 0. User ID 1, 5, 9, 13 go to shard 1. User ID 2, 6, 10, 14 go to shard 2. And user ID 3, 7, 11, 15 go to shard 3.",
+      "service": "gtts"
+    },
+    "original_audio": "let-s-see-how-sharding-works-in-practice-we-use-a-a87bf273.mp3",
+    "final_audio": "let-s-see-how-sharding-works-in-practice-we-use-a-a87bf273.mp3"
+  },
+  {
+    "input_text": "Sharding introduces important challenges you must address. First: resharding data. When a shard becomes too large or data distribution is uneven, you need to update the sharding function and move data. This is complex and requires careful planning. Solutions include consistent hashing to minimize data movement.",
+    "input_data": {
+      "input_text": "Sharding introduces important challenges you must address. First: resharding data. When a shard becomes too large or data distribution is uneven, you need to update the sharding function and move data. This is complex and requires careful planning. Solutions include consistent hashing to minimize data movement.",
+      "service": "gtts"
+    },
+    "original_audio": "sharding-introduces-important-challenges-you-must-7f5003b5.mp3",
+    "final_audio": "sharding-introduces-important-challenges-you-must-7f5003b5.mp3"
+  },
+  {
+    "input_text": "Second challenge: celebrity or hotspot problem. If a specific shard gets excessive traffic - say all requests for a famous celebrity's posts go to one shard - that shard becomes overwhelmed. You may need to allocate dedicated shards for hot users or use further partitioning strategies.",
+    "input_data": {
+      "input_text": "Second challenge: celebrity or hotspot problem. If a specific shard gets excessive traffic - say all requests for a famous celebrity's posts go to one shard - that shard becomes overwhelmed. You may need to allocate dedicated shards for hot users or use further partitioning strategies.",
+      "service": "gtts"
+    },
+    "original_audio": "second-challenge-celebrity-or-hotspot-problem-if-a-5551bc42.mp3",
+    "final_audio": "second-challenge-celebrity-or-hotspot-problem-if-a-5551bc42.mp3"
+  },
+  {
+    "input_text": "Third challenge: join operations and denormalization. Once data is sharded across multiple databases, performing SQL joins becomes very difficult or impossible. You can't easily join data that lives on different servers. The solution is often denormalization - duplicating data across shards to avoid joins. This trades storage space for query performance.",
+    "input_data": {
+      "input_text": "Third challenge: join operations and denormalization. Once data is sharded across multiple databases, performing SQL joins becomes very difficult or impossible. You can't easily join data that lives on different servers. The solution is often denormalization - duplicating data across shards to avoid joins. This trades storage space for query performance.",
+      "service": "gtts"
+    },
+    "original_audio": "third-challenge-join-operations-and-2bdf0869.mp3",
+    "final_audio": "third-challenge-join-operations-and-2bdf0869.mp3"
+  },
+  {
+    "input_text": "Congratulations! We've completed our journey from a single server to a system capable of serving millions of users. Let's review the essential best practices you must remember when scaling systems.",
+    "input_data": {
+      "input_text": "Congratulations! We've completed our journey from a single server to a system capable of serving millions of users. Let's review the essential best practices you must remember when scaling systems.",
+      "service": "gtts"
+    },
+    "original_audio": "congratulations-we-ve-completed-our-journey-from-a-66d23ad0.mp3",
+    "final_audio": "congratulations-we-ve-completed-our-journey-from-a-66d23ad0.mp3"
+  },
+  {
+    "input_text": "Best practice number one: keep the web tier stateless. Store session data in external storage like Redis or NoSQL. This enables true horizontal scaling and easy autoscaling. Number two: build redundancy at every tier. Have multiple web servers, database replicas, cache servers, and data centers. Redundancy prevents single points of failure.",
+    "input_data": {
+      "input_text": "Best practice number one: keep the web tier stateless. Store session data in external storage like Redis or NoSQL. This enables true horizontal scaling and easy autoscaling. Number two: build redundancy at every tier. Have multiple web servers, database replicas, cache servers, and data centers. Redundancy prevents single points of failure.",
+      "service": "gtts"
+    },
+    "original_audio": "best-practice-number-one-keep-the-web-tier-663d20f0.mp3",
+    "final_audio": "best-practice-number-one-keep-the-web-tier-663d20f0.mp3"
+  },
+  {
+    "input_text": "Number three: cache data as much as you can. Caching dramatically reduces database load and improves response times. Use CDNs for static content and in-memory caches for dynamic data. Number four: support multiple data centers. Distribute your system across geographical regions for better availability and lower latency for global users.",
+    "input_data": {
+      "input_text": "Number three: cache data as much as you can. Caching dramatically reduces database load and improves response times. Use CDNs for static content and in-memory caches for dynamic data. Number four: support multiple data centers. Distribute your system across geographical regions for better availability and lower latency for global users.",
+      "service": "gtts"
+    },
+    "original_audio": "number-three-cache-data-as-much-as-you-can-caching-ca1442bd.mp3",
+    "final_audio": "number-three-cache-data-as-much-as-you-can-caching-ca1442bd.mp3"
+  },
+  {
+    "input_text": "Number five: host static assets in CDN. This offloads traffic from your origin servers and provides fast delivery worldwide. Number six: scale your data tier by sharding. When a single database can't handle the load, shard it across multiple databases.",
+    "input_data": {
+      "input_text": "Number five: host static assets in CDN. This offloads traffic from your origin servers and provides fast delivery worldwide. Number six: scale your data tier by sharding. When a single database can't handle the load, shard it across multiple databases.",
+      "service": "gtts"
+    },
+    "original_audio": "number-five-host-static-assets-in-cdn-this-bade2b32.mp3",
+    "final_audio": "number-five-host-static-assets-in-cdn-this-bade2b32.mp3"
+  },
+  {
+    "input_text": "Number seven: split tiers into individual services. Use microservices architecture to independently scale and deploy different components. Number eight: monitor your system and use automation tools. Implement comprehensive logging, metrics, and automated deployment pipelines.",
+    "input_data": {
+      "input_text": "Number seven: split tiers into individual services. Use microservices architecture to independently scale and deploy different components. Number eight: monitor your system and use automation tools. Implement comprehensive logging, metrics, and automated deployment pipelines.",
+      "service": "gtts"
+    },
+    "original_audio": "number-seven-split-tiers-into-individual-services-4510f7da.mp3",
+    "final_audio": "number-seven-split-tiers-into-individual-services-4510f7da.mp3"
+  },
+  {
+    "input_text": "Here's the complete architecture we've built together. Users connect through DNS and CDN. Load balancers distribute traffic to stateless web servers. Web servers query cache layers and message queues. Behind the scenes, we have sharded databases with replication, NoSQL for session storage, and comprehensive monitoring and automation tools. All of this runs across multiple data centers for global availability.",
+    "input_data": {
+      "input_text": "Here's the complete architecture we've built together. Users connect through DNS and CDN. Load balancers distribute traffic to stateless web servers. Web servers query cache layers and message queues. Behind the scenes, we have sharded databases with replication, NoSQL for session storage, and comprehensive monitoring and automation tools. All of this runs across multiple data centers for global availability.",
+      "service": "gtts"
+    },
+    "original_audio": "here-s-the-complete-architecture-we-ve-built-5c194dcf.mp3",
+    "final_audio": "here-s-the-complete-architecture-we-ve-built-5c194dcf.mp3"
+  },
+  {
+    "input_text": "Remember: scaling is an iterative process, not a one-time task. You start simple and add complexity only as needed. Monitor your system continuously. Identify bottlenecks through metrics and profiling. Address each bottleneck systematically. Test thoroughly at every stage. And always keep learning - system design evolves constantly!",
+    "input_data": {
+      "input_text": "Remember: scaling is an iterative process, not a one-time task. You start simple and add complexity only as needed. Monitor your system continuously. Identify bottlenecks through metrics and profiling. Address each bottleneck systematically. Test thoroughly at every stage. And always keep learning - system design evolves constantly!",
+      "service": "gtts"
+    },
+    "original_audio": "remember-scaling-is-an-iterative-process-not-a-one-e3c0a3e1.mp3",
+    "final_audio": "remember-scaling-is-an-iterative-process-not-a-one-e3c0a3e1.mp3"
+  },
+  {
+    "input_text": "Thank you for joining me on this journey from zero to millions of users. You now have the knowledge to design and scale robust, high-performance systems. Keep practicing, keep building, and keep scaling. Good luck with your system design interviews and projects!",
+    "input_data": {
+      "input_text": "Thank you for joining me on this journey from zero to millions of users. You now have the knowledge to design and scale robust, high-performance systems. Keep practicing, keep building, and keep scaling. Good luck with your system design interviews and projects!",
+      "service": "gtts"
+    },
+    "original_audio": "thank-you-for-joining-me-on-this-journey-from-zero-6fcbd2da.mp3",
+    "final_audio": "thank-you-for-joining-me-on-this-journey-from-zero-6fcbd2da.mp3"
+  },
+  {
+    "input_text": "Welcome! Today we'll explore the Bubble Sort algorithm, one of the simplest sorting algorithms in computer science.",
+    "input_data": {
+      "input_text": "Welcome! Today we'll explore the Bubble Sort algorithm, one of the simplest sorting algorithms in computer science.",
+      "service": "gtts"
+    },
+    "original_audio": "welcome-today-we-ll-explore-the-bubble-sort-c0b28ccf.mp3",
+    "final_audio": "welcome-today-we-ll-explore-the-bubble-sort-c0b28ccf.mp3"
+  },
+  {
+    "input_text": "Bubble Sort works by repeatedly comparing adjacent elements and swapping them if they are in the wrong order.",
+    "input_data": {
+      "input_text": "Bubble Sort works by repeatedly comparing adjacent elements and swapping them if they are in the wrong order.",
+      "service": "gtts"
+    },
+    "original_audio": "bubble-sort-works-by-repeatedly-comparing-adjacent-c3a92309.mp3",
+    "final_audio": "bubble-sort-works-by-repeatedly-comparing-adjacent-c3a92309.mp3"
+  },
+  {
+    "input_text": "Let's visualize Bubble Sort with an example array of numbers.",
+    "input_data": {
+      "input_text": "Let's visualize Bubble Sort with an example array of numbers.",
+      "service": "gtts"
+    },
+    "original_audio": "let-s-visualize-bubble-sort-with-an-example-array-3c54f81a.mp3",
+    "final_audio": "let-s-visualize-bubble-sort-with-an-example-array-3c54f81a.mp3"
+  },
+  {
+    "input_text": "In the first pass, we start by comparing 5 and 3. Since 5 is greater than 3, we swap them.",
+    "input_data": {
+      "input_text": "In the first pass, we start by comparing 5 and 3. Since 5 is greater than 3, we swap them.",
+      "service": "gtts"
+    },
+    "original_audio": "in-the-first-pass-we-start-by-comparing-5-and-3-53ec22d2.mp3",
+    "final_audio": "in-the-first-pass-we-start-by-comparing-5-and-3-53ec22d2.mp3"
+  },
+  {
+    "input_text": "Welcome! Today we will explore the Bubble Sort algorithm, one of the simplest sorting algorithms in computer science.",
+    "input_data": {
+      "input_text": "Welcome! Today we will explore the Bubble Sort algorithm, one of the simplest sorting algorithms in computer science.",
+      "service": "gtts"
+    },
+    "original_audio": "welcome-today-we-will-explore-the-bubble-sort-35cefdad.mp3",
+    "final_audio": "welcome-today-we-will-explore-the-bubble-sort-35cefdad.mp3"
+  },
+  {
+    "input_text": "Next, we compare 5 and 8. They're already in order, so no swap is needed.",
+    "input_data": {
+      "input_text": "Next, we compare 5 and 8. They're already in order, so no swap is needed.",
+      "service": "gtts"
+    },
+    "original_audio": "next-we-compare-5-and-8-they-re-already-in-order-77f1a439.mp3",
+    "final_audio": "next-we-compare-5-and-8-they-re-already-in-order-77f1a439.mp3"
+  },
+  {
+    "input_text": "Now comparing 8 and 4. We swap them since 8 is greater.",
+    "input_data": {
+      "input_text": "Now comparing 8 and 4. We swap them since 8 is greater.",
+      "service": "gtts"
+    },
+    "original_audio": "now-comparing-8-and-4-we-swap-them-since-8-is-b965960c.mp3",
+    "final_audio": "now-comparing-8-and-4-we-swap-them-since-8-is-b965960c.mp3"
+  },
+  {
+    "input_text": "Bubble Sort works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order.",
+    "input_data": {
+      "input_text": "Bubble Sort works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order.",
+      "service": "gtts"
+    },
+    "original_audio": "bubble-sort-works-by-repeatedly-stepping-through-d5c31cb6.mp3",
+    "final_audio": "bubble-sort-works-by-repeatedly-stepping-through-d5c31cb6.mp3"
+  },
+  {
+    "input_text": "Finally, comparing 8 and 2. Another swap is needed.",
+    "input_data": {
+      "input_text": "Finally, comparing 8 and 2. Another swap is needed.",
+      "service": "gtts"
+    },
+    "original_audio": "finally-comparing-8-and-2-another-swap-is-needed-dc9e594c.mp3",
+    "final_audio": "finally-comparing-8-and-2-another-swap-is-needed-dc9e594c.mp3"
+  },
+  {
+    "input_text": "After the first pass, the largest element has bubbled to the end.",
+    "input_data": {
+      "input_text": "After the first pass, the largest element has bubbled to the end.",
+      "service": "gtts"
+    },
+    "original_audio": "after-the-first-pass-the-largest-element-has-711d3bb3.mp3",
+    "final_audio": "after-the-first-pass-the-largest-element-has-711d3bb3.mp3"
+  },
+  {
+    "input_text": "We repeat this process for the remaining unsorted elements until the entire array is sorted.",
+    "input_data": {
+      "input_text": "We repeat this process for the remaining unsorted elements until the entire array is sorted.",
+      "service": "gtts"
+    },
+    "original_audio": "we-repeat-this-process-for-the-remaining-unsorted-cad69685.mp3",
+    "final_audio": "we-repeat-this-process-for-the-remaining-unsorted-cad69685.mp3"
+  },
+  {
+    "input_text": "Let's visualize this with an example. Here we have an unsorted array of numbers.",
+    "input_data": {
+      "input_text": "Let's visualize this with an example. Here we have an unsorted array of numbers.",
+      "service": "gtts"
+    },
+    "original_audio": "let-s-visualize-this-with-an-example-here-we-have-a868af3d.mp3",
+    "final_audio": "let-s-visualize-this-with-an-example-here-we-have-a868af3d.mp3"
+  },
+  {
+    "input_text": "We start by comparing the first two elements. Five is greater than two, so we swap them.",
+    "input_data": {
+      "input_text": "We start by comparing the first two elements. Five is greater than two, so we swap them.",
+      "service": "gtts"
+    },
+    "original_audio": "we-start-by-comparing-the-first-two-elements-five-5c19bee3.mp3",
+    "final_audio": "we-start-by-comparing-the-first-two-elements-five-5c19bee3.mp3"
+  },
+  {
+    "input_text": "Continuing with more passes until everything is sorted.",
+    "input_data": {
+      "input_text": "Continuing with more passes until everything is sorted.",
+      "service": "gtts"
+    },
+    "original_audio": "continuing-with-more-passes-until-everything-is-4769cad1.mp3",
+    "final_audio": "continuing-with-more-passes-until-everything-is-4769cad1.mp3"
+  },
+  {
+    "input_text": "Now we compare five and eight. They are already in order, so no swap is needed.",
+    "input_data": {
+      "input_text": "Now we compare five and eight. They are already in order, so no swap is needed.",
+      "service": "gtts"
+    },
+    "original_audio": "now-we-compare-five-and-eight-they-are-already-in-9114b9ff.mp3",
+    "final_audio": "now-we-compare-five-and-eight-they-are-already-in-9114b9ff.mp3"
+  },
+  {
+    "input_text": "And there we have it! The array is now completely sorted.",
+    "input_data": {
+      "input_text": "And there we have it! The array is now completely sorted.",
+      "service": "gtts"
+    },
+    "original_audio": "and-there-we-have-it-the-array-is-now-completely-d4d1578c.mp3",
+    "final_audio": "and-there-we-have-it-the-array-is-now-completely-d4d1578c.mp3"
+  },
+  {
+    "input_text": "Next, eight and one. Eight is larger, so we swap them.",
+    "input_data": {
+      "input_text": "Next, eight and one. Eight is larger, so we swap them.",
+      "service": "gtts"
+    },
+    "original_audio": "next-eight-and-one-eight-is-larger-so-we-swap-them-63e1c3ab.mp3",
+    "final_audio": "next-eight-and-one-eight-is-larger-so-we-swap-them-63e1c3ab.mp3"
+  },
+  {
+    "input_text": "Now let's talk about the time complexity of Bubble Sort.",
+    "input_data": {
+      "input_text": "Now let's talk about the time complexity of Bubble Sort.",
+      "service": "gtts"
+    },
+    "original_audio": "now-let-s-talk-about-the-time-complexity-of-bubble-a9b51844.mp3",
+    "final_audio": "now-let-s-talk-about-the-time-complexity-of-bubble-a9b51844.mp3"
+  },
+  {
+    "input_text": "Finally, eight and nine are in order. The largest element has bubbled to the end.",
+    "input_data": {
+      "input_text": "Finally, eight and nine are in order. The largest element has bubbled to the end.",
+      "service": "gtts"
+    },
+    "original_audio": "finally-eight-and-nine-are-in-order-the-largest-fc143b95.mp3",
+    "final_audio": "finally-eight-and-nine-are-in-order-the-largest-fc143b95.mp3"
+  },
+  {
+    "input_text": "In the worst case, Bubble Sort has a time complexity of O of n squared, where n is the number of elements.",
+    "input_data": {
+      "input_text": "In the worst case, Bubble Sort has a time complexity of O of n squared, where n is the number of elements.",
+      "service": "gtts"
+    },
+    "original_audio": "in-the-worst-case-bubble-sort-has-a-time-4850df70.mp3",
+    "final_audio": "in-the-worst-case-bubble-sort-has-a-time-4850df70.mp3"
+  },
+  {
+    "input_text": "We repeat this process, each time the next largest element bubbles to its correct position.",
+    "input_data": {
+      "input_text": "We repeat this process, each time the next largest element bubbles to its correct position.",
+      "service": "gtts"
+    },
+    "original_audio": "we-repeat-this-process-each-time-the-next-largest-b1116d54.mp3",
+    "final_audio": "we-repeat-this-process-each-time-the-next-largest-b1116d54.mp3"
+  },
+  {
+    "input_text": "The best case occurs when the array is already sorted, giving us O of n.",
+    "input_data": {
+      "input_text": "The best case occurs when the array is already sorted, giving us O of n.",
+      "service": "gtts"
+    },
+    "original_audio": "the-best-case-occurs-when-the-array-is-already-090a5a12.mp3",
+    "final_audio": "the-best-case-occurs-when-the-array-is-already-090a5a12.mp3"
+  },
+  {
+    "input_text": "Now let's analyze the time complexity. Bubble sort has a worst-case and average time complexity of O of n squared.",
+    "input_data": {
+      "input_text": "Now let's analyze the time complexity. Bubble sort has a worst-case and average time complexity of O of n squared.",
+      "service": "gtts"
+    },
+    "original_audio": "now-let-s-analyze-the-time-complexity-bubble-sort-91e99fe7.mp3",
+    "final_audio": "now-let-s-analyze-the-time-complexity-bubble-sort-91e99fe7.mp3"
+  },
+  {
+    "input_text": "However, in the best case, when the array is already sorted, it only takes O of n time.",
+    "input_data": {
+      "input_text": "However, in the best case, when the array is already sorted, it only takes O of n time.",
+      "service": "gtts"
+    },
+    "original_audio": "however-in-the-best-case-when-the-array-is-already-7b9f9390.mp3",
+    "final_audio": "however-in-the-best-case-when-the-array-is-already-7b9f9390.mp3"
+  },
+  {
+    "input_text": "The space complexity is O of 1, as it only requires a constant amount of additional memory.",
+    "input_data": {
+      "input_text": "The space complexity is O of 1, as it only requires a constant amount of additional memory.",
+      "service": "gtts"
+    },
+    "original_audio": "the-space-complexity-is-o-of-1-as-it-only-requires-34b520ea.mp3",
+    "final_audio": "the-space-complexity-is-o-of-1-as-it-only-requires-34b520ea.mp3"
+  },
+  {
+    "input_text": "In conclusion, while Bubble Sort is simple to understand and implement, it is not efficient for large datasets. Thank you for watching!",
+    "input_data": {
+      "input_text": "In conclusion, while Bubble Sort is simple to understand and implement, it is not efficient for large datasets. Thank you for watching!",
+      "service": "gtts"
+    },
+    "original_audio": "in-conclusion-while-bubble-sort-is-simple-to-97f6f990.mp3",
+    "final_audio": "in-conclusion-while-bubble-sort-is-simple-to-97f6f990.mp3"
+  },
+  {
+    "input_text": "Welcome! Today we'll explore QuickSort, one of the most efficient sorting algorithms.",
+    "input_data": {
+      "input_text": "Welcome! Today we'll explore QuickSort, one of the most efficient sorting algorithms.",
+      "service": "gtts"
+    },
+    "original_audio": "welcome-today-we-ll-explore-quicksort-one-of-the-58e1150f.mp3",
+    "final_audio": "welcome-today-we-ll-explore-quicksort-one-of-the-58e1150f.mp3"
+  },
+  {
+    "input_text": "QuickSort uses a divide and conquer strategy. It picks a pivot element and partitions the array around it.",
+    "input_data": {
+      "input_text": "QuickSort uses a divide and conquer strategy. It picks a pivot element and partitions the array around it.",
+      "service": "gtts"
+    },
+    "original_audio": "quicksort-uses-a-divide-and-conquer-strategy-it-ead92985.mp3",
+    "final_audio": "quicksort-uses-a-divide-and-conquer-strategy-it-ead92985.mp3"
+  },
+  {
+    "input_text": "Let's visualize QuickSort with an example array containing the numbers 6, 3, 8, 1, 9, 4, and 2.",
+    "input_data": {
+      "input_text": "Let's visualize QuickSort with an example array containing the numbers 6, 3, 8, 1, 9, 4, and 2.",
+      "service": "gtts"
+    },
+    "original_audio": "let-s-visualize-quicksort-with-an-example-array-4579b581.mp3",
+    "final_audio": "let-s-visualize-quicksort-with-an-example-array-4579b581.mp3"
+  },
+  {
+    "input_text": "First, we select the last element, 2, as our pivot. We'll highlight it in red.",
+    "input_data": {
+      "input_text": "First, we select the last element, 2, as our pivot. We'll highlight it in red.",
+      "service": "gtts"
+    },
+    "original_audio": "first-we-select-the-last-element-2-as-our-pivot-we-e647fd8c.mp3",
+    "final_audio": "first-we-select-the-last-element-2-as-our-pivot-we-e647fd8c.mp3"
+  },
+  {
+    "input_text": "Now we partition the array. Elements smaller than the pivot go to the left, and larger elements go to the right.",
+    "input_data": {
+      "input_text": "Now we partition the array. Elements smaller than the pivot go to the left, and larger elements go to the right.",
+      "service": "gtts"
+    },
+    "original_audio": "now-we-partition-the-array-elements-smaller-than-b3d893f9.mp3",
+    "final_audio": "now-we-partition-the-array-elements-smaller-than-b3d893f9.mp3"
+  },
+  {
+    "input_text": "The pivot is now in its correct position. We recursively apply the same process to the left and right sub-arrays.",
+    "input_data": {
+      "input_text": "The pivot is now in its correct position. We recursively apply the same process to the left and right sub-arrays.",
+      "service": "gtts"
+    },
+    "original_audio": "the-pivot-is-now-in-its-correct-position-we-687cf7da.mp3",
+    "final_audio": "the-pivot-is-now-in-its-correct-position-we-687cf7da.mp3"
+  },
+  {
+    "input_text": "After recursively sorting all partitions, we get the final sorted array: 1, 2, 3, 4, 6, 8, and 9.",
+    "input_data": {
+      "input_text": "After recursively sorting all partitions, we get the final sorted array: 1, 2, 3, 4, 6, 8, and 9.",
+      "service": "gtts"
+    },
+    "original_audio": "after-recursively-sorting-all-partitions-we-get-bd4e4053.mp3",
+    "final_audio": "after-recursively-sorting-all-partitions-we-get-bd4e4053.mp3"
+  },
+  {
+    "input_text": "Let's examine QuickSort's time complexity. In the average case, it operates in O of n log n time.",
+    "input_data": {
+      "input_text": "Let's examine QuickSort's time complexity. In the average case, it operates in O of n log n time.",
+      "service": "gtts"
+    },
+    "original_audio": "let-s-examine-quicksort-s-time-complexity-in-the-4b56d632.mp3",
+    "final_audio": "let-s-examine-quicksort-s-time-complexity-in-the-4b56d632.mp3"
+  },
+  {
+    "input_text": "However, in the worst case, when the pivot is always the smallest or largest element, it degrades to O of n squared.",
+    "input_data": {
+      "input_text": "However, in the worst case, when the pivot is always the smallest or largest element, it degrades to O of n squared.",
+      "service": "gtts"
+    },
+    "original_audio": "however-in-the-worst-case-when-the-pivot-is-always-544df8da.mp3",
+    "final_audio": "however-in-the-worst-case-when-the-pivot-is-always-544df8da.mp3"
+  },
+  {
+    "input_text": "The best case also achieves O of n log n when partitions are balanced.",
+    "input_data": {
+      "input_text": "The best case also achieves O of n log n when partitions are balanced.",
+      "service": "gtts"
+    },
+    "original_audio": "the-best-case-also-achieves-o-of-n-log-n-when-3c276f0a.mp3",
+    "final_audio": "the-best-case-also-achieves-o-of-n-log-n-when-3c276f0a.mp3"
+  },
+  {
+    "input_text": "QuickSort is widely used due to its efficiency and in-place sorting capability. Thank you for watching!",
+    "input_data": {
+      "input_text": "QuickSort is widely used due to its efficiency and in-place sorting capability. Thank you for watching!",
+      "service": "gtts"
+    },
+    "original_audio": "quicksort-is-widely-used-due-to-its-efficiency-and-a3dd7243.mp3",
+    "final_audio": "quicksort-is-widely-used-due-to-its-efficiency-and-a3dd7243.mp3"
   }
 ]
