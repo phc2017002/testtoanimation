@@ -139,9 +139,10 @@ class ElevenLabsService(SpeechService):
         # Check cache first
         cache_path = self._get_cache_path(text)
         if cache_path.exists():
+            # Return just the filename, manim-voiceover will prepend cache_dir
             return {
-                "original_audio": str(cache_path),
-                "final_audio": str(cache_path),
+                "original_audio": cache_path.name,
+                "final_audio": cache_path.name,
                 "text": text
             }
         
@@ -153,9 +154,10 @@ class ElevenLabsService(SpeechService):
             with open(cache_path, 'wb') as f:
                 f.write(audio_data)
             
+            # Return just the filename
             return {
-                "original_audio": str(cache_path),
-                "final_audio": str(cache_path),
+                "original_audio": cache_path.name,
+                "final_audio": cache_path.name,
                 "text": text
             }
             
