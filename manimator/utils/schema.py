@@ -96,8 +96,14 @@ class ManimProcessor:
             scene_name,
         ]
 
+        # Prepare environment with LaTeX path
+        env = os.environ.copy()
+        latex_path = "/Library/TeX/texbin"
+        if latex_path not in env.get("PATH", ""):
+            env["PATH"] = f"{latex_path}:{env.get('PATH', '')}"
+
         try:
-            subprocess.run(cmd, check=True, capture_output=True, text=True)
+            subprocess.run(cmd, check=True, capture_output=True, text=True, env=env)
             video_path = os.path.join(
                 temp_dir, "videos", "scene", "1080p60", f"{scene_name}.mp4"
             )

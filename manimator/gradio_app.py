@@ -9,7 +9,7 @@ from manimator.api.scene_description import process_prompt_scene, process_pdf_pr
 from manimator.utils.schema import ManimProcessor
 
 
-def process_prompt(prompt: str):
+def process_prompt(prompt: str, category: str = "mathematical"):
     max_attempts = 2
     attempts = 0
 
@@ -18,7 +18,7 @@ def process_prompt(prompt: str):
             processor = ManimProcessor()
             with processor.create_temp_dir() as temp_dir:
                 scene_description = process_prompt_scene(prompt)
-                response = generate_animation_response(scene_description)
+                response = generate_animation_response(scene_description, category)
                 code = processor.extract_code(response)
 
                 if not code:
@@ -68,16 +68,16 @@ def process_pdf(file_path: str):
         return f"Error processing PDF: {str(e)}"
 
 
-def interface_fn(prompt=None, pdf_file=None):
+def interface_fn(prompt=None, pdf_file=None, category="mathematical"):
     if prompt:
-        video_path, code, message = process_prompt(prompt)
+        video_path, code, message = process_prompt(prompt, category)
         if video_path:
             return [video_path, code, message]
         return [None, None, message]
     elif pdf_file:
         scene_description = process_pdf(pdf_file)
         if scene_description:
-            video_path, code, message = process_prompt(scene_description)
+            video_path, code, message = process_prompt(scene_description, category)
             if video_path:
                 return [video_path, code, message]
             return [None, None, message]
@@ -137,6 +137,15 @@ with gr.Blocks(title="manimator") as demo:
     with gr.Tabs():
         with gr.TabItem("✍️ Text Prompt"):
             with gr.Column():
+                category_input = gr.Dropdown(
+                    choices=[
+                        ("🔧 Tech/System Design", "tech_system"),
+                        ("📐 Mathematical/Research", "mathematical"),
+                        ("🚀 Product/Startup", "product_startup")
+                    ],
+                    label="Animation Category",
+                    value="mathematical",
+                )
                 text_input = gr.Textbox(
                     label="Describe the animation you want to create",
                     placeholder="Explain the working of neural networks",
@@ -153,16 +162,25 @@ with gr.Blocks(title="manimator") as demo:
                 interactive=False,
             )
             status_output = gr.Textbox(
-                label="Status", interactive=False, show_copy_button=True
+                label="Status", interactive=False
             )
             text_button.click(
-                fn=interface_fn,
-                inputs=[text_input],
+                fn=lambda prompt, category: interface_fn(prompt=prompt, category=category),
+                inputs=[text_input, category_input],
                 outputs=[video_output, code_output, status_output],
             )
 
         with gr.TabItem("📄 PDF Upload"):
             with gr.Column():
+                category_pdf = gr.Dropdown(
+                    choices=[
+                        ("🔧 Tech/System Design", "tech_system"),
+                        ("📐 Mathematical/Research", "mathematical"),
+                        ("🚀 Product/Startup", "product_startup")
+                    ],
+                    label="Animation Category",
+                    value="mathematical",
+                )
                 file_input = gr.File(label="Upload a PDF paper", file_types=[".pdf"])
                 pdf_button = gr.Button("Generate Animation from PDF")
 
@@ -175,11 +193,11 @@ with gr.Blocks(title="manimator") as demo:
                 interactive=False,
             )
             pdf_status_output = gr.Textbox(
-                label="Status", interactive=False, show_copy_button=True
+                label="Status", interactive=False
             )
             pdf_button.click(
-                fn=lambda pdf: interface_fn(prompt=None, pdf_file=pdf),
-                inputs=[file_input],
+                fn=lambda pdf, cat: interface_fn(prompt=None, pdf_file=pdf, category=cat),
+                inputs=[file_input, category_pdf],
                 outputs=[pdf_video_output, pdf_code_output, pdf_status_output],
             )
 

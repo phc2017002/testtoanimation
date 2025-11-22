@@ -214,6 +214,49 @@ def fix_missing_imports(code: str) -> str:
     return code
 
 
+def fix_undefined_colors(code: str) -> str:
+    """
+    Fix undefined color constants by replacing them with valid Manim colors.
+    
+    Common issues:
+    - ORANGE_A, ORANGE_B, etc. -> ORANGE
+    - RED_A, RED_B, etc. -> RED
+    - Similar patterns for other colors
+    
+    Args:
+        code: Raw generated code
+    
+    Returns:
+        Code with undefined colors replaced
+    """
+    # Color mappings: undefined variants -> standard colors
+    color_replacements = {
+        # Orange variants
+        r'\bORANGE_[A-Z]\b': 'ORANGE',
+        # Red variants
+        r'\bRED_[A-Z]\b': 'RED',
+        # Blue variants
+        r'\bBLUE_[A-Z]\b': 'BLUE',
+        # Green variants
+        r'\bGREEN_[A-Z]\b': 'GREEN',
+        # Yellow variants
+        r'\bYELLOW_[A-Z]\b': 'YELLOW',
+        # Purple variants
+        r'\bPURPLE_[A-Z]\b': 'PURPLE',
+        # Pink variants
+        r'\bPINK_[A-Z]\b': 'PINK',
+        # Teal variants
+        r'\bTEAL_[A-Z]\b': 'TEAL',
+        # Gray variants
+        r'\bGRAY_[A-Z]\b': 'GRAY',
+    }
+    
+    for pattern, replacement in color_replacements.items():
+        code = re.sub(pattern, replacement, code)
+    
+    return code
+
+
 def post_process_code(code: str) -> str:
     """
     Main entry point for code post-processing.
@@ -226,11 +269,15 @@ def post_process_code(code: str) -> str:
     Returns:
         Cleaned and fixed code
     """
+    # Check if we need to add header (before making changes)
+    has_undefined_colors = bool(re.search(r'\b(ORANGE|RED|BLUE|GREEN|YELLOW|PURPLE|PINK|TEAL|GRAY)_[A-Z]\b', code))
+    
     # Step 1: Extract code from markdown if needed
     code = extract_code_from_markdown(code)
     
     # Step 2: Apply fixes in order
     code = fix_missing_imports(code)
+    code = fix_undefined_colors(code)
     code = fix_surrounding_rectangles(code)
     code = fix_layout_issues(code)
     
@@ -254,11 +301,12 @@ def post_process_code(code: str) -> str:
 # - Layout spacing has been adjusted to prevent overlaps
 # - Axis labels have been positioned to stay within frame
 # - Font sizes have been capped to prevent massive text
+# Undefined color constants have been replaced with standard Manim colors.
 
 """
     
     # Only add header if we actually made changes
-    if '# Auto-disabled:' in code or '# Auto-fix:' in code or '# Warning:' in code or '# Note:' in code or '# ⚠️  SYNTAX ERROR DETECTED:' in code:
+    if '# Auto-disabled:' in code or '# Auto-fix:' in code or '# Warning:' in code or '# Note:' in code or '# ⚠️  SYNTAX ERROR DETECTED:' in code or has_undefined_colors:
         code = header + code
     
     return code

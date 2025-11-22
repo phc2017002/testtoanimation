@@ -73,6 +73,13 @@ class QualityLevel(str, Enum):
     ULTRA = "ultra"   # 4K60
 
 
+class AnimationCategory(str, Enum):
+    """Animation categories"""
+    TECH_SYSTEM = "tech_system"        # System design, architecture
+    MATHEMATICAL = "mathematical"      # Math, research papers
+    PRODUCT_STARTUP = "product_startup"  # Product demos, startup pitches
+
+
 QUALITY_FLAGS = {
     QualityLevel.LOW: "-pql",
     QualityLevel.MEDIUM: "-pqm",
@@ -85,6 +92,7 @@ class VideoRequest(BaseModel):
     """Request model for video generation"""
     prompt: str = Field(..., description="Detailed animation prompt describing the video content")
     quality: QualityLevel = Field(default=QualityLevel.HIGH, description="Video quality level")
+    category: AnimationCategory = Field(default=AnimationCategory.MATHEMATICAL, description="Animation category")
     scene_name: Optional[str] = Field(default=None, description="Custom scene class name (auto-generated if not provided)")
     
     class Config:
@@ -138,7 +146,7 @@ class JobManager:
             except Exception as e:
                 print(f"Error loading job {job_file}: {e}")
     
-    def create_job(self, prompt: str, quality: QualityLevel, scene_name: Optional[str] = None) -> str:
+    def create_job(self, prompt: str, quality: QualityLevel, category: AnimationCategory = AnimationCategory.MATHEMATICAL, scene_name: Optional[str] = None) -> str:
         """Create a new job"""
         job_id = str(uuid.uuid4())
         
@@ -149,6 +157,7 @@ class JobManager:
             "job_id": job_id,
             "status": JobStatus.PENDING,
             "prompt": prompt,
+            "category": category.value,
             "quality": quality,
             "scene_name": scene_name,
             "created_at": datetime.now().isoformat(),
@@ -254,7 +263,7 @@ class VideoGenerator:
                     )
                 
                 logger.info(f"🤖 Generating Manim code for job {job_id[:8]}...")
-                code = await self._generate_code(current_prompt)
+                code = await self._generate_code(current_prompt, job.get("category", "mathematical"))
                 
                 logger.info(f"✅ Code generation complete for job {job_id[:8]}...")
                 
@@ -382,14 +391,13 @@ class VideoGenerator:
             }
         )
     
-    async def _generate_code(self, prompt: str) -> str:
+    async def _generate_code(self, prompt: str, category: str = "mathematical") -> str:
         """Generate Manim code from prompt"""
         # Run in thread pool to avoid blocking
         loop = asyncio.get_event_loop()
         response = await loop.run_in_executor(
             None,
-            generate_animation_response,
-            prompt
+            lambda p=prompt, c=category: generate_animation_response(p, c)
         )
         
         # Extract Python code from markdown
@@ -415,12 +423,19 @@ class VideoGenerator:
         
         logger.info(f"🎬 Executing: {' '.join(cmd)}")
         
+        # Prepare environment with LaTeX path
+        env = os.environ.copy()
+        latex_path = "/Library/TeX/texbin"
+        if latex_path not in env.get("PATH", ""):
+            env["PATH"] = f"{latex_path}:{env.get('PATH', '')}"
+        
         # Run subprocess with streaming output
         process = await asyncio.create_subprocess_exec(
             *cmd,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.STDOUT,  # Merge stderr into stdout
-            cwd=str(Config.BASE_DIR)
+            cwd=str(Config.BASE_DIR),
+            env=env
         )
         
         # Stream output in real-time
@@ -535,6 +550,7 @@ async def create_video(request: VideoRequest, background_tasks: BackgroundTasks)
     job_id = job_manager.create_job(
         prompt=request.prompt,
         quality=request.quality,
+        category=request.category,
         scene_name=request.scene_name
     )
     
@@ -697,13 +713,13 @@ if __name__ == "__main__":
     import uvicorn
     
     print("🚀 Starting Manim Video Generation API Server...")
-    print("📚 API Documentation: http://localhost:8000/docs")
-    print("🔍 ReDoc Documentation: http://localhost:8000/redoc")
+    print("📚 API Documentation: http://localhost:8003/docs")
+    print("🔍 ReDoc Documentation: http://localhost:8003/redoc")
     
     uvicorn.run(
         "api_server:app",
         host="0.0.0.0",
-        port=8000,
+        port=8003,
         reload=True,
         log_level="info"
     )

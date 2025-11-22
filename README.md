@@ -23,8 +23,21 @@ This project is built on the [Manim](https://github.com/ManimCommunity/manim) en
 
 #### macOS
 ```bash
+# Install basic dependencies
 brew install cairo ffmpeg pango pkg-config
+
+# Install LaTeX (required for mathematical equations and MathTex)
+brew install --cask basictex
+
+# After installation, update PATH in your current terminal:
+eval "$(/usr/libexec/path_helper)"
+
+# Install additional LaTeX packages that Manim needs
+sudo tlmgr update --self
+sudo tlmgr install latex-bin amsmath amsfonts amssymb babel-english cbfonts-fd cm-super ctex dvipng environ filehook float fontspec frcursive fundus-calligra jknapltx latexmk metalogo microtype ms physics rsfs scheme-infraonly setspace standalone tools unicode-math xcolor
 ```
+
+**Note:** After installing BasicTeX, you may need to restart your terminal or run `eval "$(/usr/libexec/path_helper)"` to update your PATH. The `tlmgr` commands require sudo password.
 
 #### Ubuntu/Debian
 ```bash
