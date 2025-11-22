@@ -60,6 +60,7 @@ class JobStatus(str, Enum):
     PENDING = "pending"
     GENERATING_CODE = "generating_code"
     RENDERING = "rendering"
+    VERIFYING = "verifying"  # New status
     COMPLETED = "completed"
     FAILED = "failed"
 
@@ -203,11 +204,14 @@ class JobManager:
 # Video Generator
 # ============================================================================
 
+from manimator.utils.visual_analyzer import create_visual_analyzer
+
 class VideoGenerator:
     """Handles video generation workflow"""
     
     def __init__(self, job_manager: JobManager):
         self.job_manager = job_manager
+        self.analyzer = create_visual_analyzer()  # Initialize analyzer
     
     async def generate_video(self, job_id: str):
         """Generate video for a job"""
@@ -217,85 +221,166 @@ class VideoGenerator:
         
         logger.info(f"🎬 Starting video generation for job {job_id[:8]}...")
         
-        try:
-            # Stage 1: Generate Manim code
-            logger.info(f"🤖 Generating Manim code for job {job_id[:8]}...")
-            self.job_manager.update_job(
-                job_id,
-                status=JobStatus.GENERATING_CODE,
-                progress={
-                    "stage": "generating_code",
-                    "percentage": 10,
-                    "message": "Generating Manim code using AI..."
-                }
-            )
+        max_regenerations = 1
+        regeneration_count = 0
+        
+        while regeneration_count <= max_regenerations:
+            try:
+                # Stage 1: Generate Manim code
+                # If this is a regeneration, we append a critical instruction
+                current_prompt = job["prompt"]
+                if regeneration_count > 0:
+                    logger.warning(f"🔄 Regeneration Attempt {regeneration_count}/{max_regenerations}...")
+                    current_prompt += "\n\nCRITICAL: Previous generation had persistent visual layout issues (overlaps/cutoffs). Ensure STRICT adherence to safe zones and spacing."
+                    
+                    self.job_manager.update_job(
+                        job_id,
+                        status=JobStatus.GENERATING_CODE,
+                        progress={
+                            "stage": "regenerating_code",
+                            "percentage": 10,
+                            "message": f"Regenerating scene (Attempt {regeneration_count})..."
+                        }
+                    )
+                else:
+                    self.job_manager.update_job(
+                        job_id,
+                        status=JobStatus.GENERATING_CODE,
+                        progress={
+                            "stage": "generating_code",
+                            "percentage": 10,
+                            "message": "Generating Manim code using AI..."
+                        }
+                    )
+                
+                logger.info(f"🤖 Generating Manim code for job {job_id[:8]}...")
+                code = await self._generate_code(current_prompt)
+                
+                logger.info(f"✅ Code generation complete for job {job_id[:8]}...")
+                
+                # Save code
+                code_file = Config.BASE_DIR / f"scene_{job_id}.py"
+                with open(code_file, 'w') as f:
+                    f.write(code)
+                
+                logger.info(f"💾 Code saved to {code_file.name}")
+                
+                self.job_manager.update_job(
+                    job_id,
+                    code_path=str(code_file),
+                    progress={
+                        "stage": "code_generated",
+                        "percentage": 30,
+                        "message": "Code generated successfully"
+                    }
+                )
+                
+                # Stage 2: Render video (Pass 1)
+                logger.info(f"🎥 Starting Manim rendering (Pass 1) for job {job_id[:8]}...")
+                self.job_manager.update_job(
+                    job_id,
+                    status=JobStatus.RENDERING,
+                    progress={
+                        "stage": "rendering",
+                        "percentage": 40,
+                        "message": "Rendering video (Pass 1)..."
+                    }
+                )
+                
+                video_path = await self._render_video(
+                    code_file,
+                    job["scene_name"],
+                    job["quality"]
+                )
+                
+                # Stage 3: Visual Verification Loop
+                max_retries = 5
+                verification_passed = False
+                
+                for i in range(max_retries):
+                    logger.info(f"👁️ Visual Verification Loop {i+1}/{max_retries} for job {job_id[:8]}...")
+                    self.job_manager.update_job(
+                        job_id,
+                        status=JobStatus.VERIFYING,
+                        progress={
+                            "stage": "verifying",
+                            "percentage": 70 + (i * 5),
+                            "message": f"Verifying visual layout (Attempt {i+1}/{max_retries})..."
+                        }
+                    )
+                    
+                    # Run analysis
+                    final_code, report = self.analyzer.analyze_and_fix(
+                        code,
+                        video_path,
+                        max_iterations=1
+                    )
+                    
+                    # If code is unchanged, we are good
+                    if final_code == code:
+                        logger.info(f"✅ Verification passed on attempt {i+1}! No issues found.")
+                        verification_passed = True
+                        break
+                    
+                    # Issues found, applying fixes
+                    logger.info(f"🛠️ Issues found! Applying fixes and re-rendering (Attempt {i+1})...")
+                    code = final_code
+                    
+                    # Save fixed code
+                    with open(code_file, 'w') as f:
+                        f.write(code)
+                    
+                    # Re-render
+                    video_path = await self._render_video(
+                        code_file,
+                        job["scene_name"],
+                        job["quality"]
+                    )
+                
+                if verification_passed:
+                    # Success! Break the outer regeneration loop
+                    break
+                else:
+                    # Verification failed after max retries
+                    logger.warning(f"⚠️ Layout issues persisted after {max_retries} fix attempts.")
+                    regeneration_count += 1
+                    if regeneration_count > max_regenerations:
+                        logger.error("❌ Max regenerations exceeded. Failing job.")
+                        # We could fail here, or just accept the best effort.
+                        # Let's accept the best effort but mark it.
+                        logger.info("⚠️ Accepting best effort video.")
+                        break
+                    else:
+                        continue # Loop back to regenerate code
             
-            code = await self._generate_code(job["prompt"])
-            
-            logger.info(f"✅ Code generation complete for job {job_id[:8]}...")
-            
-            # Save code
-            code_file = Config.BASE_DIR / f"scene_{job_id}.py"
-            with open(code_file, 'w') as f:
-                f.write(code)
-            
-            logger.info(f"💾 Code saved to {code_file.name}")
-            
-            self.job_manager.update_job(
-                job_id,
-                code_path=str(code_file),
-                progress={
-                    "stage": "code_generated",
-                    "percentage": 30,
-                    "message": "Code generated successfully"
-                }
-            )
-            
-            # Stage 2: Render video
-            logger.info(f"🎥 Starting Manim rendering for job {job_id[:8]}... (this may take several minutes)")
-            self.job_manager.update_job(
-                job_id,
-                status=JobStatus.RENDERING,
-                progress={
-                    "stage": "rendering",
-                    "percentage": 40,
-                    "message": "Rendering video with Manim..."
-                }
-            )
-            
-            video_path = await self._render_video(
-                code_file,
-                job["scene_name"],
-                job["quality"]
-            )
-            
-            # Stage 3: Complete
-            logger.info(f"🎉 Video rendering complete for job {job_id[:8]}!")
-            logger.info(f"📁 Video saved to: {video_path}")
-            
-            self.job_manager.update_job(
-                job_id,
-                status=JobStatus.COMPLETED,
-                video_path=str(video_path),
-                progress={
-                    "stage": "completed",
-                    "percentage": 100,
-                    "message": "Video generation completed successfully"
-                }
-            )
-            
-        except Exception as e:
-            logger.error(f"❌ Job {job_id[:8]}... failed: {str(e)}")
-            self.job_manager.update_job(
-                job_id,
-                status=JobStatus.FAILED,
-                error=str(e),
-                progress={
-                    "stage": "failed",
-                    "percentage": 0,
-                    "message": f"Error: {str(e)}"
-                }
-            )
+            except Exception as e:
+                logger.error(f"Error in generation loop: {e}")
+                self.job_manager.update_job(
+                    job_id,
+                    status=JobStatus.FAILED,
+                    error=str(e),
+                    progress={
+                        "stage": "failed",
+                        "percentage": 0,
+                        "message": f"Generation failed: {str(e)}"
+                    }
+                )
+                return
+
+        # Stage 4: Complete
+        logger.info(f"🎉 Video generation complete for job {job_id[:8]}!")
+        logger.info(f"📁 Video saved to: {video_path}")
+        
+        self.job_manager.update_job(
+            job_id,
+            status=JobStatus.COMPLETED,
+            video_path=str(video_path),
+            progress={
+                "stage": "completed",
+                "percentage": 100,
+                "message": "Video generation completed successfully"
+            }
+        )
     
     async def _generate_code(self, prompt: str) -> str:
         """Generate Manim code from prompt"""

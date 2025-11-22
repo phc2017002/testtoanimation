@@ -4,10 +4,13 @@ from fastapi import HTTPException
 
 from ..utils.system_prompts import MANIM_SYSTEM_PROMPT
 from ..utils.code_postprocessor import post_process_code
+from ..utils.dual_model_config import DualModelConfig
 
 
 def generate_animation_response(prompt: str) -> str:
     """Generate Manim animation code from a text prompt.
+
+    Uses Claude 4.5 Sonnet for code generation (best at coding).
 
     Args:
         prompt (str): User's request for an animation
@@ -27,17 +30,21 @@ def generate_animation_response(prompt: str) -> str:
             },
             {
                 "role": "user",
-                "content": f"{prompt}\n\n NOTE!!!: Make sure the objects or text in the generated code are not overlapping at any point in the video. Make sure that each scene is properly cleaned up before transitioning to the next scene.",
+                "content": f"""{prompt}
+
+CRITICAL REMINDERS:
+1. The animation MUST be at least 5 MINUTES (300 seconds) long
+2. Create 8-12 separate method functions for different sections
+3. Each voiceover block should have 15-30 seconds of narration
+4. Include detailed explanations, examples, and step-by-step derivations
+5. Do NOT create short animations - make it comprehensive and educational
+
+Make sure the objects or text in the generated code are not overlapping at any point in the video. Make sure that each scene is properly cleaned up before transitioning to the next scene.""",
             },
         ]
         
-        response = litellm.completion(
-            model=os.getenv("CODE_GEN_MODEL"), 
-            messages=messages, 
-            num_retries=2
-        )
-        
-        raw_code = response.choices[0].message.content
+        # Use Claude 4.5 Sonnet for code generation
+        raw_code = DualModelConfig.generate_with_claude(messages)
         
         # Post-process the code to fix common issues
         processed_code = post_process_code(raw_code)
