@@ -1,0 +1,412 @@
+1
+00:00:00,000 --> 00:00:04,396
+Welcome to this comprehensive tutorial on implementing a queue
+
+2
+00:00:04,496 --> 00:00:08,386
+data structure using stacks. This is a classic computer
+
+3
+00:00:08,486 --> 00:00:12,302
+science problem that demonstrates how we can build one
+
+4
+00:00:12,402 --> 00:00:16,292
+data structure using another with different properties.
+
+5
+00:00:16,383 --> 00:00:20,704
+By the end of this video, you will understand the fundamental
+
+6
+00:00:20,804 --> 00:00:26,285
+differences between queues and stacks, learn the two-stack technique, and see
+
+7
+00:00:26,385 --> 00:00:30,779
+how operations work step by step with detailed visualizations.
+
+8
+00:00:31,866 --> 00:00:35,808
+Let's start by understanding what a queue is. A queue
+
+9
+00:00:35,908 --> 00:00:39,773
+is a linear data structure that follows the First In
+
+10
+00:00:39,873 --> 00:00:43,814
+First Out principle, commonly abbreviated as F I F O.
+
+11
+00:00:43,900 --> 00:00:48,640
+Think of a queue like a line of people waiting at a ticket counter.
+
+12
+00:00:48,740 --> 00:00:53,480
+The first person to join the line is the first person to be served.
+
+13
+00:00:53,580 --> 00:00:58,248
+New people join at the back, and people are served from the front.
+
+14
+00:00:58,333 --> 00:01:02,546
+The two main operations on a queue are enqueue, which adds
+
+15
+00:01:02,646 --> 00:01:07,083
+an element to the rear, and dequeue, which removes an element
+
+16
+00:01:07,183 --> 00:01:11,025
+from the front. Let's see these operations in action.
+
+17
+00:01:12,116 --> 00:01:16,325
+Now let's understand stacks. A stack is also a linear
+
+18
+00:01:16,425 --> 00:01:21,528
+data structure, but it follows a different principle called Last
+
+19
+00:01:21,628 --> 00:01:23,560
+In First Out, or L I F O.
+
+20
+00:01:23,650 --> 00:01:27,843
+Think of a stack like a pile of plates. You can only add a
+
+21
+00:01:27,943 --> 00:01:32,508
+plate to the top, and you can only remove a plate from the top.
+
+22
+00:01:32,608 --> 00:01:36,654
+The last plate you put on is the first one you take off.
+
+23
+00:01:36,750 --> 00:01:40,793
+The two main operations on a stack are push, which adds
+
+24
+00:01:40,893 --> 00:01:44,785
+an element to the top, and pop, which removes the top
+
+25
+00:01:44,885 --> 00:01:49,682
+element. Notice how this is fundamentally different from a queue.
+
+26
+00:01:50,766 --> 00:01:55,176
+Here's the challenge: How can we implement a queue's First
+
+27
+00:01:55,276 --> 00:01:59,530
+In First Out behavior using only stacks, which have Last
+
+28
+00:01:59,630 --> 00:02:03,962
+In First Out behavior? This seems contradictory at first.
+
+29
+00:02:04,050 --> 00:02:07,518
+The key insight is that we can use two stacks to
+
+30
+00:02:07,618 --> 00:02:12,052
+reverse the order of elements. When we move elements from one
+
+31
+00:02:12,152 --> 00:02:16,884
+stack to another, their order gets reversed. By doing this twice,
+
+32
+00:02:16,984 --> 00:02:20,006
+we can achieve the queue behavior we need.
+
+33
+00:02:21,100 --> 00:02:24,783
+The solution uses two stacks: Stack One for enqueue
+
+34
+00:02:24,883 --> 00:02:29,160
+operations and Stack Two for dequeue operations. Let's call
+
+35
+00:02:29,260 --> 00:02:33,240
+them the input stack and the output stack respectively.
+
+36
+00:02:33,333 --> 00:02:38,367
+The algorithm works as follows: For enqueue, we simply push the
+
+37
+00:02:38,467 --> 00:02:43,176
+element onto Stack One. For dequeue, we pop from Stack Two.
+
+38
+00:02:43,276 --> 00:02:47,821
+But if Stack Two is empty, we first transfer all elements
+
+39
+00:02:47,921 --> 00:02:52,385
+from Stack One to Stack Two, which reverses their order.
+
+40
+00:02:53,483 --> 00:02:58,279
+Let's visualize the enqueue operation in detail. When we want to
+
+41
+00:02:58,379 --> 00:03:02,104
+add an element to our queue, we push it onto Stack
+
+42
+00:03:02,204 --> 00:03:06,847
+One. This is a simple operation with constant time complexity.
+
+43
+00:03:06,933 --> 00:03:10,969
+Let's enqueue the numbers one, two, and three. Watch
+
+44
+00:03:11,069 --> 00:03:14,866
+how each element is pushed onto Stack One. Notice
+
+45
+00:03:14,966 --> 00:03:19,241
+that Stack Two remains empty during enqueue operations.
+
+46
+00:03:19,833 --> 00:03:24,751
+As you can see, enqueue is straightforward. We simply push elements
+
+47
+00:03:24,851 --> 00:03:29,021
+onto Stack One, building up our queue from the bottom up.
+
+48
+00:03:30,116 --> 00:03:34,970
+Now let's see the dequeue operation, which is more interesting. When
+
+49
+00:03:35,070 --> 00:03:38,613
+Stack Two is empty and we want to dequeue, we must
+
+50
+00:03:38,713 --> 00:03:42,256
+transfer all elements from Stack One to Stack Two.
+
+51
+00:03:42,350 --> 00:03:47,213
+The transfer process pops each element from Stack One and pushes it
+
+52
+00:03:47,313 --> 00:03:51,955
+onto Stack Two. This reverses the order. The element that was at
+
+53
+00:03:52,055 --> 00:03:55,882
+the bottom of Stack One becomes the top of Stack Two.
+
+54
+00:03:55,966 --> 00:04:00,616
+Now when we dequeue, we simply pop from Stack Two. Notice that
+
+55
+00:04:00,716 --> 00:04:05,673
+we get element one first, which was the first element we enqueued.
+
+56
+00:04:05,773 --> 00:04:09,810
+This gives us the correct First In First Out behavior.
+
+57
+00:04:10,900 --> 00:04:15,352
+Let's walk through a complete example with multiple operations
+
+58
+00:04:15,452 --> 00:04:18,729
+to see how the two stacks work together. We'll
+
+59
+00:04:18,829 --> 00:04:21,960
+perform a sequence of enqueues and dequeues.
+
+60
+00:04:22,050 --> 00:04:26,047
+We'll start by enqueuing the numbers ten, twenty,
+
+61
+00:04:26,147 --> 00:04:30,062
+thirty, and forty into our queue implementation.
+
+62
+00:04:31,850 --> 00:04:36,114
+Now let's perform our first dequeue. Since Stack Two is
+
+63
+00:04:36,214 --> 00:04:40,479
+empty, we transfer all elements from Stack One to Stack
+
+64
+00:04:40,579 --> 00:04:43,654
+Two, then pop from Stack Two to get ten.
+
+65
+00:04:43,750 --> 00:04:48,780
+Next, we enqueue fifty. This goes onto Stack One. Then we
+
+66
+00:04:48,880 --> 00:04:53,730
+dequeue again. This time, Stack Two is not empty, so we
+
+67
+00:04:53,830 --> 00:04:58,770
+simply pop from it, getting twenty without any transfer.
+
+68
+00:04:59,866 --> 00:05:04,603
+Let's analyze the time complexity of our queue implementation. This
+
+69
+00:05:04,703 --> 00:05:09,078
+is important for understanding the efficiency of our solution.
+
+70
+00:05:09,166 --> 00:05:14,129
+For the enqueue operation, we simply push onto Stack One, which
+
+71
+00:05:14,229 --> 00:05:19,674
+takes constant time, O of one. This is straightforward and efficient.
+
+72
+00:05:19,766 --> 00:05:25,357
+For dequeue, the analysis is more interesting. In the worst case, we
+
+73
+00:05:25,457 --> 00:05:30,714
+transfer all n elements from Stack One to Stack Two, which takes
+
+74
+00:05:30,814 --> 00:05:35,986
+O of n time. However, each element is transferred at most once.
+
+75
+00:05:36,083 --> 00:05:40,425
+Using amortized analysis, we can show that dequeue also
+
+76
+00:05:40,525 --> 00:05:45,191
+has constant amortized time. Over a sequence of operations,
+
+77
+00:05:45,291 --> 00:05:49,471
+each element is pushed twice and popped twice, giving
+
+78
+00:05:49,571 --> 00:05:52,783
+us O of one amortized time per operation.
+
+79
+00:05:53,883 --> 00:05:58,077
+This two-stack queue implementation has several practical
+
+80
+00:05:58,177 --> 00:06:02,447
+applications in computer science and software engineering.
+
+81
+00:06:02,533 --> 00:06:07,889
+First, it's commonly used in interview questions to test understanding
+
+82
+00:06:07,989 --> 00:06:12,799
+of data structures. Many companies ask this problem to evaluate
+
+83
+00:06:12,899 --> 00:06:17,865
+problem-solving skills and knowledge of time complexity analysis.
+
+84
+00:06:17,950 --> 00:06:24,118
+Second, it demonstrates important design patterns. The technique of using multiple
+
+85
+00:06:24,218 --> 00:06:29,776
+data structures to implement another is a fundamental concept in algorithm
+
+86
+00:06:29,876 --> 00:06:33,522
+design and can be applied to many other problems.
+
+87
+00:06:33,616 --> 00:06:37,930
+Third, it has real-world applications in systems where
+
+88
+00:06:38,030 --> 00:06:42,589
+you have limited memory or specific hardware constraints.
+
+89
+00:06:42,689 --> 00:06:47,330
+For example, embedded systems with separate memory regions
+
+90
+00:06:47,430 --> 00:06:50,844
+or undo-redo functionality in applications.
+
+91
+00:06:51,933 --> 00:06:55,105
+Let's summarize everything we've learned about
+
+92
+00:06:55,205 --> 00:06:57,809
+implementing a queue using two stacks.
+
+93
+00:06:57,900 --> 00:07:02,400
+We learned that queues follow First In First Out, while stacks
+
+94
+00:07:02,500 --> 00:07:06,704
+follow Last In First Out. By using two stacks together, we
+
+95
+00:07:06,804 --> 00:07:10,712
+can reverse the order twice to achieve queue behavior.
+
+96
+00:07:10,800 --> 00:07:15,687
+The implementation uses Stack One for enqueue operations and Stack
+
+97
+00:07:15,787 --> 00:07:20,749
+Two for dequeue operations. Elements are transferred from Stack One
+
+98
+00:07:20,849 --> 00:07:24,981
+to Stack Two only when needed, making the amortized time
+
+99
+00:07:25,081 --> 00:07:28,004
+complexity O of one for both operations.
+
+100
+00:07:28,100 --> 00:07:31,910
+Thank you for watching this comprehensive tutorial on
+
+101
+00:07:32,010 --> 00:07:36,336
+queue implementation using stacks. I hope this visualization
+
+102
+00:07:36,436 --> 00:07:39,730
+helped you understand both the concept and the
+
+103
+00:07:39,830 --> 00:07:43,936
+implementation details. Keep practicing and happy coding!
+

@@ -1,0 +1,14 @@
+\documentclass[preview]{standalone}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+\begin{align*}
+for i = 0 to n-2:
+    min\_idx = i
+    for j = i+1 to n-1:
+        if arr[j] < arr[min\_idx]:
+            min\_idx = j
+    swap(arr[i], arr[min\_idx])
+\end{align*}
+\end{document}

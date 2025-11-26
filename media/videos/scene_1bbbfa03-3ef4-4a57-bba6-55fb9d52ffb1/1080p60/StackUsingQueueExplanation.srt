@@ -1,0 +1,424 @@
+1
+00:00:00,000 --> 00:00:05,603
+Welcome to this comprehensive tutorial on implementing a stack data structure
+
+2
+00:00:05,703 --> 00:00:10,344
+using queues. This is a classic problem in computer science that
+
+3
+00:00:10,444 --> 00:00:15,308
+demonstrates how we can use one data structure to simulate another.
+
+4
+00:00:15,400 --> 00:00:19,585
+Today we will explore two different approaches to solve this
+
+5
+00:00:19,685 --> 00:00:24,227
+problem. We'll visualize each operation step by step, analyze the
+
+6
+00:00:24,327 --> 00:00:30,012
+time complexity, and understand the trade-offs between different implementations.
+
+7
+00:00:31,100 --> 00:00:34,219
+Let's start by reviewing what a stack is. A
+
+8
+00:00:34,319 --> 00:00:37,888
+stack is a linear data structure that follows the
+
+9
+00:00:37,988 --> 00:00:42,232
+Last In First Out principle, commonly abbreviated as LIFO.
+
+10
+00:00:42,316 --> 00:00:46,893
+The stack supports two main operations. Push adds an element to
+
+11
+00:00:46,993 --> 00:00:50,901
+the top of the stack, and pop removes the element from
+
+12
+00:00:51,001 --> 00:00:54,984
+the top. Let me demonstrate this with a visual example.
+
+13
+00:00:55,083 --> 00:00:59,603
+Notice how the last element pushed, which is thirty, is at
+
+14
+00:00:59,703 --> 00:01:03,984
+the top. When we pop, we remove this top element first.
+
+15
+00:01:04,084 --> 00:01:07,967
+This is the essence of Last In First Out behavior.
+
+16
+00:01:09,066 --> 00:01:12,874
+Now let's review the queue data structure. A queue
+
+17
+00:01:12,974 --> 00:01:16,782
+follows the First In First Out principle, or FIFO.
+
+18
+00:01:16,882 --> 00:01:20,534
+This is exactly opposite to how a stack behaves.
+
+19
+00:01:20,633 --> 00:01:25,840
+A queue has two main operations. Enqueue adds an element at the rear, and
+
+20
+00:01:25,940 --> 00:01:30,856
+dequeue removes an element from the front. Think of it like a line at
+
+21
+00:01:30,956 --> 00:01:35,581
+a ticket counter, where the first person in line is served first.
+
+22
+00:01:35,666 --> 00:01:39,746
+When we dequeue, we remove the element from the front,
+
+23
+00:01:39,846 --> 00:01:43,849
+which is the first element that was added. So element
+
+24
+00:01:43,949 --> 00:01:48,958
+five leaves first, demonstrating the First In First Out principle.
+
+25
+00:01:50,050 --> 00:01:54,718
+Now comes the interesting challenge. How can we implement a
+
+26
+00:01:54,818 --> 00:01:58,678
+stack, which is Last In First Out, using a queue,
+
+27
+00:01:58,778 --> 00:02:03,366
+which is First In First Out? These are opposite behaviors!
+
+28
+00:02:03,450 --> 00:02:07,329
+The key insight is that we need to reverse the order of
+
+29
+00:02:07,429 --> 00:02:12,105
+elements somehow. We can achieve this using either two queues or a
+
+30
+00:02:12,205 --> 00:02:17,822
+single queue with clever manipulation. Let's explore both approaches in detail.
+
+31
+00:02:18,916 --> 00:02:23,750
+The first approach uses two queues, which we'll call queue one and
+
+32
+00:02:23,850 --> 00:02:28,310
+queue two. The main idea is to always keep our stack elements
+
+33
+00:02:28,410 --> 00:02:32,496
+in queue one, with the most recent element at the front.
+
+34
+00:02:32,583 --> 00:02:36,462
+Queue two serves as a helper queue. When we push a new
+
+35
+00:02:36,562 --> 00:02:41,399
+element, we'll use queue two to help us maintain the correct order,
+
+36
+00:02:41,499 --> 00:02:46,115
+ensuring the newest element is always at the front of queue one.
+
+37
+00:02:47,200 --> 00:02:52,829
+Let's visualize the push operation with two queues in detail. Suppose we
+
+38
+00:02:52,929 --> 00:02:57,684
+want to push elements ten, twenty, and thirty onto our stack.
+
+39
+00:02:57,783 --> 00:03:02,778
+Step one: Push ten. Since queue one is empty, we simply enqueue
+
+40
+00:03:02,878 --> 00:03:08,843
+ten into queue one. The operation is straightforward for the first element.
+
+41
+00:03:08,933 --> 00:03:14,895
+Step two: Push twenty. Here's where it gets interesting. First, we enqueue
+
+42
+00:03:14,995 --> 00:03:20,383
+twenty into queue two. Then we transfer all elements from queue one
+
+43
+00:03:20,483 --> 00:03:24,889
+to queue two. Finally, we swap the names of the queues.
+
+44
+00:03:24,983 --> 00:03:31,081
+Step three: Push thirty. We repeat the same process. Enqueue thirty to queue
+
+45
+00:03:31,181 --> 00:03:36,790
+two, transfer all elements from queue one, then swap. Now thirty is at
+
+46
+00:03:36,890 --> 00:03:41,683
+the front, which is exactly what we need for stack behavior.
+
+47
+00:03:42,766 --> 00:03:46,930
+The pop operation with two queues is much simpler than push.
+
+48
+00:03:47,030 --> 00:03:51,479
+Since we've maintained our stack with the most recent element at
+
+49
+00:03:51,579 --> 00:03:55,530
+the front of queue one, we simply dequeue from queue one.
+
+50
+00:03:55,616 --> 00:04:00,336
+Let's perform a pop operation. We dequeue the front element from
+
+51
+00:04:00,436 --> 00:04:04,328
+queue one, which is thirty. This gives us the Last In
+
+52
+00:04:04,428 --> 00:04:09,148
+First Out behavior we need, and the operation is very efficient.
+
+53
+00:04:10,233 --> 00:04:14,425
+Now let's explore the second approach, which uses only a
+
+54
+00:04:14,525 --> 00:04:18,948
+single queue. This is more space-efficient as we don't need
+
+55
+00:04:19,048 --> 00:04:22,781
+a helper queue. The clever trick here is rotation.
+
+56
+00:04:22,866 --> 00:04:26,735
+The key idea is this: when we push a new element, we
+
+57
+00:04:26,835 --> 00:04:32,001
+first enqueue it. Then we rotate the queue by dequeuing and enqueuing
+
+58
+00:04:32,101 --> 00:04:37,190
+all the previous elements. This brings the new element to the front.
+
+59
+00:04:38,283 --> 00:04:43,572
+Let's see the single queue push operation in action. We'll push ten,
+
+60
+00:04:43,672 --> 00:04:49,199
+twenty, and thirty, and observe how rotation maintains the stack order.
+
+61
+00:04:49,283 --> 00:04:54,010
+Push ten. The queue is empty, so we just enqueue ten. No
+
+62
+00:04:54,110 --> 00:04:59,095
+rotation needed for the first element. The size is now one.
+
+63
+00:04:59,183 --> 00:05:04,381
+Push twenty. First, enqueue twenty to the rear. Now the queue has
+
+64
+00:05:04,481 --> 00:05:08,539
+ten at front and twenty at rear. We need to rotate.
+
+65
+00:05:08,633 --> 00:05:13,423
+Now rotate size minus one times, which is one rotation. Dequeue
+
+66
+00:05:13,523 --> 00:05:17,303
+ten from the front and enqueue it at the rear. Now
+
+67
+00:05:17,403 --> 00:05:21,805
+twenty is at the front, giving us the correct stack order.
+
+68
+00:05:21,900 --> 00:05:28,093
+Push thirty. Enqueue thirty at the rear. Now we have twenty, ten, thirty.
+
+69
+00:05:28,193 --> 00:05:33,008
+We need to rotate two times to bring thirty to the front.
+
+70
+00:05:33,100 --> 00:05:38,801
+First rotation: dequeue twenty, enqueue twenty. Second rotation:
+
+71
+00:05:38,901 --> 00:05:43,152
+dequeue ten, enqueue ten. Perfect! Now thirty is
+
+72
+00:05:43,252 --> 00:05:47,232
+at the front, maintaining our stack property.
+
+73
+00:05:48,316 --> 00:05:52,177
+Let's walk through a complete example with multiple push
+
+74
+00:05:52,277 --> 00:05:56,139
+and pop operations to see how everything works together.
+
+75
+00:05:56,239 --> 00:06:00,312
+We'll use the single queue approach for this demonstration.
+
+76
+00:06:00,400 --> 00:06:05,604
+We start with an empty queue. Let's execute push one, push
+
+77
+00:06:05,704 --> 00:06:10,908
+two, then pop, followed by push three, pop, and pop again.
+
+78
+00:06:11,000 --> 00:06:16,924
+Push one: We enqueue one. No rotation needed. State is now one.
+
+79
+00:06:17,016 --> 00:06:21,566
+Push two: Enqueue two, then rotate once. Now two
+
+80
+00:06:21,666 --> 00:06:24,956
+is at the front. State is two, one.
+
+81
+00:06:25,050 --> 00:06:30,902
+Pop: Dequeue from front. We remove two. State is now just one.
+
+82
+00:06:31,000 --> 00:06:37,332
+Push three: Enqueue three, then rotate once. State becomes three, one.
+
+83
+00:06:37,500 --> 00:06:42,138
+Pop: Remove three from front. State is one. Final
+
+84
+00:06:42,238 --> 00:06:47,360
+pop: Remove one. Queue is now empty. Example complete!
+
+85
+00:06:48,450 --> 00:06:53,079
+Now let's analyze the time and space complexity of both approaches.
+
+86
+00:06:53,179 --> 00:06:57,950
+This is crucial for understanding which method to choose in practice.
+
+87
+00:06:58,050 --> 00:07:02,919
+For the two queues approach, push has a time complexity of
+
+88
+00:07:03,019 --> 00:07:07,202
+O of n, where n is the number of elements, because
+
+89
+00:07:07,302 --> 00:07:12,086
+we transfer all elements. Pop is O of one, constant time.
+
+90
+00:07:12,183 --> 00:07:16,374
+For the single queue approach, push is also O of n
+
+91
+00:07:16,474 --> 00:07:21,523
+due to rotation. Pop remains O of one. However, single queue
+
+92
+00:07:21,623 --> 00:07:25,643
+uses less space as we don't need a helper queue.
+
+93
+00:07:25,733 --> 00:07:30,521
+In practice, the single queue method is often preferred because it's
+
+94
+00:07:30,621 --> 00:07:35,121
+more space-efficient and the code is simpler. Both have the same
+
+95
+00:07:35,221 --> 00:07:40,081
+time complexity, so the choice depends on your specific requirements.
+
+96
+00:07:41,166 --> 00:07:45,296
+We've completed our journey through stack implementation using
+
+97
+00:07:45,396 --> 00:07:48,434
+queues. Let's summarize what we learned today.
+
+98
+00:07:48,533 --> 00:07:53,643
+We explored two approaches: the two queues method, which transfers
+
+99
+00:07:53,743 --> 00:07:58,696
+elements between queues, and the single queue method, which uses
+
+100
+00:07:58,796 --> 00:08:03,433
+rotation. Both achieve stack behavior from queue operations.
+
+101
+00:08:03,533 --> 00:08:08,000
+Key takeaways: Push is O of n for both approaches. Pop is
+
+102
+00:08:08,100 --> 00:08:13,689
+O of one. Single queue is more space-efficient. This problem teaches us
+
+103
+00:08:13,789 --> 00:08:19,057
+how to think creatively about data structures and their properties.
+
+104
+00:08:19,150 --> 00:08:24,598
+Thank you for watching this detailed explanation. Practice implementing both
+
+105
+00:08:24,698 --> 00:08:28,905
+methods, and you'll gain a deeper understanding of how data
+
+106
+00:08:29,005 --> 00:08:32,994
+structures can transform into one another. Happy coding!
+

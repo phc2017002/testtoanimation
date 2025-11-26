@@ -1,0 +1,167 @@
+{
+  "job_id": "b70907f9-5e95-471a-a4d2-7180bbe01a24",
+  "status": "completed",
+  "prompt": "Now create 2 minutes video on stack implementation using linked list with visualization",
+  "category": "mathematical",
+  "quality": "high",
+  "scene_name": "Scene_2cb6d711",
+  "created_at": "2025-11-25T10:07:14.628483",
+  "updated_at": "2025-11-25T10:22:45.952892",
+  "progress": {
+    "stage": "completed",
+    "percentage": 100,
+    "message": "Video generation completed successfully"
+  },
+  "error": null,
+  "video_path": "/Users/aniketpal/Downloads/manimator/media/videos/scene_b70907f9-5e95-471a-a4d2-7180bbe01a24/1080p60/StackLinkedListVisualization.mp4",
+  "code_path": "/Users/aniketpal/Downloads/manimator/scene_b70907f9-5e95-471a-a4d2-7180bbe01a24.py",
+  "visual_analysis": {
+    "model": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+    "frames_analyzed": 195,
+    "overall_quality": "poor",
+    "issues": [
+      {
+        "frame": 0,
+        "type": "overlap",
+        "description": "The text 'Stack Implementati' is visually corrupted; the 'o' and 'n' are rendered incorrectly and appear to overlap or merge with the preceding letters."
+      },
+      {
+        "frame": 12,
+        "type": "overlap",
+        "description": "The text 'Sta' is incomplete and appears to be cut off or corrupted, suggesting a rendering issue where characters are overlapping or not fully drawn."
+      },
+      {
+        "frame": 13,
+        "type": "overlap",
+        "description": "The bullet point text 'Push: Add element to' is cut off; the word 'top' is missing, indicating text is extending beyond screen boundaries or is improperly rendered."
+      },
+      {
+        "frame": 24,
+        "type": "overlap",
+        "description": "The text 'Ar' is cut off and appears to be an incomplete rendering of 'Array Implementation', indicating a visual truncation issue."
+      },
+      {
+        "frame": 25,
+        "type": "overlap",
+        "description": "The text 'Cache frie' is cut off and appears to be an incomplete rendering of 'Cache friendly', indicating a visual truncation issue."
+      },
+      {
+        "frame": 26,
+        "type": "overlap",
+        "description": "The text 'Fixed size' and 'Waste space' have a red square icon that slightly overlaps the beginning of the text, causing a visual collision."
+      },
+      {
+        "frame": 27,
+        "type": "overlap",
+        "description": "The text 'Fixed size' and 'Waste space' have a red square icon that slightly overlaps the beginning of the text, causing a visual collision."
+      },
+      {
+        "frame": 28,
+        "type": "overlap",
+        "description": "The text 'Linked Li' is cut off and appears to be an incomplete rendering of 'Linked List Implementation', indicating a visual truncation issue."
+      },
+      {
+        "frame": 29,
+        "type": "overlap",
+        "description": "The text 'Fixed size' and 'Waste space' have a red square icon that slightly overlaps the beginning of the text, causing a visual collision."
+      },
+      {
+        "frame": 30,
+        "type": "overlap",
+        "description": "The text 'Extra memory' and 'Pointer overhead' have a red square icon that slightly overlaps the beginning of the text, causing a visual collision."
+      },
+      {
+        "frame": 30,
+        "type": "overlap",
+        "description": "In the 'Array Implementation' column, the red text 'Fixed size' and 'Waste space' appears to be rendered with a broken LaTeX-like artifact (a small box with numbers like '27' and '17') directly preceding the text, indicating a rendering error or overlap of internal markup with the visible text."
+      },
+      {
+        "frame": 30,
+        "type": "overlap",
+        "description": "In the 'Linked List Implementation' column, the red text 'Extra memory' and 'Pointer overhead' also has the same broken LaTeX-like artifact (small box with numbers) preceding the text, indicating a rendering error or overlap."
+      },
+      {
+        "frame": 42,
+        "type": "overlap",
+        "description": "In the code block for the Node class, the line 'self.data = data' is cut off at the end. The last character 'a' of 'data' is partially or fully outside the code box boundary, indicating text extending beyond screen boundaries."
+      },
+      {
+        "frame": 75,
+        "type": "overlap",
+        "description": "The text 'top' is positioned too close to the top node of the stack, with no clear spacing, creating a visual touch/overlap."
+      },
+      {
+        "frame": 105,
+        "type": "overlap",
+        "description": "The text 'Return: 20' is positioned too close to the node box, creating a visual clash. The text and the box are not clearly separated, which is a critical layout issue."
+      },
+      {
+        "frame": 105,
+        "type": "overlap",
+        "description": "The red arrow labeled 'top' points to the node box, but the label 'top' is positioned so close to the arrow's tail that it appears to be touching or overlapping the arrow, causing visual clutter."
+      },
+      {
+        "frame": 126,
+        "type": "broken_rendering",
+        "description": "The title 'Time Complexity Analysis' is rendered incorrectly, with the letters 'a' and 'l' in 'Analysis' appearing as 'al' with a strange ligature or artifact, suggesting a broken LaTeX or font rendering."
+      },
+      {
+        "frame": 131,
+        "type": "overlap",
+        "description": "In the 'Operation' column, the word 'Push' is visually split into 'Pu sh' with an unintended space, which is a formatting issue. While not a spatial overlap, it is a critical visual formatting error as per the strict criteria."
+      },
+      {
+        "frame": 131,
+        "type": "overlap",
+        "description": "In the 'Operation' column, the word 'Pop' is visually split into 'Po p' with an unintended space, which is a formatting issue. While not a spatial overlap, it is a critical visual formatting error as per the strict criteria."
+      },
+      {
+        "frame": 131,
+        "type": "overlap",
+        "description": "In the 'Operation' column, the word 'Peek' is visually split into 'P eek' with an unintended space, which is a formatting issue. While not a spatial overlap, it is a critical visual formatting error as per the strict criteria."
+      },
+      {
+        "frame": 131,
+        "type": "overlap",
+        "description": "In the 'Operation' column, the word 'isEmpty' is visually split into 'isEmp ty' with an unintended space, which is a formatting issue. While not a spatial overlap, it is a critical visual formatting error as per the strict criteria."
+      },
+      {
+        "frame": 144,
+        "type": "broken_latex",
+        "description": "The title 'Complete Example Walkthrough' is rendered with broken LaTeX, showing 'Walkthro' with the 'u' and 'g' missing or malformed."
+      },
+      {
+        "frame": 150,
+        "type": "broken_latex",
+        "description": "The text '1. Empty st a `' appears corrupted, suggesting a LaTeX rendering error where 'stack' was not properly compiled."
+      },
+      {
+        "frame": 158,
+        "type": "broken_latex",
+        "description": "The title 'Real-World Ap p' is corrupted, indicating a LaTeX rendering failure where 'Applications' was not fully rendered."
+      },
+      {
+        "frame": 159,
+        "type": "broken_latex",
+        "description": "The bullet point 'Expression Evaluation' is rendered as 'Expression Evaluatio n', indicating a broken LaTeX rendering with an extra space or character."
+      },
+      {
+        "frame": 180,
+        "type": "broken_latex",
+        "description": "The title 'Summary' is rendered with broken LaTeX, showing 'Summar~v -' instead of the intended text."
+      },
+      {
+        "frame": 181,
+        "type": "broken_latex",
+        "description": "The bullet point 'Linked lis' is incomplete and appears to be a rendering error, likely from a malformed LaTeX command."
+      },
+      {
+        "frame": 182,
+        "type": "broken_latex",
+        "description": "The bullet point 'Space comple' is incomplete and appears to be a rendering error, likely from a malformed LaTeX command."
+      }
+    ],
+    "timestamp": "2025-11-25T10:22:45.910365",
+    "coverage_percentage": 100.0
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "job_id": "c6f9b022-a578-44bf-8ad0-92e2bf1e94ba",
+  "status": "completed",
+  "prompt": "Now create 2 minutes video on queue implementation using stack with visualization",
+  "category": "mathematical",
+  "quality": "high",
+  "scene_name": "Scene_352e5dbe",
+  "created_at": "2025-11-25T15:27:23.675379",
+  "updated_at": "2025-11-25T15:52:42.308956",
+  "progress": {
+    "stage": "completed",
+    "percentage": 100,
+    "message": "Video generation completed successfully"
+  },
+  "error": null,
+  "video_path": "/Users/aniketpal/Downloads/manimator/media/videos/scene_c6f9b022-a578-44bf-8ad0-92e2bf1e94ba/1080p60/QueueUsingStacksExplanation.mp4",
+  "code_path": "/Users/aniketpal/Downloads/manimator/scene_c6f9b022-a578-44bf-8ad0-92e2bf1e94ba.py",
+  "visual_analysis": {
+    "model": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+    "frames_analyzed": 154,
+    "overall_quality": "poor",
+    "issues": [
+      {
+        "frame": 0,
+        "type": "overlap",
+        "description": "The text 'Using Sta' is visually broken and appears to be cut off or improperly rendered, suggesting a rendering or layout issue."
+      },
+      {
+        "frame": 11,
+        "type": "overlap",
+        "description": "In the text 'FIFO: First In, First Out', the word 'Out' is partially rendered with a white/grey artifact overlapping the green text, indicating a broken LaTeX or font rendering."
+      },
+      {
+        "frame": 25,
+        "type": "broken_latex",
+        "description": "The text 'LIFO: Las' appears to be a broken LaTeX render, likely intended to be 'LIFO: Last In, First Out' but is cut off or malformed."
+      },
+      {
+        "frame": 37,
+        "type": "broken_latex",
+        "description": "The word 'using' in 'Implement FIFO using LIFO' is rendered with a broken character, showing 'us' followed by a small, misplaced diacritic or symbol instead of the full word."
+      },
+      {
+        "frame": 42,
+        "type": "overlap",
+        "description": "The text 'Reverse Order' inside the middle box of Stack 2 overlaps with the box's border, appearing visually clipped or touching the edge."
+      },
+      {
+        "frame": 43,
+        "type": "overlap",
+        "description": "The text 'Reverse Order' inside the middle box of Stack 2 overlaps with the box's border, appearing visually clipped or touching the edge."
+      },
+      {
+        "frame": 70,
+        "type": "broken_rendering",
+        "description": "The text labels 'Stack 1' and 'Stack 2' are rendered incorrectly, appearing as 'Sta~' with a tilde, indicating a LaTeX or font rendering error."
+      },
+      {
+        "frame": 70,
+        "type": "overlap",
+        "description": "The truncated 'Sta~' label for 'Stack 1' is positioned too close to the top of its container, visually touching the top border line, which is a critical overlap."
+      },
+      {
+        "frame": 70,
+        "type": "overlap",
+        "description": "The truncated 'Sta~' label for 'Stack 2' is positioned too close to the top of its container, visually touching the top border line, which is a critical overlap."
+      },
+      {
+        "frame": 78,
+        "type": "overlap",
+        "description": "The text 'dequeue(' overlaps with the title 'Dequeue Operation' at the top center of the screen."
+      },
+      {
+        "frame": 86,
+        "type": "overlap",
+        "description": "The text 'enqueue(1,' is partially cut off and appears to be overlapping or touching the bottom edge of the screen."
+      },
+      {
+        "frame": 88,
+        "type": "overlap",
+        "description": "The number '2' at the bottom center of the screen is too close to the bottom edge and appears to be touching or cut off."
+      },
+      {
+        "frame": 83,
+        "type": "broken_rendering",
+        "description": "The word 'Complete' is rendered with a broken 'p' character, showing 'Compl1et', indicating a LaTeX or font rendering issue."
+      },
+      {
+        "frame": 106,
+        "type": "broken_latex",
+        "description": "The text 'Dequeue O' appears to be a broken or incomplete LaTeX render, likely intended to be 'Dequeue Operation:' but is cut off or malformed."
+      },
+      {
+        "frame": 117,
+        "type": "broken_latex",
+        "description": "The text 'A10 J' appears to be a broken LaTeX render, likely a remnant of a previous animation or a failed transition."
+      },
+      {
+        "frame": 112,
+        "type": "overlap",
+        "description": "The yellow box labeled 'Amortized Analysis:' overlaps with the bullet point '\u2022 Each element moved at most twice' from the main text above it. The box's top border and text are visually colliding with the bullet point."
+      },
+      {
+        "frame": 113,
+        "type": "overlap",
+        "description": "The yellow box labeled 'Amortized Analysis:' overlaps with the bullet point '\u2022 Each element moved at most twice' from the main text above it. The box's top border and text are visually colliding with the bullet point."
+      },
+      {
+        "frame": 114,
+        "type": "overlap",
+        "description": "The yellow box labeled 'Amortized Analysis:' overlaps with the bullet point '\u2022 Each element moved at most twice' from the main text above it. The box's top border and text are visually colliding with the bullet point."
+      },
+      {
+        "frame": 115,
+        "type": "overlap",
+        "description": "The yellow box labeled 'Amortized Analysis:' overlaps with the bullet point '\u2022 Each element moved at most twice' from the main text above it. The box's top border and text are visually colliding with the bullet point."
+      },
+      {
+        "frame": 116,
+        "type": "overlap",
+        "description": "The yellow box labeled 'Amortized Analysis:' overlaps with the bullet point '\u2022 Each element moved at most twice' from the main text above it. The box's top border and text are visually colliding with the bullet point."
+      },
+      {
+        "frame": 120,
+        "type": "broken_latex",
+        "description": "The bullet point text 'Tests data struc' is garbled and appears to be a broken LaTeX render, with letters like 'c' and 't' malformed or missing."
+      },
+      {
+        "frame": 131,
+        "type": "broken_latex",
+        "description": "The bullet point text 'Browser history navigat n' is garbled, with the word 'navigation' rendered incorrectly, showing 'navigat n' with a malformed 'n' or missing letters."
+      },
+      {
+        "frame": 143,
+        "type": "broken_latex",
+        "description": "The text 'Stack 1: Input' is rendered with broken characters, appearing as 'Stack 1: Input \u3001r-', indicating a LaTeX rendering failure."
+      }
+    ],
+    "timestamp": "2025-11-25T15:43:09.422274",
+    "coverage_percentage": 100.0,
+    "auto_fix": {
+      "applied": true,
+      "issues_before": 5,
+      "issues_after": 23,
+      "quality_before": "poor",
+      "quality_after": "poor",
+      "improvement": -18
+    }
+  }
+}

@@ -1,0 +1,340 @@
+1
+00:00:00,000 --> 00:00:05,875
+Welcome to this comprehensive 5-minute guide on the Selection Sort algorithm.
+
+2
+00:00:05,975 --> 00:00:11,773
+Sorting is a fundamental operation in computer science, used everywhere from
+
+3
+00:00:11,873 --> 00:00:17,205
+organizing lists to optimizing databases. Selection Sort is one of the
+
+4
+00:00:17,305 --> 00:00:23,335
+simplest algorithms to understand and implement. It works by repeatedly finding
+
+5
+00:00:23,435 --> 00:00:27,914
+the minimum element from the unsorted part of the array and
+
+6
+00:00:28,014 --> 00:00:32,260
+placing it at the beginning of the sorted part. Over the
+
+7
+00:00:32,360 --> 00:00:39,865
+next sections, we'll cover its motivation, pseudocode, step-by-step examples, complexity analysis,
+
+8
+00:00:39,965 --> 00:00:45,452
+comparisons, and real-world applications. By the end, you'll have a deep
+
+9
+00:00:45,552 --> 00:00:50,263
+understanding of how it works visually and why it's useful for
+
+10
+00:00:50,363 --> 00:00:51,428
+small datasets.
+
+11
+00:00:51,516 --> 00:00:56,999
+Before diving in, let's recall what sorting means. Given an
+
+12
+00:00:57,099 --> 00:01:02,109
+unsorted list like [5, 2, 8, 1, 9], sorting rearranges
+
+13
+00:01:02,209 --> 00:01:07,408
+it into non-decreasing order: [1, 2, 5, 8, 9]. Selection
+
+14
+00:01:07,508 --> 00:01:13,653
+Sort does this efficiently for beginners by selecting the smallest
+
+15
+00:01:13,753 --> 00:01:19,236
+remaining element each time. It's not the fastest for large
+
+16
+00:01:19,336 --> 00:01:24,440
+data, but its simplicity makes it perfect for learning.
+
+17
+00:01:25,533 --> 00:01:30,596
+Selection Sort was invented in the early days of computing when
+
+18
+00:01:30,696 --> 00:01:36,907
+efficiency wasn't always paramount, but simplicity was. It's motivated by the
+
+19
+00:01:37,007 --> 00:01:41,661
+human way of sorting cards: you pick the smallest card and
+
+20
+00:01:41,761 --> 00:01:46,168
+place it first, then the next smallest, and so on. This
+
+21
+00:01:46,268 --> 00:01:52,069
+in-place sorting requires no extra memory, unlike Merge Sort. It's ideal
+
+22
+00:01:52,169 --> 00:01:58,134
+for educational purposes and small arrays where O(n^2) time is acceptable,
+
+23
+00:01:58,234 --> 00:02:03,543
+say up to 100 elements. Historically, it appears in Donald Knuth's
+
+24
+00:02:03,643 --> 00:02:08,297
+'The Art of Computer Programming' as a baseline algorithm.
+
+25
+00:02:08,383 --> 00:02:13,329
+Compared to random selection, Selection Sort guarantees progress by
+
+26
+00:02:13,429 --> 00:02:16,944
+fixing one element per pass. It's stable in some
+
+27
+00:02:17,044 --> 00:02:21,764
+implementations but not inherently. We'll see why it's preferred
+
+28
+00:02:21,864 --> 00:02:26,283
+over Bubble Sort—no unnecessary swaps after finding the min.
+
+29
+00:02:27,366 --> 00:02:33,574
+The basic idea is straightforward: Divide the array into two parts—sorted
+
+30
+00:02:33,674 --> 00:02:39,450
+(left) and unsorted (right). Initially, the sorted part is empty. In
+
+31
+00:02:39,550 --> 00:02:44,549
+each iteration, scan the unsorted part to find the index of
+
+32
+00:02:44,649 --> 00:02:50,252
+the minimum element, then swap it with the first unsorted element.
+
+33
+00:02:50,352 --> 00:02:54,832
+This grows the sorted prefix by one each time. For an
+
+34
+00:02:54,932 --> 00:02:58,202
+array of n elements, you do n-1 passes.
+
+35
+00:02:58,300 --> 00:03:04,599
+Visualize it: Start with full unsorted. After first pass, smallest is
+
+36
+00:03:04,699 --> 00:03:09,606
+at position 0. Second pass: next smallest at 1, and so
+
+37
+00:03:09,706 --> 00:03:15,264
+on. No backtracking—each pass is independent and linear scan.
+
+38
+00:03:16,350 --> 00:03:21,594
+Here's the pseudocode in detail. We use a for loop from
+
+39
+00:03:21,694 --> 00:03:25,967
+0 to n-2. For each i, assume i is the minimum
+
+40
+00:03:26,067 --> 00:03:31,506
+index initially. Then nested loop from i+1 to n-1 to find
+
+41
+00:03:31,606 --> 00:03:38,405
+any smaller element. If found, update min_index. After inner loop, swap
+
+42
+00:03:38,505 --> 00:03:46,082
+arr[i] with arr[min_index]. This ensures the i-th position is correctly filled.
+
+43
+00:03:46,166 --> 00:03:50,558
+Notice the nested loops: outer for positions, inner for
+
+44
+00:03:50,658 --> 00:03:55,621
+scanning minimums. Swaps happen only once per outer iteration,
+
+45
+00:03:55,721 --> 00:04:00,194
+unlike Bubble Sort's many swaps. This makes it efficient
+
+46
+00:04:00,294 --> 00:04:04,114
+in terms of swaps: exactly n-1 swaps worst-case.
+
+47
+00:04:05,200 --> 00:04:13,281
+Let's trace a small array: [3, 1, 4, 1, 5]. Pass 1
+
+48
+00:04:13,381 --> 00:04:21,790
+(i=0): scan 1,4,1,5. Min is 1 at index 1. Swap 3 and
+
+49
+00:04:21,890 --> 00:04:28,500
+1: [1, 3, 4, 1, 5]. Now position 0 fixed.
+
+50
+00:04:28,583 --> 00:04:39,944
+Pass 2 (i=1): scan from 4,1,5. Min=1 at index 3. Swap 3 and 1:
+
+51
+00:04:40,044 --> 00:04:50,481
+[1, 1, 4, 3, 5]. Pass 3 (i=2): scan 3,5. Min=3 at 3. Swap
+
+52
+00:04:50,581 --> 00:04:59,539
+4 and 3: [1, 1, 3, 4, 5]. Pass 4: 5 is min. Done.
+
+53
+00:05:00,633 --> 00:05:08,076
+For deeper visualization, consider [64, 25, 12, 22, 11].
+
+54
+00:05:08,176 --> 00:05:15,484
+Pass 1: Highlight scanning (yellow), find min 11 (red),
+
+55
+00:05:15,584 --> 00:05:21,411
+swap with 64. Array becomes [11, 25, 12, 22,
+
+56
+00:05:21,511 --> 00:05:28,685
+64]. The sorted part is marked green, unsorted orange.
+
+57
+00:05:28,783 --> 00:05:37,079
+Pass 2: Sorted [11 | 25,12,22,64]. Scan unsorted, min=12 at
+
+58
+00:05:37,179 --> 00:05:45,760
+index 2. Swap with 25: [11,12,25,22,64]. Notice how the green
+
+59
+00:05:45,860 --> 00:05:55,011
+sorted region grows. This visual separation helps track progress.
+
+60
+00:05:55,100 --> 00:05:59,724
+Continue similarly: Each pass reduces unsorted size
+
+61
+00:05:59,824 --> 00:06:03,616
+by 1. No overlaps in logic—pure selection.
+
+62
+00:06:04,700 --> 00:06:13,383
+Now a 10-element array: [7,2,9,5,1,6,10,3,8,4]. Pass 1 finds 1
+
+63
+00:06:13,483 --> 00:06:19,333
+(index 4), swaps to front. It would take 9
+
+64
+00:06:19,433 --> 00:06:29,392
+passes total, each scanning decreasing lengths: 10,9,...,2 comparisons.
+
+65
+00:06:29,483 --> 00:06:35,559
+Visualizing all passes: Watch mins bubble to front. Total swaps: 9.
+
+66
+00:06:35,659 --> 00:06:41,551
+This shows scalability issues for large n, but clarity for small.
+
+67
+00:06:55,483 --> 00:07:03,165
+Time complexity: Outer loop n-1 times, inner loop averages n/2
+
+68
+00:07:03,265 --> 00:07:10,821
+comparisons. Exact: sum from 1 to n-1 = n(n-1)/2 comparisons,
+
+69
+00:07:10,921 --> 00:07:17,223
+plus n-1 swaps. Thus O(n^2) time, quadratic growth.
+
+70
+00:07:17,316 --> 00:07:22,777
+Graph shows quadratic curve. For n=10,
+
+71
+00:07:22,877 --> 00:07:29,216
+~45 ops; n=100, 5000 ops—slows dramatically.
+
+72
+00:07:30,316 --> 00:07:37,519
+Space: O(1) extra—only min_idx variable. In-place swaps modify array
+
+73
+00:07:37,619 --> 00:07:44,177
+directly. Not stable: equal elements may swap, changing order.
+
+74
+00:07:44,277 --> 00:07:49,224
+Not adaptive: always full scans even if sorted.
+
+75
+00:07:49,316 --> 00:07:55,937
+Stability example: [2a, 1, 2b]. Sorts to [1, 2a, 2b]
+
+76
+00:07:56,037 --> 00:08:01,624
+but may swap 2a and 2b if positions dictate.
+
+77
+00:08:02,716 --> 00:08:11,854
+Properties: Exactly n-1 swaps. Prefers small arrays. Online? No, needs full
+
+78
+00:08:11,954 --> 00:08:19,368
+scan. Can be optimized by skipping if arr[i] <= arr[min_idx].
+
+79
+00:08:20,466 --> 00:08:26,309
+Vs Bubble: Selection does one swap per pass, Bubble many.
+
+80
+00:08:26,409 --> 00:08:33,919
+Both O(n^2), but Selection fewer writes. Vs Insertion: Insertion adaptive
+
+81
+00:08:34,019 --> 00:08:40,070
+(O(n) best), shifts elements; Selection always scans fully.
+
+82
+00:08:41,166 --> 00:08:48,251
+Applications: Embedded systems, small datasets, teaching. Not for big
+
+83
+00:08:48,351 --> 00:08:54,602
+data—use QuickSort/ TimSort. In Python, use sorted() instead.
+
+84
+00:08:54,700 --> 00:09:01,966
+Summary: Selection Sort selects mins sequentially, O(n^2) time,
+
+85
+00:09:02,066 --> 00:09:09,216
+O(1) space. Visual, simple, foundational. Thanks for watching!
+

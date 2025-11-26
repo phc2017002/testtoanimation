@@ -1,0 +1,18 @@
+{
+  "job_id": "3132895a-3d39-49ef-8f5e-518195ebdc23",
+  "status": "generating_code",
+  "prompt": "Create a 5-minute animation explaining mergesort algorithm with visualizations",
+  "category": "mathematical",
+  "quality": "high",
+  "scene_name": "Mergesort_Animation",
+  "created_at": "2025-11-23T21:37:41.830917",
+  "updated_at": "2025-11-23T21:37:41.833396",
+  "progress": {
+    "stage": "generating_code",
+    "percentage": 10,
+    "message": "Generating Manim code using AI..."
+  },
+  "error": null,
+  "video_path": null,
+  "code_path": null
+}

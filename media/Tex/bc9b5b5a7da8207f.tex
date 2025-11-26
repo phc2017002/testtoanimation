@@ -1,0 +1,9 @@
+\documentclass[preview]{standalone}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+\begin{align*}
+\quad\\text{def heapify-down}(A, i):\quad\\\quad\\ n = len(A)\quad\\\quad\\ largest = i\quad\\\quad\\ l = 2*i + 1; r = 2*i + 2\quad\\\quad\\ \quad\\text{if } l < n \quad\\text{ and } A[l] > A[largest]: largest = l\quad\\\quad\\ \quad\\text{if } r < n \quad\\text{ and } A[r] > A[largest]: largest = r\quad\\\quad\\ \quad\\text{if } largest != i:\quad\\\quad\\ \quad\\quad \quad\\text{swap}(A,i,largest)\quad\\\quad\\ \quad\\quad \quad\\text{heapify-down}(A, largest)
+\end{align*}
+\end{document}

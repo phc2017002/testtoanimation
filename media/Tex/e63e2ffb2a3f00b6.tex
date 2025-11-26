@@ -1,0 +1,9 @@
+\documentclass[preview]{standalone}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\begin{document}
+\begin{align*}
+\quad\\text{def heapify-down}(A, i): n = len(A) largest = i l = 2*i + 1; r = 2*i + 2 if l < n and A[l] > A[largest]: largest = l if r < n and A[r] > A[largest]: largest = r if largest != i: swap(A,i,largest) heapify-down(A, largest)
+\end{align*}
+\end{document}

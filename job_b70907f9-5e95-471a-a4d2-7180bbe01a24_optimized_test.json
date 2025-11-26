@@ -1,0 +1,14 @@
+{
+  "job_id": "b70907f9-5e95-471a-a4d2-7180bbe01a24",
+  "status": "completed",
+  "progress": {
+    "stage": "completed",
+    "percentage": 100,
+    "message": "Video generation completed successfully"
+  },
+  "created_at": "2025-11-25T10:07:14.628483",
+  "updated_at": "2025-11-25T10:22:45.952892",
+  "error": null,
+  "video_url": "/api/videos/b70907f9-5e95-471a-a4d2-7180bbe01a24",
+  "duration": 621.37
+}

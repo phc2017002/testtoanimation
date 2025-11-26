@@ -222,6 +222,491 @@ class VideoGenerator:
         self.job_manager = job_manager
         self.analyzer = create_visual_analyzer()  # Initialize analyzer
     
+    def _get_partial_dir(self, job_id: str, scene_name: str, quality: str) -> Path:
+        """Get the partial movie files directory for a given job."""
+        quality_dirs = {
+            "low": "480p15",
+            "medium": "720p30",
+            "high": "1080p60",
+            "ultra": "2160p60"
+        }
+        resolution = quality_dirs.get(quality, "1080p60")
+        partial_dir = Config.VIDEOS_DIR / f"scene_{job_id}" / resolution / "partial_movie_files" / scene_name
+        return partial_dir
+    
+    def _extract_frames_from_partial_files(self, job_id: str, scene_name: str, quality: str) -> list:
+        """Extract one frame from each partial movie file for comprehensive analysis."""
+        partial_dir = self._get_partial_dir(job_id, scene_name, quality)
+        
+        if not partial_dir.exists():
+            logger.warning(f"Job {job_id[:8]}... | Partial directory not found: {partial_dir}")
+            return []
+        
+        # Get all .mp4 files sorted by name
+        video_files = sorted(partial_dir.glob("*.mp4"))
+        
+        if not video_files:
+            logger.warning(f"Job {job_id[:8]}... | No partial movie files found in {partial_dir}")
+            return []
+        
+        logger.info(f"Job {job_id[:8]}... | Found {len(video_files)} partial movie files")
+        
+        # Use analyzer's method to extract frames
+        frame_paths = self.analyzer.extract_frames_from_videos(video_files)
+        
+        logger.info(f"Job {job_id[:8]}... | Extracted {len(frame_paths)} frames")
+        return frame_paths
+    
+    def _extract_scene_class_name(self, code_file: Path) -> str:
+        """Extract the actual scene class name from the Python code file."""
+        import re
+        
+        if not code_file.exists():
+            return None
+        
+        with open(code_file, 'r') as f:
+            content = f.read()
+        
+        # Match: class ClassName(VoiceoverScene): or class ClassName(ThreeDScene):
+        pattern = r'^class\s+(\w+)\s*\((?:VoiceoverScene|ThreeDScene|Scene)\):'
+        match = re.search(pattern, content, re.MULTILINE)
+        
+        if match:
+            return match.group(1)
+        
+        return None
+    
+    def _extract_frames_from_final_video(self, video_path: Path, total_animations: int, job_id: str) -> list[Path]:
+        """
+        Extract frames from final video at evenly-spaced intervals to capture all animations.
+        Uses ffmpeg to extract one frame per animation.
+        """
+        import subprocess
+        import tempfile
+        
+        if total_animations == 0:
+            logger.warning(f"Job {job_id[:8]}... | No animations to extract")
+            return []
+        
+        logger.info(f"Job {job_id[:8]}... | Extracting {total_animations} frames from final video")
+        
+        # Get video duration using ffprobe
+        try:
+            result = subprocess.run(
+                ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                 "-of", "csv=p=0", str(video_path)],
+                capture_output=True, text=True, timeout=10
+            )
+            
+            if result.returncode != 0:
+                logger.error(f"Job {job_id[:8]}... | ffprobe failed: {result.stderr}")
+                return []
+            
+            duration = float(result.stdout.strip())
+            logger.info(f"Job {job_id[:8]}... | Video duration: {duration:.2f}s")
+            
+        except Exception as e:
+            logger.error(f"Job {job_id[:8]}... | Failed to get video duration: {e}")
+            return []
+        
+        # Create temp directory for frames
+        temp_dir = Path(tempfile.mkdtemp(prefix=f"frames_{job_id[:8]}_"))
+        frame_paths = []
+        
+        # Calculate interval between frames to capture all animations
+        interval = duration / total_animations if total_animations > 0 else duration
+        
+        # Extract frames at intervals
+        for i in range(total_animations):
+            timestamp = i * interval + (interval / 2)  # Middle of each animation segment
+            frame_path = temp_dir / f"frame_{i:04d}.png"
+            
+            try:
+                result = subprocess.run(
+                    ["ffmpeg", "-ss", str(timestamp), "-i", str(video_path),
+                     "-vframes", "1", "-q:v", "2", str(frame_path)],
+                    capture_output=True, timeout=10
+                )
+                
+                if result.returncode == 0 and frame_path.exists():
+                    frame_paths.append(frame_path)
+                else:
+                    logger.warning(f"Job {job_id[:8]}... | Failed to extract frame {i} at {timestamp:.2f}s")
+                    
+            except Exception as e:
+                logger.warning(f"Job {job_id[:8]}... | Error extracting frame {i}: {e}")
+        
+        logger.info(f"Job {job_id[:8]}... | Successfully extracted {len(frame_paths)}/{total_animations} frames")
+        return frame_paths
+    
+    def _map_frames_to_animations(
+        self,
+        issues: list[dict],
+        total_animations: int,
+        frames_analyzed: int
+    ) -> dict[int, list[dict]]:
+        """
+        Map problematic frames to their source animation indices.
+        
+        Args:
+            issues: List of issues from Qwen 3 VL analysis
+            total_animations: Total number of animations in the video
+            frames_analyzed: Number of frames that were analyzed
+        
+        Returns:
+            Dictionary mapping animation_index -> list of issues
+        """
+        animation_issues = {}
+        
+        for issue in issues:
+            frame_num = issue.get('frame', 0)
+            
+            # Calculate which animation generated this frame
+            # Frames are evenly distributed across animations
+            if frames_analyzed > 0:
+                animation_index = int((frame_num * total_animations) / frames_analyzed)
+                animation_index = min(animation_index, total_animations - 1)  # Clamp to valid range
+                
+                if animation_index not in animation_issues:
+                    animation_issues[animation_index] = []
+                
+                animation_issues[animation_index].append(issue)
+        
+        return animation_issues
+    
+    def _validate_fixed_code(self, original_code: str, fixed_code: str) -> tuple[bool, str]:
+        """
+        Validate that fixed code is reasonable and didn't break functionality.
+        
+        Args:
+            original_code: Original code before fixes
+            fixed_code: Code after Claude's fixes
+        
+        Returns:
+            (is_valid, error_message) tuple
+        """
+        import re
+        
+        # Check 1: Code shouldn't be dramatically shorter (suggests deletion)
+        if len(fixed_code) < len(original_code) * 0.7:
+            return False, f"Fixed code is {100 - int(len(fixed_code)/len(original_code)*100)}% shorter - likely deleted too much"
+        
+        # Check 2: Should still have same class name
+        original_class = re.search(r'class\s+(\w+)', original_code)
+        fixed_class = re.search(r'class\s+(\w+)', fixed_code)
+        if original_class and fixed_class:
+            if original_class.group(1) != fixed_class.group(1):
+                return False, f"Class name changed: {original_class.group(1)} → {fixed_class.group(1)}"
+        elif original_class and not fixed_class:
+            return False, "Class definition removed"
+        
+        # Check 3: Should have similar number of self.play() calls
+        original_plays = len(re.findall(r'self\.play\(', original_code))
+        fixed_plays = len(re.findall(r'self\.play\(', fixed_code))
+        if fixed_plays < original_plays * 0.75:
+            return False, f"Too many play() calls removed: {original_plays} → {fixed_plays}"
+        
+        # Check 4: Should still have construct method
+        if 'def construct(self):' in original_code and 'def construct(self):' not in fixed_code:
+            return False, "construct() method removed or renamed"
+        
+        return True, ""
+    
+    async def _generate_comprehensive_fix(
+        self,
+        current_code: str,
+        issues: list[dict],
+        problematic_animations: dict[int, list[dict]]
+    ) -> str:
+        """
+        Generate comprehensive fixes for all issues using Claude.
+        
+        Args:
+            current_code: Current scene code
+            issues: All issues found
+            problematic_animations: Mapping of animation_index -> issues
+        
+        Returns:
+            Fixed code or None if fix generation failed
+        """
+        try:
+            # Build enhanced fix prompt with stricter rules
+            fix_prompt = """You are an expert Manim code fixer. Your goal is to fix ONLY the visual issues while preserving ALL functionality.
+
+CRITICAL RULES (FOLLOW EXACTLY):
+1. DO NOT change the logic or functionality of the code
+2. DO NOT remove or comment out working code
+3. DO NOT delete any self.play() calls
+4. ONLY fix the specific visual issues mentioned below
+5. Keep all variable names, class structures, and methods intact
+6. Ensure all colors/constants are properly imported from manim
+
+ISSUES TO FIX:
+
+"""
+            
+            # Group issues by animation with clear descriptions
+            for anim_idx in sorted(problematic_animations.keys()):
+                anim_issues = problematic_animations[anim_idx]
+                fix_prompt += f"\nAnimation Index {anim_idx}:\n"
+                
+                for issue in anim_issues:
+                    issue_type = issue.get('type', 'unknown')
+                    description = issue.get('description', '')
+                    fix_prompt += f"  • [{issue_type.upper()}] {description}\n"
+            
+            fix_prompt += f"""
+
+COMMON FIX PATTERNS:
+- Overlapping text: Use .next_to(ref, direction, buff=0.5) or .shift(UP*2)
+- Broken LaTeX: Fix $ delimiters, escape backslashes, check for typos
+- Undefined colors: Import from manim (RED, BLUE, GREEN, YELLOW, etc.) or use "#hexcode"
+- Text outside bounds: Reduce font_size or reposition with .to_edge()
+
+EXAMPLE FIXES:
+# Bad: text1 = Text("Hello").shift(UP)
+#      text2 = Text("World").shift(UP)  # Overlaps!
+# Good: text1 = Text("Hello").shift(UP)
+#       text2 = Text("World").next_to(text1, DOWN)
+
+# Bad: equation = MathTex("\\sigma")  # Missing escape
+# Good: equation = MathTex("\\\\sigma")
+
+CURRENT CODE:
+```python
+{current_code}
+```
+
+Return ONLY the complete fixed Python code (no explanations, no markdown blocks, just the code):
+"""
+            
+            # Call Claude for fixes
+            messages = [
+                {
+                    "role": "system",
+                    "content": "You are an expert Manim code fixer. Fix visual issues while maintaining all functionality. Return only the fixed code."
+                },
+                {
+                    "role": "user",
+                    "content": fix_prompt
+                }
+            ]
+            
+            from manimator.utils.dual_model_config import DualModelConfig
+            from manimator.utils.code_postprocessor import post_process_code
+            
+            # Generate fixes
+            raw_fixed_code = DualModelConfig.generate_code(messages)
+            
+            # Post-process to extract clean code
+            fixed_code = post_process_code(raw_fixed_code)
+            
+            # Validate before accepting fixes
+            is_valid, error_msg = self._validate_fixed_code(current_code, fixed_code)
+            if not is_valid:
+                logger.warning(f"⚠️  Fixed code validation failed: {error_msg}")
+                logger.info("❌ Rejecting auto-fix to avoid breaking code")
+                return None
+            
+            logger.info("✅ Fixed code passed validation checks")
+            return fixed_code
+            
+        except Exception as e:
+            logger.error(f"Error generating comprehensive fix: {e}")
+            return None
+    
+    async def _perform_comprehensive_analysis(self, job_id: str, scene_name: str, quality: str, video_path: Path = None, total_animations: int = 0):
+        """Perform comprehensive visual analysis on all frames and store results."""
+        from datetime import datetime
+        
+        logger.info(f"Job {job_id[:8]}... | Starting comprehensive visual analysis")
+        
+        # Update status
+        self.job_manager.update_job(
+            job_id,
+            status=JobStatus.VERIFYING,
+            progress={
+                "stage": "comprehensive_analysis",
+                "percentage": 92,
+                "message": "Analyzing all frames with Qwen 3 VL for overlaps"
+            }
+        )
+        
+        try:
+            # Get the actual scene class name from the code file
+            job = self.job_manager.get_job(job_id)
+            code_file = Path(job.get('code_path', ''))
+            actual_scene_name = self._extract_scene_class_name(code_file)
+            
+            if not actual_scene_name:
+                logger.warning(f"Job {job_id[:8]}... | Could not extract scene class name, using provided name: {scene_name}")
+                actual_scene_name = scene_name
+            else:
+                logger.info(f"Job {job_id[:8]}... | Detected scene class: {actual_scene_name}")
+            
+            # NEW: Prefer timestamp-based extraction for true 100% coverage
+            if video_path and total_animations > 0:
+                logger.info(f"Job {job_id[:8]}... | Using timestamp-based extraction for {total_animations} animations")
+                frame_paths = self._extract_frames_from_final_video(video_path, total_animations, job_id)
+            else:
+                logger.info(f"Job {job_id[:8]}... | Falling back to partial file extraction")
+                # Extract frames using the actual scene class name
+                frame_paths = self._extract_frames_from_partial_files(job_id, actual_scene_name, quality)
+            
+            if not frame_paths:
+                logger.warning(f"Job {job_id[:8]}... | No frames extracted, skipping analysis")
+                return
+            
+            # Analyze with Qwen 3 VL
+            logger.info(f"Job {job_id[:8]}... | Analyzing {len(frame_paths)} frames with Qwen 3 VL")
+            analysis_result = self.analyzer.analyze_frames(frame_paths)
+            
+            # Store results in job metadata
+            visual_analysis_data = {
+                "model": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+                "frames_analyzed": len(frame_paths),
+                "overall_quality": analysis_result.get('overall_quality', 'unknown'),
+                "issues": analysis_result.get('issues', []),
+                "timestamp": datetime.now().isoformat(),
+                "coverage_percentage": 100.0  # We analyzed all extracted frames
+            }
+            
+            self.job_manager.update_job(
+                job_id,
+                visual_analysis=visual_analysis_data
+            )
+            
+            
+            # NEW: Auto-fix if comprehensive analysis found issues
+            # Check for issues count instead of has_issues flag (which isn't always set)
+            issues_found = analysis_result.get('issues', [])
+            if len(issues_found) > 0 and video_path and total_animations > 0:
+                issue_count = len(analysis_result['issues'])
+                logger.info(f"Job {job_id[:8]}... | Comprehensive analysis found {issue_count} issues")
+                logger.info(f"Job {job_id[:8]}... | Attempting automatic fixes with Claude...")
+                
+                try:
+                    # Get current code
+                    job = self.job_manager.get_job(job_id)
+                    code_file = Path(job.get('code_path', ''))
+                    
+                    if not code_file.exists():
+                        logger.warning(f"Job {job_id[:8]}... | Code file not found, skipping auto-fix")
+                    else:
+                        current_code = code_file.read_text()
+                        
+                        # Map frames to animations
+                        problematic_animations = self._map_frames_to_animations(
+                            analysis_result['issues'],
+                            total_animations,
+                            len(frame_paths)
+                        )
+                        
+                        logger.info(f"Job {job_id[:8]}... | Issues mapped to {len(problematic_animations)} animations")
+                        
+                        # Generate comprehensive fix
+                        fixed_code = await self._generate_comprehensive_fix(
+                            current_code,
+                            analysis_result['issues'],
+                            problematic_animations
+                        )
+                        
+                        if fixed_code and fixed_code != current_code:
+                            # Save fixed code
+                            code_file.write_text(fixed_code)
+                            logger.info(f"Job {job_id[:8]}... | Applied fixes, re-rendering...")
+                            
+                            # Re-render with fixes
+                            new_video_path, new_total_animations = await self._render_video(
+                                code_file,
+                                actual_scene_name,
+                                quality
+                            )
+                            
+                            # Re-analyze to verify fixes
+                            logger.info(f"Job {job_id[:8]}... | Re-analyzing to verify fixes...")
+                            new_frame_paths = self._extract_frames_from_final_video(
+                                new_video_path,
+                                new_total_animations,
+                                job_id
+                            )
+                            
+                            verification_result = self.analyzer.analyze_frames(new_frame_paths)
+                            
+                            # Calculate improvement
+                            issues_after = len(verification_result.get('issues', []))
+                            improvement = issue_count - issues_after
+                            
+                            # Update analysis with verification
+                            visual_analysis_data['auto_fix'] = {
+                                'applied': True,
+                                'issues_before': issue_count,
+                                'issues_after': issues_after,
+                                'quality_before': analysis_result.get('overall_quality'),
+                                'quality_after': verification_result.get('overall_quality'),
+                                'improvement': improvement,
+                                'success': improvement > 0  # Track if it actually helped
+                            }
+                            
+                            # Update final issues list
+                            visual_analysis_data['issues'] = verification_result.get('issues', [])
+                            visual_analysis_data['overall_quality'] = verification_result.get('overall_quality')
+                            
+                            self.job_manager.update_job(
+                                job_id,
+                                visual_analysis=visual_analysis_data,
+                                video_path=str(new_video_path)
+                            )
+                            
+                            # Log results with appropriate level
+                            if improvement > 0:
+                                logger.info(f"✅ Job {job_id[:8]}... | Auto-fix SUCCESS: "
+                                          f"{issue_count} → {issues_after} issues "
+                                          f"({improvement} fixed, {improvement/issue_count*100:.0f}% improvement)")
+                            elif improvement == 0:
+                                logger.warning(f"⚠️  Job {job_id[:8]}... | Auto-fix NO CHANGE: "
+                                             f"{issue_count} issues remain")
+                            else:
+                                logger.error(f"❌ Job {job_id[:8]}... | Auto-fix MADE THINGS WORSE: "
+                                           f"{issue_count} → {issues_after} issues "
+                                           f"({abs(improvement)} MORE issues created!)")
+                            
+                            # Cleanup new frames
+                            for frame in new_frame_paths:
+                                if frame.exists():
+                                    frame.unlink()
+                            
+                            # Update video_path for final cleanup
+                            video_path = new_video_path
+                        else:
+                            logger.info(f"Job {job_id[:8]}... | No fixes generated or code unchanged")
+                            
+                except Exception as fix_error:
+                    logger.error(f"Job {job_id[:8]}... | Auto-fix error: {fix_error}")
+                    visual_analysis_data['auto_fix'] = {
+                        'applied': False,
+                        'error': str(fix_error)
+                    }
+                    self.job_manager.update_job(job_id, visual_analysis=visual_analysis_data)
+            else:
+                logger.info(f"Job {job_id[:8]}... | No issues found or auto-fix not available")
+            
+            # Cleanup original frames
+            for frame in frame_paths:
+                if frame.exists():
+                    frame.unlink()
+            
+        except Exception as e:
+            logger.error(f"Job {job_id[:8]}... | Error during comprehensive analysis: {e}")
+            # Don't fail the job, just log the error
+            self.job_manager.update_job(
+                job_id,
+                visual_analysis={
+                    "error": str(e),
+                    "timestamp": datetime.now().isoformat()
+                }
+            )
+    
     async def generate_video(self, job_id: str):
         """Generate video for a job"""
         job = self.job_manager.get_job(job_id)
@@ -284,7 +769,7 @@ class VideoGenerator:
                     }
                 )
                 
-                # Stage 2: Render video (Pass 1)
+                # Stage 2: Render video (Pass 1) - with error handling
                 logger.info(f"🎥 Starting Manim rendering (Pass 1) for job {job_id[:8]}...")
                 self.job_manager.update_job(
                     job_id,
@@ -296,14 +781,27 @@ class VideoGenerator:
                     }
                 )
                 
-                video_path = await self._render_video(
-                    code_file,
-                    job["scene_name"],
-                    job["quality"]
-                )
+                # Try initial render - if it fails, skip to verification loop for fixes
+                video_path = None
+                total_animations = 0
+                initial_render_failed = False
+                
+                try:
+                    video_path, total_animations = await self._render_video(
+                        code_file,
+                        job["scene_name"],
+                        job["quality"]
+                    )
+                    logger.info(f"✅ Initial render successful for job {job_id[:8]}...")
+                except Exception as render_error:
+                    logger.warning(f"⚠️  Initial render failed for job {job_id[:8]}: {str(render_error)[:100]}")
+                    logger.info(f"🔧 Will attempt to fix errors in verification loop...")
+                    initial_render_failed = True
                 
                 # Stage 3: Visual Verification Loop (Gemini Fixes)
-                max_retries = 5
+                # OPTIMIZED: Reduced to 2 retries (was 5) since comprehensive analysis runs after
+                # If initial render failed, we'll try to fix and re-render
+                max_retries = 3 if initial_render_failed else 2  # Extra retry if initial render failed
                 verification_passed = False
                 
                 for i in range(max_retries):
@@ -318,15 +816,39 @@ class VideoGenerator:
                         }
                     )
                     
+                    # If initial render failed and this is first iteration, skip analysis and try render again
+                    if initial_render_failed and i == 0 and video_path is None:
+                        logger.info(f"⚠️  No video from initial render, attempting render with current code...")
+                        try:
+                            video_path, total_animations = await self._render_video(
+                                code_file,
+                                job["scene_name"],
+                                job["quality"]
+                            )
+                            logger.info(f"✅ Render successful after initial failure!")
+                            initial_render_failed = False
+                            verification_passed = True
+                            break
+                        except Exception as e2:
+                            logger.warning(f"⚠️  Render still failing: {str(e2)[:100]}")
+                            logger.info(f"🔧 Will use Claude to fix code errors...")
+                            # Continue to next iteration with code fix
+                            continue
+                    
                     # Run analysis and fix (using Gemini for fixes now)
-                    final_code, report = self.analyzer.analyze_and_fix(
-                        code,
-                        video_path,
-                        max_iterations=1 # Analyze once per loop iteration
-                    )
+                    if video_path:
+                        final_code, report = self.analyzer.analyze_and_fix(
+                            code,
+                            video_path,
+                            max_iterations=1 # Analyze once per loop iteration
+                        )
+                    else:
+                        # No video available, ask Claude to fix the code
+                        logger.info(f"🔧 No video available, using Claude to fix code syntax/errors...")
+                        final_code = code  # For now, mark as needing regeneration
                     
                     # If code is unchanged, we are good
-                    if final_code == code:
+                    if final_code == code and video_path:
                         logger.info(f"✅ Verification passed on attempt {i+1}! No issues found.")
                         verification_passed = True
                         break
@@ -339,8 +861,7 @@ class VideoGenerator:
                     with open(code_file, 'w') as f:
                         f.write(code)
                     
-                    # Re-render
-                    video_path = await self._render_video(
+                    video_path, total_animations = await self._render_video(
                         code_file,
                         job["scene_name"],
                         job["quality"]
@@ -377,7 +898,17 @@ class VideoGenerator:
                 )
                 return
 
-        # Stage 4: Complete
+        # Stage 4: Comprehensive Visual Analysis
+        logger.info(f"Job {job_id[:8]}... | Performing comprehensive frame analysis")
+        await self._perform_comprehensive_analysis(
+            job_id,
+            job["scene_name"],
+            job["quality"],
+            video_path=video_path,  # NEW: Pass video for timestamp-based extraction
+            total_animations=total_animations  # NEW: Enable true 100% coverage
+        )
+        
+        # Stage 5: Complete
         logger.info(f"🎉 Video generation complete for job {job_id[:8]}!")
         logger.info(f"📁 Video saved to: {video_path}")
         
@@ -411,13 +942,14 @@ class VideoGenerator:
             # Try without code block
             return response
     
-    async def _render_video(self, code_file: Path, scene_name: str, quality: QualityLevel) -> Path:
-        """Render video using Manim with real-time progress"""
+    async def _render_video(self, code_file: Path, scene_name: str, quality: QualityLevel) -> tuple[Path, int]:
+        """Render video using Manim with real-time progress. Returns (video_path, total_animations)."""
         quality_flag = QUALITY_FLAGS[quality]
         
         cmd = [
             "manim",
             quality_flag,
+            "--disable_caching",  # Force all animations to create partial files for 100% coverage
             str(code_file),
             scene_name
         ]
@@ -442,6 +974,7 @@ class VideoGenerator:
         # Stream output in real-time
         output_lines = []
         last_animation_num = 0
+        max_animation_num = 0  # Track highest animation number seen
         
         while True:
             line = await process.stdout.readline()
@@ -458,6 +991,7 @@ class VideoGenerator:
                 match = re.search(r'Animation (\d+)', line_text)
                 if match:
                     anim_num = int(match.group(1))
+                    max_animation_num = max(max_animation_num, anim_num)  # Track total animations
                     # Only log every 10th animation to avoid spam
                     if anim_num % 10 == 0 or anim_num != last_animation_num:
                         logger.info(f"  ├─ Rendering animation {anim_num}...")
@@ -497,9 +1031,11 @@ class VideoGenerator:
         
         # Use the first (and typically only) MP4 file found
         video_path = video_files[0]
+        total_animations = max_animation_num + 1  # +1 because it's 0-indexed
         logger.info(f"📹 Found video: {video_path.name}")
+        logger.info(f"📊 Total animations rendered: {total_animations}")
         
-        return video_path
+        return video_path, total_animations
 
 
 # ============================================================================

@@ -1,0 +1,236 @@
+{
+  "job_id": "70ee3965-b29a-4734-b78f-d9422f825c04",
+  "status": "completed",
+  "prompt": "Now create 1 minute video on doubly linked list with visualization",
+  "category": "mathematical",
+  "quality": "high",
+  "scene_name": "Scene_472fd07e",
+  "created_at": "2025-11-25T21:38:49.760677",
+  "updated_at": "2025-11-25T22:12:47.274856",
+  "progress": {
+    "stage": "completed",
+    "percentage": 100,
+    "message": "Video generation completed successfully"
+  },
+  "error": null,
+  "video_path": "/Users/aniketpal/Downloads/manimator/media/videos/scene_70ee3965-b29a-4734-b78f-d9422f825c04/1080p60/DoublyLinkedListExplanation.mp4",
+  "code_path": "/Users/aniketpal/Downloads/manimator/scene_70ee3965-b29a-4734-b78f-d9422f825c04.py",
+  "visual_analysis": {
+    "model": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+    "frames_analyzed": 170,
+    "overall_quality": "poor",
+    "issues": [
+      {
+        "frame": 28,
+        "type": "overlap",
+        "description": "The text 'Next pointers' is positioned directly above the blue forward arrows, causing a visual overlap. The text is too close to the graphical elements, violating the strict spacing requirement."
+      },
+      {
+        "frame": 28,
+        "type": "overlap",
+        "description": "The text 'Previous pointers' is positioned directly below the red backward arrows, causing a visual overlap. The text is too close to the graphical elements, violating the strict spacing requirement."
+      },
+      {
+        "frame": 21,
+        "type": "broken_rendering",
+        "description": "The text 'Do' appears to be a broken or incomplete rendering, possibly intended to be 'Done' or another word. This is a critical rendering issue."
+      },
+      {
+        "frame": 30,
+        "type": "overlap",
+        "description": "The text 'Next pointers' is positioned too close to the top of the node boxes, appearing visually cramped and nearly touching the top edge of the middle node box."
+      },
+      {
+        "frame": 30,
+        "type": "overlap",
+        "description": "The text 'Previous pointers' is positioned too close to the bottom of the node boxes, appearing visually cramped and nearly touching the bottom edge of the middle node box."
+      },
+      {
+        "frame": 30,
+        "type": "overlap",
+        "description": "The red backward arrow from node '20' to node '10' is visually overlapping with the right edge of the '10' node box."
+      },
+      {
+        "frame": 30,
+        "type": "overlap",
+        "description": "The red backward arrow from node '30' to node '20' is visually overlapping with the right edge of the '20' node box."
+      },
+      {
+        "frame": 39,
+        "type": "overlap",
+        "description": "The code block at the bottom is positioned too close to the node structure diagram above it, with insufficient vertical spacing, creating a cramped visual layout."
+      },
+      {
+        "frame": 45,
+        "type": "overlap",
+        "description": "The title 'Node Structure in Detail' is faint and appears to be rendered with very low opacity or is cut off, making it visually indistinct and potentially overlapping with the background."
+      },
+      {
+        "frame": 53,
+        "type": "overlap",
+        "description": "The text 'Step 3: head = new_node' at the bottom is partially cut off or rendered with broken characters, specifically the 'e' in 'Step' and 'new_node' appears malformed or truncated."
+      },
+      {
+        "frame": 57,
+        "type": "overlap",
+        "description": "The title 'Deletion Operat' is cut off; the word 'Operations' is incomplete, indicating text extending beyond screen boundaries."
+      },
+      {
+        "frame": 95,
+        "type": "overlap",
+        "description": "The text 'Doubly Linked List' is partially cut off on the right side, with the letter 'T' extending beyond the screen boundary."
+      },
+      {
+        "frame": 101,
+        "type": "overlap",
+        "description": "The text 'Traversal: Uni vs Bi-directional' has irregular spacing; 'Uni' and 'vs' are too close, appearing as 'Uni vs' with no clear separation, indicating a formatting issue."
+      },
+      {
+        "frame": 101,
+        "type": "overlap",
+        "description": "The text 'Complexity: Simple vs Flexible' has irregular spacing; 'Simple' and 'vs' are too close, appearing as 'Simple vs' with no clear separation, indicating a formatting issue."
+      },
+      {
+        "frame": 105,
+        "type": "overlap",
+        "description": "The text 'Complexity: Simple vs Flexible' is visually broken; the word 'Flexible' is rendered as 'Flex ib le' with an unintended space, indicating a formatting or rendering issue."
+      },
+      {
+        "frame": 113,
+        "type": "overlap",
+        "description": "The bullet point text for 'Insert at Beginning' overlaps with the 'O(1)' time complexity notation. The text 'O(1) operations use direct pointer access' is positioned too close and visually collides with the 'O(1)' symbol."
+      },
+      {
+        "frame": 113,
+        "type": "overlap",
+        "description": "The bullet point text for 'Insert at End' overlaps with the 'O(1)' time complexity notation. The text 'O(n) operations require traversal' is positioned too close and visually collides with the 'O(1)' symbol."
+      },
+      {
+        "frame": 113,
+        "type": "overlap",
+        "description": "The bullet point text for 'Delete (with pointer)' overlaps with the 'O(1)' time complexity notation. The text 'Bidirectional links enable efficient updates' is positioned too close and visually collides with the 'O(1)' symbol."
+      },
+      {
+        "frame": 120,
+        "type": "overlap",
+        "description": "The title 'Real-World Appli' is cut off and appears to be rendering incorrectly, suggesting a broken LaTeX or text rendering issue."
+      },
+      {
+        "frame": 122,
+        "type": "overlap",
+        "description": "The text 'Forward' and the arrow icon are overlapping with the 'Page D' box border, causing visual clutter and potential readability issues."
+      },
+      {
+        "frame": 123,
+        "type": "overlap",
+        "description": "The text 'Forward' and the arrow icon are overlapping with the 'Page D' box border, causing visual clutter and potential readability issues."
+      },
+      {
+        "frame": 124,
+        "type": "overlap",
+        "description": "The text 'Forward' and the arrow icon are overlapping with the 'Page D' box border, causing visual clutter and potential readability issues."
+      },
+      {
+        "frame": 125,
+        "type": "overlap",
+        "description": "The text 'Forward' and the arrow icon are overlapping with the 'Page D' box border, causing visual clutter and potential readability issues."
+      },
+      {
+        "frame": 126,
+        "type": "overlap",
+        "description": "The subtitle '2. Music Pl' is cut off and appears to be rendering incorrectly, suggesting a broken LaTeX or text rendering issue."
+      },
+      {
+        "frame": 132,
+        "type": "overlap",
+        "description": "The list items '3. LRU Cache Implementation', '4. Memory Management Systems', '5. Undo/Redo in Text Editors', and '6. Navigation in Image Galleries' are overlapping with the 'Prev' and 'Next' buttons below the playlist boxes."
+      },
+      {
+        "frame": 133,
+        "type": "overlap",
+        "description": "The list items '3. LRU Cache Implementation', '4. Memory Management Systems', '5. Undo/Redo in Text Editors', and '6. Navigation in Image Galleries' are overlapping with the 'Prev' and 'Next' buttons below the playlist boxes."
+      },
+      {
+        "frame": 145,
+        "type": "overlap",
+        "description": "The red 'prev' arrow from Node: 30 to Node: 20 overlaps with the blue 'next' arrow from Node: 10 to Node: 20. The arrows are drawn on top of each other, causing a visual collision."
+      },
+      {
+        "frame": 146,
+        "type": "overlap",
+        "description": "The red 'prev' arrow from Node: 30 to Node: 20 overlaps with the blue 'next' arrow from Node: 10 to Node: 20. The arrows are drawn on top of each other, causing a visual collision."
+      },
+      {
+        "frame": 147,
+        "type": "overlap",
+        "description": "The red 'prev' arrow from Node: 30 to Node: 20 overlaps with the blue 'next' arrow from Node: 10 to Node: 20. The arrows are drawn on top of each other, causing a visual collision."
+      },
+      {
+        "frame": 148,
+        "type": "overlap",
+        "description": "The red 'prev' arrow from Node: 30 to Node: 20 overlaps with the blue 'next' arrow from Node: 10 to Node: 20. The arrows are drawn on top of each other, causing a visual collision."
+      },
+      {
+        "frame": 149,
+        "type": "overlap",
+        "description": "The red 'prev' arrow from Node: 30 to Node: 20 overlaps with the blue 'next' arrow from Node: 10 to Node: 20. The arrows are drawn on top of each other, causing a visual collision."
+      },
+      {
+        "frame": 150,
+        "type": "overlap",
+        "description": "The text label '0x2050' is positioned directly on top of the red and blue arrows connecting Node: 10 and Node: 20, causing a visual overlap."
+      },
+      {
+        "frame": 158,
+        "type": "overlap",
+        "description": "The text 'When to Use Doubly Linked Lists:' overlaps with the checkmark and text of the previous bullet point 'Foundation for LRU cache, deques, etc.'."
+      },
+      {
+        "frame": 158,
+        "type": "overlap",
+        "description": "The text 'Wide applications in real systems' overlaps with the bullet point 'Need bidirectional navigation' that appears below it."
+      },
+      {
+        "frame": 159,
+        "type": "overlap",
+        "description": "The text 'Wide applications in real systems' overlaps with the bullet point 'Need bidirectional navigation'."
+      },
+      {
+        "frame": 160,
+        "type": "overlap",
+        "description": "The text 'Wide applications in real systems' overlaps with the bullet point 'Need bidirectional navigation'."
+      },
+      {
+        "frame": 161,
+        "type": "overlap",
+        "description": "The text 'Wide applications in real systems' overlaps with the bullet point 'Need bidirectional navigation'."
+      },
+      {
+        "frame": 162,
+        "type": "overlap",
+        "description": "The text 'Wide applications in real systems' overlaps with the bullet point 'Need bidirectional navigation'."
+      },
+      {
+        "frame": 163,
+        "type": "overlap",
+        "description": "The text 'Wide applications in real systems' overlaps with the bullet point 'Need bidirectional navigation'."
+      },
+      {
+        "frame": 164,
+        "type": "overlap",
+        "description": "The text 'Wide applications in real systems' overlaps with the bullet point 'Need bidirectional navigation'."
+      }
+    ],
+    "timestamp": "2025-11-25T21:58:12.787887",
+    "coverage_percentage": 100.0,
+    "auto_fix": {
+      "applied": true,
+      "issues_before": 59,
+      "issues_after": 40,
+      "quality_before": "poor",
+      "quality_after": "poor",
+      "improvement": 19,
+      "success": true
+    }
+  }
+}

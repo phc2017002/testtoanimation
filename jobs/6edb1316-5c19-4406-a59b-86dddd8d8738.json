@@ -1,0 +1,26 @@
+{
+  "job_id": "6edb1316-5c19-4406-a59b-86dddd8d8738",
+  "status": "completed",
+  "prompt": "Now create 2 minutes video on Tree/graph with visualization",
+  "category": "mathematical",
+  "quality": "high",
+  "scene_name": "Scene_8c316a21",
+  "created_at": "2025-11-25T08:45:02.741169",
+  "updated_at": "2025-11-25T08:56:25.597589",
+  "progress": {
+    "stage": "completed",
+    "percentage": 100,
+    "message": "Video generation completed successfully"
+  },
+  "error": null,
+  "video_path": "/Users/aniketpal/Downloads/manimator/media/videos/scene_6edb1316-5c19-4406-a59b-86dddd8d8738/1080p60/TreeGraphVisualization.mp4",
+  "code_path": "/Users/aniketpal/Downloads/manimator/scene_6edb1316-5c19-4406-a59b-86dddd8d8738.py",
+  "visual_analysis": {
+    "model": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+    "frames_analyzed": 100,
+    "overall_quality": "good",
+    "issues": [],
+    "timestamp": "2025-11-25T08:56:25.580310",
+    "coverage_percentage": 100.0
+  }
+}

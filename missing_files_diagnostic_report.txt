@@ -1,0 +1,51 @@
+================================================================================
+MISSING FRAME FILES DIAGNOSTIC REPORT
+================================================================================
+
+## Summary
+Total animation events: 131
+Unique hashes: 131
+Hash reuse (cached animations): 0
+
+## File Distribution (Unique Hashes)
+In MultivariableCalculusExplanation/ only: 58
+In MultivariateCalculusExplanation/ only: 0
+In both directories: 29
+Missing from both: 44
+
+## Missing Hashes (44 total)
+1. 3040924799_742103056_1333858 (used 1 times in log)
+2. 3040924799_694347291_117089268 (used 1 times in log)
+3. 3040924799_920051130_2 (used 1 times in log)
+4. 3040924799_1992372358_119154 (used 1 times in log)
+5. 3040924799_1932257807_212469 (used 1 times in log)
+6. 3040924799_3947493975_229928 (used 1 times in log)
+7. 3040924799_2110843976_102921 (used 1 times in log)
+8. 3040924799_1612317463_154129 (used 1 times in log)
+9. 3040924799_3827671158_285522 (used 1 times in log)
+10. 3040924799_2736419078_400148 (used 1 times in log)
+... and 34 more
+
+## Most Reused Hashes (Top 10)
+1. 3529212410_394788505... used 1 times [MISSING]
+2. 3040924799_276481829... used 1 times [MISSING]
+3. 3040924799_394749397... used 1 times [MISSING]
+4. 3040924799_634017564... used 1 times [MISSING]
+5. 3040924799_199237235... used 1 times [MISSING]
+6. 3040924799_317735869... used 1 times [MISSING]
+7. 3040924799_236721468... used 1 times [MISSING]
+8. 3040924799_694347291... used 1 times [MISSING]
+9. 3040924799_367696271... used 1 times [MISSING]
+10. 3040924799_201570457... used 1 times [MISSING]
+
+## Coverage Calculation
+Unique hashes available: 87/131 (66.4%)
+
+Animation events covered: 87/131 (66.4%)
+
+## Recommendations
+❌ 44 files missing.
+🔧 Recommendation: Clear cache and do full re-render.
+   Or use: manim --disable_caching (slower but guaranteed)
+
+================================================================================

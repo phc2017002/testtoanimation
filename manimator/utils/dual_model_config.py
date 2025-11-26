@@ -15,7 +15,7 @@ class DualModelConfig:
     """Configuration for dual-model system."""
     
     # Code generation model (best at Python/Manim code)
-    CODE_MODEL = "anthropic/claude-sonnet-4.5"
+    CODE_MODEL = "openrouter/anthropic/claude-sonnet-4.5"
     
     # Visual validation model (multimodal, can see layout)
     VISUAL_MODEL = "openrouter/qwen/qwen3-vl-235b-a22b-instruct"
@@ -31,9 +31,9 @@ class DualModelConfig:
         return os.getenv("VISUAL_MODEL", cls.VISUAL_MODEL)
     
     @classmethod
-    def generate_with_claude(cls, messages: list, **kwargs) -> str:
+    def generate_code(cls, messages: list, **kwargs) -> str:
         """
-        Generate code using Claude 4.5 Sonnet.
+        Generate code using the configured code model.
         
         Args:
             messages: Chat messages

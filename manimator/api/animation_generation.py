@@ -45,7 +45,7 @@ Make sure the objects or text in the generated code are not overlapping at any p
         ]
         
         # Use Claude 4.5 Sonnet for code generation
-        raw_code = DualModelConfig.generate_with_claude(messages)
+        raw_code = DualModelConfig.generate_code(messages)
         
         # Post-process the code to fix common issues
         processed_code = post_process_code(raw_code)
