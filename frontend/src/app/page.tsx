@@ -1,5 +1,7 @@
 import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
+import { Showcase } from "@/components/landing/Showcase";
+import { Footer } from "@/components/landing/Footer";
 import { Check, Edit, Layers, Zap } from "lucide-react";
 
 export default function Home() {
@@ -7,6 +9,7 @@ export default function Home() {
     <main className="min-h-screen bg-slate-950">
       <Navbar />
       <Hero />
+      <Showcase />
 
       {/* Problem vs Solution Section */}
       <section className="py-24 bg-slate-900">
@@ -37,7 +40,7 @@ export default function Home() {
               <ul className="space-y-4">
                 {[
                   "Mathematically precise animations",
-                  "Full code access for perfect editing",
+                  "Granular control over every detail",
                   "Consistent, professional styling",
                   "Explainable and transparent generation"
                 ].map((item, i) => (
@@ -75,7 +78,7 @@ export default function Home() {
               },
               {
                 title: "Fully Editable",
-                description: "Don't like a color? Want to change a speed? Edit the underlying code directly.",
+                description: "Don't like a color? Want to change a speed? Tweak parameters instantly.",
                 icon: <Edit className="h-8 w-8 text-violet-400" />
               },
               {
@@ -95,6 +98,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }
