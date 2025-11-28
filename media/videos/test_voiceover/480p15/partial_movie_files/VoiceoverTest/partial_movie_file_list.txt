@@ -1,5 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/aniketpal/Downloads/manimator/media/videos/test_voiceover/480p15/partial_movie_files/VoiceoverTest/1185818338_1777078706_223132457.mp4'
-file 'file:/Users/aniketpal/Downloads/manimator/media/videos/test_voiceover/480p15/partial_movie_files/VoiceoverTest/624642324_2450961011_2060486491.mp4'
-file 'file:/Users/aniketpal/Downloads/manimator/media/videos/test_voiceover/480p15/partial_movie_files/VoiceoverTest/624642324_2303653449_1460023451.mp4'
-file 'file:/Users/aniketpal/Downloads/manimator/media/videos/test_voiceover/480p15/partial_movie_files/VoiceoverTest/624642324_1377941756_1071484169.mp4'

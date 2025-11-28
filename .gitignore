@@ -50,3 +50,8 @@ test_*.py
 # Environment variables
 .env
 .env.local
+
+# Generated artifacts
+media/
+jobs/
+

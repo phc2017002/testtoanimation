@@ -1,0 +1,407 @@
+{
+  "job_id": "f22220af-c901-4b30-9b0f-79fe87561eb8",
+  "status": "completed",
+  "prompt": "Now create 2 minutes video on circular queue implementation using linked list with visualization",
+  "category": "mathematical",
+  "quality": "high",
+  "scene_name": "Scene_03c3304f",
+  "created_at": "2025-11-25T13:08:26.752248",
+  "updated_at": "2025-11-25T13:37:07.462611",
+  "progress": {
+    "stage": "completed",
+    "percentage": 100,
+    "message": "Video generation completed successfully"
+  },
+  "error": null,
+  "video_path": "/Users/aniketpal/Downloads/manimator/media/videos/scene_f22220af-c901-4b30-9b0f-79fe87561eb8/1080p60/CircularQueueLinkedList.mp4",
+  "code_path": "/Users/aniketpal/Downloads/manimator/scene_f22220af-c901-4b30-9b0f-79fe87561eb8.py",
+  "visual_analysis": {
+    "model": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+    "frames_analyzed": 224,
+    "overall_quality": "poor",
+    "issues": [
+      {
+        "frame": 0,
+        "type": "overlap",
+        "description": "The letter 'i' in 'Implementation' is rendered in white, overlapping with the preceding 't' which is in cyan, indicating a rendering or font styling error."
+      },
+      {
+        "frame": 14,
+        "type": "overlap",
+        "description": "The letter 'l' in 'Circular' is rendered in white, overlapping with the preceding 'c' which is in cyan, indicating a rendering or font styling error."
+      },
+      {
+        "frame": 16,
+        "type": "overlap",
+        "description": "The red arrow labeled 'Rear' slightly overlaps the top-right corner of the rightmost square in the queue diagram."
+      },
+      {
+        "frame": 16,
+        "type": "overlap",
+        "description": "The text 'Wast' is positioned too close to the queue diagram, appearing to touch or slightly overlap the bottom edge of the squares."
+      },
+      {
+        "frame": 19,
+        "type": "broken_rendering",
+        "description": "The text 'Circular Que' is cut off and appears incomplete, suggesting a rendering or layout issue."
+      },
+      {
+        "frame": 20,
+        "type": "broken_rendering",
+        "description": "The text 'Effi' is cut off and appears incomplete, suggesting a rendering or layout issue."
+      },
+      {
+        "frame": 27,
+        "type": "broken_rendering",
+        "description": "The text 'A' is cut off and appears incomplete, suggesting a rendering or layout issue."
+      },
+      {
+        "frame": 28,
+        "type": "overlap",
+        "description": "The text 'Memory Wast' is positioned too close to the array diagram, appearing to touch or slightly overlap the bottom edge of the squares."
+      },
+      {
+        "frame": 30,
+        "type": "overlap",
+        "description": "The text 'Fixed Size' and 'Memory Waste' are positioned too close to the array squares, appearing to touch or nearly overlap the bottom edge of the squares."
+      },
+      {
+        "frame": 33,
+        "type": "overlap",
+        "description": "The yellow arrow from the 'Array-Based' section visually overlaps with the 'Linked List' node labeled 'A'. The arrowhead touches the node's border."
+      },
+      {
+        "frame": 34,
+        "type": "overlap",
+        "description": "The yellow arrow from the 'Array-Based' section overlaps the 'Linked List' node labeled 'A'. The arrowhead is visually touching the node's border."
+      },
+      {
+        "frame": 35,
+        "type": "overlap",
+        "description": "The yellow arrow from the 'Array-Based' section overlaps the 'Linked List' node labeled 'A'. The arrowhead is visually touching the node's border."
+      },
+      {
+        "frame": 36,
+        "type": "overlap",
+        "description": "The yellow arrow from the 'Array-Based' section overlaps the 'Linked List' node labeled 'A'. The arrowhead is visually touching the node's border."
+      },
+      {
+        "frame": 37,
+        "type": "overlap",
+        "description": "The yellow arrow from the 'Array-Based' section overlaps the 'Linked List' node labeled 'A'. The arrowhead is visually touching the node's border."
+      },
+      {
+        "frame": 38,
+        "type": "overlap",
+        "description": "The yellow arrow from the 'Array-Based' section overlaps the 'Linked List' node labeled 'A'. The arrowhead is visually touching the node's border."
+      },
+      {
+        "frame": 39,
+        "type": "overlap",
+        "description": "The yellow arrow from the 'Array-Based' section overlaps the 'Linked List' node labeled 'A'. The arrowhead is visually touching the node's border."
+      },
+      {
+        "frame": 40,
+        "type": "overlap",
+        "description": "The yellow arrow from the 'Array-Based' section overlaps the 'Linked List' node labeled 'A'. The arrowhead is visually touching the node's border."
+      },
+      {
+        "frame": 41,
+        "type": "overlap",
+        "description": "The yellow arrow from the 'Array-Based' section overlaps the 'Linked List' node labeled 'A'. The arrowhead is visually touching the node's border."
+      },
+      {
+        "frame": 42,
+        "type": "overlap",
+        "description": "The text 'Data' and 'Next' inside the node structure are positioned too close to the inner borders of their respective boxes, appearing to touch the edges."
+      },
+      {
+        "frame": 43,
+        "type": "overlap",
+        "description": "The text 'Data' and 'Next' inside the node structure are positioned too close to the inner borders of their respective boxes, appearing to touch the edges."
+      },
+      {
+        "frame": 44,
+        "type": "overlap",
+        "description": "The text 'Data' and 'Next' inside the node structure are positioned too close to the inner borders of their respective boxes, appearing to touch the edges."
+      },
+      {
+        "frame": 57,
+        "type": "overlap",
+        "description": "The title 'Empty Initialization' is cut off on the right side, with the last letter 'n' partially rendered or missing."
+      },
+      {
+        "frame": 58,
+        "type": "overlap",
+        "description": "The text 'Front = None' and 'Rear = None' are positioned too close to the top of the queue diagram, with the text appearing to touch or slightly overlap the top horizontal lines of the diagram."
+      },
+      {
+        "frame": 58,
+        "type": "overlap",
+        "description": "The text 'Fr' inside the queue diagram is cut off or improperly rendered, suggesting a visual glitch or overlap with the diagram's border."
+      },
+      {
+        "frame": 59,
+        "type": "overlap",
+        "description": "The text 'Empty Queue' inside the diagram is positioned too close to the top and bottom horizontal lines, appearing to touch them."
+      },
+      {
+        "frame": 60,
+        "type": "overlap",
+        "description": "The text 'Empty Queue' inside the diagram is positioned too close to the top and bottom horizontal lines, appearing to touch them."
+      },
+      {
+        "frame": 60,
+        "type": "overlap",
+        "description": "The text 'Front = None' and 'Rear = None' are positioned too close to the horizontal lines of the queue diagram, appearing to touch or overlap with them."
+      },
+      {
+        "frame": 64,
+        "type": "overlap",
+        "description": "The bullet point text 'Both pointers start as None' is positioned too close to the horizontal lines of the queue diagram, appearing to touch or overlap with them."
+      },
+      {
+        "frame": 72,
+        "type": "overlap",
+        "description": "The text 'Step 1: Crea' is cut off and incomplete, indicating a rendering or layout issue where the text extends beyond its intended boundary or is improperly truncated."
+      },
+      {
+        "frame": 98,
+        "type": "overlap",
+        "description": "The text 'Data=5' and 'Front' are stacked vertically but are too close, appearing to touch or nearly overlap, violating the strict spacing requirement."
+      },
+      {
+        "frame": 99,
+        "type": "overlap",
+        "description": "The text 'Data=5' and 'Front' are stacked vertically and appear to be touching, which is considered an overlap under strict criteria."
+      },
+      {
+        "frame": 100,
+        "type": "overlap",
+        "description": "The text 'Data=5' and 'Front' are vertically aligned and visually touching, constituting a critical overlap."
+      },
+      {
+        "frame": 101,
+        "type": "overlap",
+        "description": "The text 'Data=5' and 'Front' are positioned too closely, appearing to merge or touch, which is not allowed."
+      },
+      {
+        "frame": 102,
+        "type": "overlap",
+        "description": "The text 'Data=5' and 'Front' are vertically adjacent and visually overlapping or touching."
+      },
+      {
+        "frame": 103,
+        "type": "overlap",
+        "description": "The text 'Data=5' and 'Front' are stacked with no visible gap, violating the strict no-touching rule."
+      },
+      {
+        "frame": 105,
+        "type": "overlap",
+        "description": "The text 'Step' is partially cut off and overlaps with the title 'Dequeue Operation'."
+      },
+      {
+        "frame": 113,
+        "type": "overlap",
+        "description": "The word 'queue' in 'Starting with empty queue' is cut off at the end, with the letter 'e' extending beyond the visible area."
+      },
+      {
+        "frame": 113,
+        "type": "overlap",
+        "description": "The text 'Starting with empty queue' is too close to the title 'Complete Operation Sequence', appearing visually cramped."
+      },
+      {
+        "frame": 120,
+        "type": "overlap",
+        "description": "The label 'F,' is positioned directly above the box containing '1', causing a visual overlap between the text and the box."
+      },
+      {
+        "frame": 121,
+        "type": "overlap",
+        "description": "The label 'F,R' is positioned directly above the box containing '1', causing a visual overlap between the text and the box."
+      },
+      {
+        "frame": 122,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '1', and 'R' is positioned directly above the box containing '2', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 123,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '1', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 124,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '1', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 125,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '1', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 126,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '1', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 127,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '1', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes. Additionally, the red highlight box around '1' slightly overlaps the white arrow pointing to '2'."
+      },
+      {
+        "frame": 128,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '2', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 129,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '2', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 130,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '2', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 131,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '2', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 132,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '2', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 133,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '2', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 134,
+        "type": "overlap",
+        "description": "The label 'F' is positioned directly above the box containing '2', and 'R' is positioned directly above the box containing '3', causing overlaps between the text and their respective boxes."
+      },
+      {
+        "frame": 135,
+        "type": "overlap",
+        "description": "The text 'Ad' is partially rendered and appears to be overlapping or cut off, indicating a rendering issue."
+      },
+      {
+        "frame": 136,
+        "type": "overlap",
+        "description": "The text 'Eff' is incomplete and appears to be cut off or overlapping with the previous line, indicating a rendering or layout issue."
+      },
+      {
+        "frame": 137,
+        "type": "overlap",
+        "description": "The text 'avail' is cut off and appears to be overlapping or incomplete, indicating a rendering issue."
+      },
+      {
+        "frame": 143,
+        "type": "overlap",
+        "description": "The text 'Dis' is partially rendered and appears to be overlapping or cut off, indicating a rendering issue."
+      },
+      {
+        "frame": 144,
+        "type": "overlap",
+        "description": "The text 'deal' is cut off and appears to be overlapping or incomplete, indicating a rendering issue."
+      },
+      {
+        "frame": 150,
+        "type": "overlap",
+        "description": "The word 'Advantages:' in green and 'Disadvantages:' in red are positioned too close to each other horizontally, appearing to touch or nearly overlap at their edges."
+      },
+      {
+        "frame": 152,
+        "type": "cut_off",
+        "description": "The title 'Time Complexity Anal-' is cut off on the right side, indicating text extends beyond screen boundaries."
+      },
+      {
+        "frame": 158,
+        "type": "overlap",
+        "description": "In the 'Time' column, the text 'O(1)' for 'Enqueue' appears to be slightly overlapping or touching the 'Reason' column text 'Update pointers only'."
+      },
+      {
+        "frame": 159,
+        "type": "overlap",
+        "description": "In the 'Time' column, the text 'O(1)' for 'Dequeue' appears to be slightly overlapping or touching the 'Reason' column text 'Update pointers only'."
+      },
+      {
+        "frame": 160,
+        "type": "overlap",
+        "description": "The 'O(1)' under 'Time' for 'Enqueue' and 'Dequeue' appears to be visually too close to the 'Reason' column, creating a risk of overlap or touching."
+      },
+      {
+        "frame": 195,
+        "type": "broken_latex",
+        "description": "Text 'Net wok' appears to be a broken or incomplete LaTeX render, likely intended to be 'Network'."
+      },
+      {
+        "frame": 204,
+        "type": "broken_latex",
+        "description": "The equation 'O(1, ' is incomplete and malformed, likely intended to be 'O(1) enqueue and dequeue'."
+      },
+      {
+        "frame": 205,
+        "type": "broken_latex",
+        "description": "The word 'utiliza' is cut off and appears to be a broken render of 'utilization'."
+      },
+      {
+        "frame": 210,
+        "type": "broken_latex",
+        "description": "The text 'Enqueue: Add at rear, maintain circular link' and 'Dequeue: Remove from front, update pointers' are rendered with malformed characters and spacing, including a stray '.D ^r]' at the bottom."
+      },
+      {
+        "frame": 210,
+        "type": "overlap",
+        "description": "The malformed text at the bottom ('.D ^r]') overlaps with the bullet point above it, violating spacing rules."
+      },
+      {
+        "frame": 217,
+        "type": "broken_latex",
+        "description": "The text 'Keep Learning & Explor_' appears with a broken LaTeX rendering, showing an underscore and incomplete word 'Explor_' instead of 'Exploring'."
+      },
+      {
+        "frame": 210,
+        "type": "overlap",
+        "description": "The yellow text 'Enqueue: Add at rear, maintain circular link' is visually overlapping with the green checkmark and text above it, specifically the line '\u2713 Efficient space utilization'."
+      },
+      {
+        "frame": 211,
+        "type": "overlap",
+        "description": "The yellow text 'Enqueue: Add at rear, maintain circular link' is visually overlapping with the green checkmark and text above it, specifically the line '\u2713 Efficient space utilization'."
+      },
+      {
+        "frame": 212,
+        "type": "overlap",
+        "description": "The yellow text 'Enqueue: Add at rear, maintain circular link' is visually overlapping with the green checkmark and text above it, specifically the line '\u2713 Efficient space utilization'."
+      },
+      {
+        "frame": 213,
+        "type": "overlap",
+        "description": "The yellow text 'Enqueue: Add at rear, maintain circular link' is visually overlapping with the green checkmark and text above it, specifically the line '\u2713 Efficient space utilization'."
+      },
+      {
+        "frame": 214,
+        "type": "overlap",
+        "description": "The yellow text 'Enqueue: Add at rear, maintain circular link' is visually overlapping with the green checkmark and text above it, specifically the line '\u2713 Efficient space utilization'."
+      },
+      {
+        "frame": 215,
+        "type": "overlap",
+        "description": "The yellow text 'Enqueue: Add at rear, maintain circular link' is visually overlapping with the green checkmark and text above it, specifically the line '\u2713 Efficient space utilization'."
+      },
+      {
+        "frame": 216,
+        "type": "overlap",
+        "description": "The yellow text 'Enqueue: Add at rear, maintain circular link' is visually overlapping with the green checkmark and text above it, specifically the line '\u2713 Efficient space utilization'."
+      }
+    ],
+    "timestamp": "2025-11-25T13:37:07.423759",
+    "coverage_percentage": 100.0
+  }
+}

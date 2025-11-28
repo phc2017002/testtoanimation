@@ -1,0 +1,317 @@
+{
+  "job_id": "1bbbfa03-3ef4-4a57-bba6-55fb9d52ffb1",
+  "status": "completed",
+  "prompt": "Now create 2 minutes video on stack implementation using queue with visualization",
+  "category": "mathematical",
+  "quality": "high",
+  "scene_name": "Scene_901caddb",
+  "created_at": "2025-11-25T13:55:59.924871",
+  "updated_at": "2025-11-25T14:10:57.134342",
+  "progress": {
+    "stage": "completed",
+    "percentage": 100,
+    "message": "Video generation completed successfully"
+  },
+  "error": null,
+  "video_path": "/Users/aniketpal/Downloads/manimator/media/videos/scene_1bbbfa03-3ef4-4a57-bba6-55fb9d52ffb1/1080p60/StackUsingQueueExplanation.mp4",
+  "code_path": "/Users/aniketpal/Downloads/manimator/scene_1bbbfa03-3ef4-4a57-bba6-55fb9d52ffb1.py",
+  "visual_analysis": {
+    "model": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+    "frames_analyzed": 230,
+    "overall_quality": "poor",
+    "issues": [
+      {
+        "frame": 0,
+        "type": "overlap",
+        "description": "The text 'Stack Implementation' has a rendering artifact where the letters 'ati' appear in white and are overlaid on the blue text, indicating a broken LaTeX or font rendering."
+      },
+      {
+        "frame": 14,
+        "type": "overlap",
+        "description": "The text 'Stack: LIFO Str' has a rendering artifact where the letters 'tr' appear in white and are overlaid on the blue text, indicating a broken LaTeX or font rendering."
+      },
+      {
+        "frame": 20,
+        "type": "overlap",
+        "description": "The text 'Push(10)' is partially cut off and appears to be rendered incorrectly as 'P' with a small artifact, indicating a broken LaTeX or text rendering issue."
+      },
+      {
+        "frame": 20,
+        "type": "overlap",
+        "description": "The yellow arrow for 'Push(10)' is too close to the stack rectangle, almost touching its border, which violates the strict no-touching rule."
+      },
+      {
+        "frame": 21,
+        "type": "overlap",
+        "description": "The text 'Push(10)' is rendered as 'P' with a small yellow square artifact, indicating broken LaTeX or text rendering."
+      },
+      {
+        "frame": 26,
+        "type": "overlap",
+        "description": "The red arrow for 'Pop() \u2192 30' is too close to the stack rectangle, almost touching its border, which violates the strict no-touching rule."
+      },
+      {
+        "frame": 30,
+        "type": "overlap",
+        "description": "The red arrow labeled 'Pop() \u2192 30' overlaps with the top green box containing '20' in the stack visualization."
+      },
+      {
+        "frame": 31,
+        "type": "broken_rendering",
+        "description": "The title 'Queue: FIFO Stru' is cut off and appears to be a broken or incomplete rendering of 'Structure'."
+      },
+      {
+        "frame": 37,
+        "type": "overlap",
+        "description": "The green arrow labeled 'Enqueue(5)' is positioned too close to the 'Front' label and visually touches it, violating the strict no-touching rule."
+      },
+      {
+        "frame": 39,
+        "type": "overlap",
+        "description": "The green arrow labeled 'Enqueue(15)' is positioned too close to the 'Front' label and visually touches it."
+      },
+      {
+        "frame": 40,
+        "type": "overlap",
+        "description": "The green arrow labeled 'Enqueue(25)' is positioned too close to the 'Front' label and visually touches it."
+      },
+      {
+        "frame": 43,
+        "type": "overlap",
+        "description": "The red arrow labeled 'Dequeue() \u2192 5' overlaps with the top-left corner of the box containing '5' in the queue."
+      },
+      {
+        "frame": 44,
+        "type": "overlap",
+        "description": "The red arrow labeled 'Dequeue() \u2192 5' overlaps with the top-left corner of the box containing '15' in the queue."
+      },
+      {
+        "frame": 45,
+        "type": "overlap",
+        "description": "The text 'Dequeue() \u2192 5' is positioned directly above the top edge of the queue box, causing the arrow and text to visually merge with the box's border, creating a 1-pixel overlap."
+      },
+      {
+        "frame": 46,
+        "type": "overlap",
+        "description": "The text 'Dequeue() \u2192 5' overlaps with the top border of the queue box, as the arrowhead touches the line, indicating a visual collision."
+      },
+      {
+        "frame": 47,
+        "type": "overlap",
+        "description": "The text 'Dequeue() \u2192 5' is too close to the queue box's top border, with the arrowhead appearing to touch or slightly intrude on the box's outline."
+      },
+      {
+        "frame": 48,
+        "type": "overlap",
+        "description": "The text 'Dequeue() \u2192 5' overlaps with the top border of the queue box, as the arrowhead and text are visually fused with the box's edge."
+      },
+      {
+        "frame": 49,
+        "type": "broken_rendering",
+        "description": "The title 'The Cha' is cut off and incomplete, indicating a rendering or layout error where the full text 'The Challenge' is not displayed."
+      },
+      {
+        "frame": 50,
+        "type": "overlap",
+        "description": "The text 'VS' is positioned too close to both 'Stack: LIFO' and 'Queue: FIFO', with no clear spacing, creating a visual crowding effect that borders on overlap."
+      },
+      {
+        "frame": 51,
+        "type": "overlap",
+        "description": "The text 'VS' is visually too close to 'Stack: LIFO' and 'Queue: FIFO', lacking sufficient padding and appearing to touch the adjacent text elements."
+      },
+      {
+        "frame": 52,
+        "type": "overlap",
+        "description": "The text 'VS' is positioned so close to 'Stack: LIFO' and 'Queue: FIFO' that it appears to be touching them, violating spacing rules."
+      },
+      {
+        "frame": 53,
+        "type": "overlap",
+        "description": "The text 'VS' is visually adjacent to 'Stack: LIFO' and 'Queue: FIFO' with no discernible gap, indicating a layout issue."
+      },
+      {
+        "frame": 54,
+        "type": "overlap",
+        "description": "The text 'VS' is too close to 'Stack: LIFO' and 'Queue: FIFO', creating a visual merge due to insufficient spacing."
+      },
+      {
+        "frame": 55,
+        "type": "overlap",
+        "description": "The text 'VS' is positioned too near 'Stack: LIFO' and 'Queue: FIFO', appearing to touch them, which is a critical layout flaw."
+      },
+      {
+        "frame": 56,
+        "type": "broken_rendering",
+        "description": "The text 'How t' is cut off and incomplete, indicating a rendering error where the full phrase 'How to reverse the order?' is not displayed."
+      },
+      {
+        "frame": 57,
+        "type": "overlap",
+        "description": "The orange horizontal line under 'VS' is too close to the text 'How to reverse the order?', appearing to touch or nearly overlap with it."
+      },
+      {
+        "frame": 58,
+        "type": "overlap",
+        "description": "The orange arrows pointing from 'Stack: LIFO' to 'Queue: FIFO' are too close to the text 'VS', creating a visual collision."
+      },
+      {
+        "frame": 59,
+        "type": "overlap",
+        "description": "The orange arrows are positioned too close to the text 'VS', with the arrowheads appearing to touch the letters, indicating an overlap."
+      },
+      {
+        "frame": 60,
+        "type": "overlap",
+        "description": "The orange arrows are visually touching the text 'VS', creating a critical overlap issue due to insufficient spacing."
+      },
+      {
+        "frame": 62,
+        "type": "broken_rendering",
+        "description": "The text 'Approa' is cut off and appears incomplete, suggesting a rendering or animation glitch."
+      },
+      {
+        "frame": 63,
+        "type": "overlap",
+        "description": "The label 'Queue 1 (Main)' is positioned too close to the green rectangle, appearing to touch or slightly overlap its left border."
+      },
+      {
+        "frame": 69,
+        "type": "broken_rendering",
+        "description": "The text 'New e' is incomplete and appears to be cut off, indicating a rendering or animation issue."
+      },
+      {
+        "frame": 70,
+        "type": "overlap",
+        "description": "The text 'Q1 holds stack elements' is positioned too close to the top-right corner of the 'Queue 1 (Main)' rectangle, appearing to touch its border."
+      },
+      {
+        "frame": 75,
+        "type": "overlap",
+        "description": "The text 'Push Operation: Two' is cut off on the right side, indicating it extends beyond the screen boundary."
+      },
+      {
+        "frame": 81,
+        "type": "overlap",
+        "description": "The text 'Step 1: Push(10)' at the bottom overlaps with the lower boundary of the screen, appearing cut off."
+      },
+      {
+        "frame": 86,
+        "type": "overlap",
+        "description": "The text 'Step 2: Push(20)' at the bottom overlaps with the lower boundary of the screen, appearing cut off."
+      },
+      {
+        "frame": 87,
+        "type": "overlap",
+        "description": "The text 'Step 2: Push(20)' at the bottom overlaps with the lower boundary of the screen, appearing cut off."
+      },
+      {
+        "frame": 88,
+        "type": "overlap",
+        "description": "The text 'Step 2: Push(20)' at the bottom overlaps with the lower boundary of the screen, appearing cut off."
+      },
+      {
+        "frame": 89,
+        "type": "overlap",
+        "description": "The text 'Swap Q1 \u2194 Q2' at the bottom overlaps with the lower boundary of the screen, appearing cut off."
+      },
+      {
+        "frame": 90,
+        "type": "overlap",
+        "description": "The text 'Swap Q1 \u2194 Q2' at the bottom overlaps with the lower boundary of the screen, appearing cut off."
+      },
+      {
+        "frame": 107,
+        "type": "overlap",
+        "description": "The text 'Re,' appears below 'Pop() \u2192 30' and is cut off, indicating a rendering or positioning error."
+      },
+      {
+        "frame": 118,
+        "type": "overlap",
+        "description": "The text 'Rotate =' is partially cut off at the bottom of the screen, indicating it extends beyond screen boundaries."
+      },
+      {
+        "frame": 119,
+        "type": "overlap",
+        "description": "The text 'Dequeue' and 'Enqueue' are positioned too close to the queue box and to each other, with 'Dequeue' appearing to touch the left edge of the queue box and 'Enqueue' touching the right edge."
+      },
+      {
+        "frame": 133,
+        "type": "broken_latex",
+        "description": "The text 'Push(20):' is followed by a broken or incomplete symbol, appearing as a stray '\u0413' instead of the expected 'Enqueue 20' or similar text. This indicates a LaTeX rendering failure."
+      },
+      {
+        "frame": 151,
+        "type": "rendering",
+        "description": "The text 'Final Order: [30,20,' is malformed and appears to be cut off or incorrectly rendered, missing the closing bracket and final element."
+      },
+      {
+        "frame": 156,
+        "type": "rendering",
+        "description": "The word 'Complete' is rendered with a broken font or overlapping glyphs; the 'e' and 't' appear merged or misaligned."
+      },
+      {
+        "frame": 157,
+        "type": "rendering",
+        "description": "The text 'Pop()' is cut off or malformed; the closing parenthesis and comma are missing or not fully rendered."
+      },
+      {
+        "frame": 166,
+        "type": "overlap",
+        "description": "The text 'Push' is partially cut off at the bottom of the screen, indicating it extends beyond the screen boundary."
+      },
+      {
+        "frame": 171,
+        "type": "overlap",
+        "description": "The 'State: [2,1]' text and the 'Push(2)' text are vertically too close, appearing to touch or nearly overlap."
+      },
+      {
+        "frame": 176,
+        "type": "overlap",
+        "description": "The text 'Push(3' is malformed and appears to be cut off or broken, suggesting a rendering issue."
+      },
+      {
+        "frame": 179,
+        "type": "overlap",
+        "description": "The 'State: [3,1]' text and the 'Pop() \u2192 3' text are vertically too close, appearing to touch or nearly overlap."
+      },
+      {
+        "frame": 180,
+        "type": "overlap",
+        "description": "The text 'Queue' is positioned too close to the left edge of the purple rectangle, appearing to touch or slightly overlap its border."
+      },
+      {
+        "frame": 181,
+        "type": "overlap",
+        "description": "The text 'Queue' is positioned too close to the left edge of the purple rectangle, appearing to touch or slightly overlap its border."
+      },
+      {
+        "frame": 182,
+        "type": "overlap",
+        "description": "The text 'Queue' is positioned too close to the left edge of the purple rectangle, appearing to touch or slightly overlap its border."
+      },
+      {
+        "frame": 183,
+        "type": "rendering",
+        "description": "The title 'Complexity' is rendered with broken LaTeX, showing 'Complexit\\' with a backslash and incorrect character spacing."
+      },
+      {
+        "frame": 188,
+        "type": "rendering",
+        "description": "The text 'Push: O' is incomplete and appears to be a broken LaTeX render, missing the closing parenthesis and content."
+      },
+      {
+        "frame": 189,
+        "type": "rendering",
+        "description": "The text 'Space: O(n' is incomplete, missing the closing parenthesis, indicating a broken LaTeX render."
+      },
+      {
+        "frame": 195,
+        "type": "overlap",
+        "description": "The text 'Two Queues Approach' and 'Single Queue Approach' are positioned too close to each other horizontally, appearing to touch or nearly overlap."
+      }
+    ],
+    "timestamp": "2025-11-25T14:10:57.082741",
+    "coverage_percentage": 100.0
+  }
+}

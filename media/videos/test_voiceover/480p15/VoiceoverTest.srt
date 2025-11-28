@@ -1,8 +1,0 @@
-1
-00:00:00,000 --> 00:00:02,924
-This is a test of the voiceover system.
-
-2
-00:00:03,000 --> 00:00:05,420
-The circle is now fading out.
-
